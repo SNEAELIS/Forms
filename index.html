@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerar Atestado de Capacidade Técnica</title>
-    <!-- Link para o arquivo CSS externo -->
+    <title>Página Inicial</title>
     <link rel="stylesheet" href="style.css/style.css">
 </head>
 <body>
@@ -15,42 +14,19 @@
     </header>
 
     <div class="container">
-        <form id="atestadoForm">
-            <h1>Atestado de Capacidade Técnica</h1>
-            <label for="dirigente">Nome do Dirigente:</label>
-            <input type="text" id="dirigente" name="dirigente" required>
+        <div class="option-container">
+            <h1>Selecione a Opção</h1>
+            <p>Escolha entre Termo de Fomento ou Convênio para prosseguir.</p>
 
-            <label for="cpf">CPF do Dirigente:</label>
-            <input type="text" id="cpf" name="cpf" required>
-
-            <label for="entidade">Nome da Entidade:</label>
-            <input type="text" id="entidade" name="entidade" required>
-
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" required>
-
-            <label for="endereco">Endereço Completo:</label>
-            <input type="text" id="endereco" name="endereco" required>
-
-            <label for="proposta">Número da Proposta:</label>
-            <input type="text" id="proposta" name="proposta" required>
-
-            <label for="municipio">Município:</label>
-            <input type="text" id="municipio" name="municipio" required>
-
-            <button type="submit">Gerar PDF</button>
-        </form>
+            <!-- Botões para escolher entre Termo de Fomento ou Convênio -->
+            <a href="Documentações.html" class="btn">Termo de Fomento</a>
+            <a href="Documentações.html" class="btn">Convênio</a>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Ministério do Esporte</p>
     </footer>
-
-    <!-- Link para o arquivo JS externo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="Config.js/script.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 
 </body>
 </html>
