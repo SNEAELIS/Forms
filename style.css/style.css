@@ -9,12 +9,13 @@ body {
 /* Estilo do cabeçalho */
 header {
     background-color: #005CAA;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
 }
+
 
 header h1 {
     margin: 0;
@@ -26,8 +27,17 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 85vh;  /* Reduzido para não ocupar 100% da tela */
     background-color: #f4f4f9;
+    padding: 10px;     /* Reduzido para minimizar espaçamento */
+    box-sizing: border-box;
+}
+hr {
+    width: 100%;
+    border: 0;
+    height: 2px;
+    background-color: #000;
+    margin: 0;
 }
 
 form {
@@ -36,27 +46,30 @@ form {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
+    max-width: 1200px; /* Aumentado para se adaptar a três colunas */
     margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Dividido em 3 colunas */
+    gap: 20px; /* Espaçamento entre os itens */
 }
 
 form label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px; /* Reduzido o espaçamento entre label e input */
     font-weight: bold;
 }
 
 form input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    padding: 6px;       /* Reduzido o padding dos campos */
+    margin-bottom: 10px; /* Reduzido o espaçamento entre campos */
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 form button {
     width: 100%;
-    padding: 10px;
+    padding: 8px;       /* Reduzido o padding do botão */
     background-color: #005CAA;
     color: white;
     border: none;
@@ -74,102 +87,24 @@ footer {
     background-color: #005CAA;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0; /* Reduzido o padding do rodapé */
     position: relative;
     width: 100%;
     bottom: 0;
 }
 
-/* Estilo responsivo */
+/* Estilo responsivo para telas menores */
 @media (max-width: 600px) {
     form {
         padding: 10px;
         width: 100%;
     }
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
 
-/* Estilo do cabeçalho */
-header {
-    background-color: #005CAA;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-/* Estilo da tela inicial */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-}
-
-.option-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-}
-
-.option-container h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.option-container p {
-    margin-bottom: 30px;
-    font-size: 18px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 25px;
-    background-color: #005CAA;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 16px;
-    margin: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #00408B;
-}
-
-/* Estilo do rodapé */
-footer {
-    background-color: #005CAA;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-}
-
-/* Estilo responsivo */
-@media (max-width: 600px) {
-    .option-container {
-        padding: 10px;
-        width: 100%;
+/* Estilo para expandir o formulário em telas maiores que 1200px */
+@media (min-width: 1200px) {
+    form {
+        max-width: 1000px;
+        padding: 20px;
     }
 }
