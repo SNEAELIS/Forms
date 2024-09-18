@@ -16,9 +16,8 @@ header {
     color: white;
 }
 
-
 header h1 {
-    margin: 0;
+    margin-left: 4%;
     font-size: 24px;
 }
 
@@ -34,25 +33,24 @@ header h1 {
 }
 .option-container {
     background-color: rgb(238, 238, 238);
-    padding: 50px;
+    padding: 30px;
     border-radius: 8px;
-    width: 20%;
+    width: 50%;
     margin: 20px;
-    grid-template-columns: repeat(3, 1fr); /* Dividido em 3 colunas */
+    grid-template-columns: repeat(1, 1fr); /* Dividido em 3 colunas */
     gap: 20px; /* Espaçamento entre os itens */
 }
 
 .btn {
-    width: 100%;
-    padding: 8px;       /* Reduzido o padding do botão */
+    width: 1%;
+    padding: 3px;  /* Reduzido para deixar o botão menor */
     background-color: #005CAA;
     color: rgb(247, 247, 247);
-    text-decoration: none;
-    align-items: center;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 1px;
+    font-size: 14px;  /* Tamanho da fonte reduzido */
     cursor: pointer;
+    text-decoration: none;
 }
 
 hr {
@@ -64,17 +62,22 @@ hr {
     margin-left: -1%;
 }
 
+.declaracoesForm {
+    padding: 10%;
+    margin: 5%;
+}
+
 form {
     background-color: rgb(231, 229, 229);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1200px; /* Aumentado para se adaptar a três colunas */
+    max-width: 1200px;
     margin: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Dividido em 3 colunas */
-    gap: 20px; /* Espaçamento entre os itens */
+    grid-template-columns: repeat(3, 1fr); /* Correção */
+    gap: 20px;
 }
 
 form label {
@@ -93,7 +96,7 @@ form input {
 
 form button {
     width: 100%;
-    padding: 8px;       /* Reduzido o padding do botão */
+    padding: 6px;       /* Reduzido o padding do botão */
     background-color: #005CAA;
     color: white;
     border: none;
@@ -126,9 +129,52 @@ footer {
 }
 
 /* Estilo para expandir o formulário em telas maiores que 1200px */
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     form {
-        max-width: 1000px;
+        max-width: 60%;
+        display: grid; /* Adiciona o display grid */
+        grid-template-columns:repeat(3fr 1fr); /* Define duas colunas de tamanho igual */
         padding: 20px;
+    }
+}
+
+@media (max-width: 999px) {
+    form {
+        display: block; /* Altera para bloco em telas menores */
+        padding: 10px; /* Ajusta o padding, se necessário */
+    }
+}
+
+@media (max-width: 999px) {
+    .option-container {
+        display: block; /* Altera para bloco em telas menores */
+        padding: 10px;
+        max-width: 100%; /* Ajusta o padding, se necessário */
+    }
+    h1 {
+        display: inline;
+    }
+
+    .btn {
+        padding: 10px;
+        left: 30px;
+        width: 10%; /* Largura específica */
+        height: 25%; /* Altura específica */
+    }
+}
+
+@media (min-width: 1000px) {
+    .option-container {
+        max-width: 60%;
+        display: grid; /* Adiciona o display grid */
+        grid-template-columns:repeat(3fr 1fr); /* Define duas colunas de tamanho igual */
+        padding: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        left: 50px;
+        width: 50px; /* Largura específica */
+        height: 30px; /* Altura específica */
     }
 }
