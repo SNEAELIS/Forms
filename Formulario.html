@@ -17,96 +17,131 @@
 
     <div class="container">
 
+        <h2>Atestado e Declarações</h2>
+
         <form id="declaracoesForm">
-            <br>
-            <h1>Gerar Atestado e Declarações</h1>
-            <br>
-            <div class="full-width">
-                <label for="dirigente">Nome do Dirigente:</label>
-                <input type="text" id="dirigente" name="dirigente" required>
+            <!-- Dados do dirigente da entidade -->
+            <h2>Dados do dirigente da entidade</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="dirigente">Nome Completo:</label>
+                    <input type="text" id="dirigente" name="Nome do Dirigente">
+                </div>
+                <div class="half-width">
+                    <label for="cpf">CPF (apenas números):</label>
+                    <input type="text" id="cpf" name="CPF do Dirigente" maxlength="14" oninput="formatarCPF(this)">
+                </div>
             </div>
-            <div>
-                <label for="cpf">CPF do Dirigente:</label>
-                <input type="text" id="cpf" name="cpf" required>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="rg">RG:</label>
+                    <input type="text" id="rg" name="RG do Dirigente">
+                </div>
+                <div class="half-width">
+                    <label for="orgao">Órgão Expedidor:</label>
+                    <input type="text" id="orgao" name="Órgão Expedidor">
+                </div>
             </div>
-            <div>
-                <label for="rg">Número da Identidade (RG):</label>
-                <input type="text" id="rg" name="rg" required>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="cargoDirigente">Cargo:</label>
+                    <input type="text" id="cargoDirigente" name="Cargo do Dirigente">
+                </div>
             </div>
-            <div>
-                <label for="orgao">Órgão Expedidor:</label>
-                <input type="text" id="orgao" name="orgao" required>
+
+            <!-- Dados da entidade -->
+            <h2>Dados da entidade</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="entidade">Nome:</label>
+                    <input type="text" id="entidade" name="Nome da Entidade">
+                </div>
+                <div class="half-width">
+                    <label for="cnpj">CNPJ (apenas números):</label>
+                    <input type="text" id="cnpj" name="CNPJ da Entidade" maxlength="18" oninput="formatCNPJ(this)" placeholder="__.___.___/____-__">
+                  </div>
+                  
             </div>
-            <div>
-                <label for="cnpj">CNPJ da Entidade:</label>
-                <input type="text" id="cnpj" name="cnpj" required>
+            <div class="form-row">
+                <div class="full-width">
+                    <label for="endereco">Endereço Completo:</label>
+                    <input type="text" id="endereco" name="Endereço Completo da Sede">
+                </div>
             </div>
-            <div class="full-width">
-                <label for="entidade">Nome da Entidade:</label>
-                <input type="text" id="entidade" name="entidade" required>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="uf">UF:</label>
+                    <input type="text" id="uf" name="UF da Entidade" maxlength="2">
+                </div>
+                <div class="half-width">
+                    <label for="municipio">Município:</label>
+                    <input type="text" id="municipio" name="Município da Entidade">
+                </div>
             </div>
-            <div class="full-width">
-                <label for="endereco">Endereço Completo:</label>
-                <input type="text" id="endereco" name="endereco" required>
+
+            <!-- Dados da Proposta e Objeto -->
+            <h2>Dados da Proposta</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="proposta">Nº da Proposta:</label>
+                    <input type="text" id="proposta" name="Número da Proposta">
+                </div>
+                <div class="half-width">
+                    <label for="objeto">Objeto:</label>
+                    <input type="text" id="objeto" name="Objeto">
+                </div>
             </div>
-            <div>
-                <label for="proposta">Número da Proposta:</label>
-                <input type="text" id="proposta" name="proposta" required>
+
+            <!-- Coordenador Geral -->
+            <h2>Coordenador Geral</h2>
+            <div class="form-row">
+                <label>O Coordenador Geral será cedido pelo proponente?</label>
             </div>
-            <div>
-                <label for="contador">Nome do Contador:</label>
-                <input type="text" id="contador" name="contador" required>
+            <div class="form-row button-group">
+                <button type="button" onclick="mostrarCoordenador('Sim')">Sim</button>
+                <button type="button" onclick="mostrarCoordenador('Não')">Não</button>
             </div>
-            <div>
-                <label for="cargoDirigente">Cargo do Dirigente:</label>
-                <input type="text" id="cargoDirigente" name="cargoDirigente" required>
+
+            <!-- Seção que aparece somente se "Sim" for selecionado -->
+            <div id="coordenadorFields" class="hidden">
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="nomeCoordenador">Nome Completo:</label>
+                        <input type="text" id="nomeCoordenador" name="Nome do Coordenador">
+                    </div>
+                    <div class="half-width">
+                        <label for="cpfCoordenador">CPF (apenas números):</label>
+                        <input type="text" id="cpfCoordenador" name="CPF do Coordenador" maxlength="14"
+                            oninput="formatarCPF(this)">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="rgCoordenador">RG:</label>
+                        <input type="text" id="rgCoordenador" name="RG do Coordenador">
+                    </div>
+                    <div class="half-width">
+                        <label for="orgaoExpedidorCoordenador">Órgão Expedidor:</label>
+                        <input type="text" id="orgaoExpedidorCoordenador" name="Órgão Expedidor do Coordenador">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="nomePrograma">Programa:</label>
+                        <input type="text" id="nomePrograma" name="Programa">
+                    </div>
+                </div>
             </div>
-            <div>
-                <label for="sede">Sede da Entidade:</label>
-                <input type="text" id="sede" name="sede" required>
-            </div>
-            <div>
-                <label for="municipio">Município:</label>
-                <input type="text" id="municipio" name="municipio" required>
-            </div>
-            <div>
-                <label for="uf">UF:</label>
-                <input type="text" id="uf" name="uf" required>
-            </div>
-            <div>
-                <label for="objeto">Objeto:</label>
-                <input type="text" id="objeto" name="objeto" required>
-            </div>
-            <div>
-                <label for="orgaoEmissor">Orgão Emissor:</label>
-                <input type="text" id="orgaoEmissor" name="orgaoEmissor" required>
-            </div>
-    
-            <!-- Novos campos para o Termo de Compromisso Coordenador -->
-            <div class="full-width">
-                <label for="nomePrograma">Nome do Programa:</label>
-                <input type="text" id="nomePrograma" name="nomePrograma" required>
-            </div>
-            <div>
-                <label for="coordenador">Nome do Coordenador Geral:</label>
-                <input type="text" id="coordenador" name="coordenador" required>
-            </div>
-            <div>
-                <label for="cpfCoordenador">CPF do Coordenador Geral:</label>
-                <input type="text" id="cpfCoordenador" name="cpfCoordenador" required>
-            </div>
-            <div>
-                <label for="rgCoordenador">RG do Coordenador Geral:</label>
-                <input type="text" id="rgCoordenador" name="rgCoordenador" required>
-            </div>
-            <div class="full-width">
-                <label for="cargoCoordenador">Cargo do Coordenador Geral:</label>
-                <input type="text" id="cargoCoordenador" name="cargoCoordenador" required>
-            </div>
-    
-            <button type="submit">Gerar PDFs</button>
+
         </form>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                <!-- Botão para gerar PDF -->
+                <div class="teste" >
+                    <button id="botaoGerarPDF">Gerar PDFs</button>
+                    <!-- Aviso de carregamento oculto inicialmente -->
+                    <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
+                      Aguarde um momento, o download está sendo processado...
+                    </div>
+                </div>
     </div>
 
     <footer>
