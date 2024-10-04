@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Atestado de Capacidade Técnica</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Ministério do Esporte</h1>
+        <img src="img/Imagem1.png" alt="IMG1" width="10%">
+    </header>
+
+    <div class="container">
+
+        <h2>Dados Gerais</h2>
+
+        <!-- Formulário para o número de dirigentes -->
+        <form id="declaracoesForm">
+            <label for="numDirigentes">Informe o número de dirigentes:</label>
+            <input type="number" id="numDirigentes" name="numDirigentes" min="1" max="10">
+            <button type="button" onclick="gerarCampos()">Gerar Campos</button>
+        </form>
+
+        <!-- Formulário para preenchimento dos dados dos dirigentes -->
+        <form id="dirigentesForm">
+            <div id="camposDirigentes"></div>
+        </form>
+
+        <!-- Botão para gerar PDF -->
+        <div class="container1">
+            <div class="teste">
+                <button id="botaoGerarPDF" onclick="gerarPDF()">Gerar PDF Art 26/27</button>
+            </div>
+        </div>
+        <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
+            Aguarde um momento, o download está sendo processado...
+        </div>      
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ministério do Esporte</p>
+    </footer>
+
+    <!-- Links para as bibliotecas PDFMake -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="Config.js/script2.js"></script>
+
+</body>
+</html>

@@ -3,12 +3,16 @@ body {
     background-color: #eef2f3;
     margin: 0;
     padding: 0;
+    background-image: url('https://blog.bigmidia.com/wp-content/uploads/2021/02/materia-esporte-amador.png');
+    background-size: contain;
 }
 
+
+
 .container {
-    position: relative;
+    position: -webkit-sticky;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px 40px;
@@ -16,20 +20,6 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://galeravermelha.com.br/wp-content/uploads/2023/07/Programa-Segundo-Tempo-3-de-agosto-1024x538.jpeg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: -1;
-    border-radius: 10px;
-}
 
 /* Estilo do cabeçalho */
 header {
@@ -62,6 +52,27 @@ h2 {
 
 label {
     font-weight: bold;
+}
+
+/* Estilo para espaçar as divs de form-row */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento horizontal entre os elementos */
+    margin-bottom: 20px; /* Espaçamento entre as linhas de form-row */
+}
+
+/* Estilo para as divs de half-width */
+.half-width {
+    width: calc(50% - 10px); /* Ajusta a largura para que duas divs caibam lado a lado com o espaçamento */
+    box-sizing: border-box; /* Garante que o padding não ultrapasse o tamanho definido */
+}
+
+/* Para telas pequenas, reorganiza os campos para ocupar a largura total */
+@media (max-width: 600px) {
+    .half-width {
+        width: 100%; /* Em telas pequenas, os campos ocupam a largura total */
+    }
 }
 
 input[type="text"],
@@ -133,6 +144,26 @@ button:hover {
     transform: translateY(-2px);
 }
 
+.container .btn {
+    padding: 12px 25px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .hidden {
     visibility: hidden;
     opacity: 0;
@@ -161,17 +192,36 @@ footer {
     color: white;
     text-align: center;
     padding: 5px 0; /* Reduzido o padding do rodapé */
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0;
 }
 
+/* Estilos gerais para alinhar os botões lado a lado */
+.container1 {
+    padding: 1px;
+    display: flex;
+    flex-direction: row; /* Coloca os botões lado a lado */
+    justify-content: space-between; /* Espaço entre os botões */
+    position: relative;
+    gap: 2%; /* Espaçamento entre os botões */
+}
 
-/* Estilo responsivo para telas menores */
-@media (max-width: 600px) {
-    form {
-        padding: 10px;
-        width: 100%;
+/* Estilos para cada bloco de botão */
+.teste {
+    flex: 1; /* Faz os blocos ocuparem o mesmo espaço */
+}
+
+/* Empilhar os botões em telas menores */
+@media (max-width: 768px) {
+    .container1 {
+        flex-direction: column; /* Coloca os botões em coluna (um abaixo do outro) */
+        align-items: center;
+    }
+
+    .teste button {
+        width: 100%; /* Faz os botões ocuparem toda a largura do contêiner em telas menores */
+        margin-bottom: 10px;
     }
 }
 
@@ -189,6 +239,7 @@ footer {
     form {
         display: block; /* Altera para bloco em telas menores */
         padding: 10px; /* Ajusta o padding, se necessário */
+        margin-right: auto;
     }
 }
 
@@ -212,7 +263,7 @@ footer {
 }
 
 @media (min-width: 1000px) {
-    .option-container {
+    .container {
         max-width: 60%;
         display: grid; /* Adiciona o display grid */
         grid-template-columns:repeat(3fr 1fr); /* Define duas colunas de tamanho igual */

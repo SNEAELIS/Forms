@@ -12,7 +12,7 @@
     <!-- Cabeçalho -->
     <header>
         <h1>Ministério do Esporte</h1>
-        <img src="img/Imagem1.png" alt="IMG1" width="15%">
+        <img src="img/Imagem1.png" alt="IMG1" width="10%">
     </header>
 
     <div class="container">
@@ -107,11 +107,11 @@
                 <div class="form-row">
                     <div class="half-width">
                         <label for="nomeCoordenador">Nome Completo:</label>
-                        <input type="text" id="nomeCoordenador" name="Nome do Coordenador">
+                        <input type="text" id="nomeCoordenador" name="Nome do Coordenador" required>
                     </div>
                     <div class="half-width">
                         <label for="cpfCoordenador">CPF (apenas números):</label>
-                        <input type="text" id="cpfCoordenador" name="CPF do Coordenador" maxlength="14"
+                        <input type="text" id="cpfCoordenador" name="CPF do Coordenador" maxlength="14" required
                             oninput="formatarCPF(this)">
                     </div>
                 </div>
@@ -134,23 +134,33 @@
             </div>
 
         </form>
-                <!-- Botão para gerar PDF -->
-                <div class="teste" >
-                    <button id="botaoGerarPDF">Gerar PDFs</button>
-                    <!-- Aviso de carregamento oculto inicialmente -->
-                    <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
-                      Aguarde um momento, o download está sendo processado...
-                    </div>
-                </div>
+        <!-- Botão para gerar PDF -->
+        <div class="container1">
+            <div class="teste">
+                <button id="botaoGerarPDF">Gerar PDFs</button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        
+            <div class="teste">
+                <button id="botaoGerarAtestadoPDF">Gerar PDF Atestado de Capacidade Técnica</button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        
+            <div class="teste">
+                <button><a href="Formulario2.html">vincular dirigentes</a></button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        </div>
+        <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
+            Aguarde um momento, o download está sendo processado...
+        </div>      
     </div>
-
+    </div>
     <footer>
         <p>&copy; 2024 Ministério do Esporte</p>
     </footer>
 
     <!-- Link para o arquivo JS externo -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="Config.js/script.js"></script>    
