@@ -3,10 +3,22 @@ body {
     background-color: #eef2f3;
     margin: 0;
     padding: 0;
-    background-image: url('https://blog.bigmidia.com/wp-content/uploads/2021/02/materia-esporte-amador.png');
-    background-size: contain;
+    position: relative;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://blog.bigmidia.com/wp-content/uploads/2021/02/materia-esporte-amador.png');
+    background-size: cover; /* ou 'contain' se preferir */
+    opacity: 0.5; /* ajuste a opacidade aqui */
+    z-index: -1;
+    pointer-events: none; /* para garantir que a imagem de fundo não interfira nas interações */
+}
 
 
 .container {
