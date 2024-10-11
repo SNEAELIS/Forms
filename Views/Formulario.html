@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Atestado de Capacidade Técnica</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Ministério do Esporte</h1>
+        <img src="img/Imagem1.png" alt="IMG1" width="10%">
+    </header>
+
+    <div class="container">
+
+        <h2>Atestado e Declarações</h2>
+
+        <form id="declaracoesForm">
+            <!-- Dados do dirigente da entidade -->
+            <h2>Dados do dirigente da entidade</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="dirigente">Nome Completo:</label>
+                    <input type="text" id="dirigente" name="Nome do Dirigente">
+                </div>
+                <div class="half-width">
+                    <label for="cpf">CPF (apenas números):</label>
+                    <input type="text" id="cpf" name="CPF do Dirigente" maxlength="14" oninput="formatarCPF(this)">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="rg">RG:</label>
+                    <input type="text" id="rg" name="RG do Dirigente">
+                </div>
+                <div class="half-width">
+                    <label for="orgao">Órgão Expedidor:</label>
+                    <input type="text" id="orgao" name="Órgão Expedidor">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="cargoDirigente">Cargo:</label>
+                    <input type="text" id="cargoDirigente" name="Cargo do Dirigente">
+                </div>
+            </div>
+
+            <!-- Dados da entidade -->
+            <h2>Dados da entidade</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="entidade">Nome:</label>
+                    <input type="text" id="entidade" name="Nome da Entidade">
+                </div>
+                <div class="half-width">
+                    <label for="cnpj">CNPJ (apenas números):</label>
+                    <input type="text" id="cnpj" name="CNPJ da Entidade" maxlength="18" oninput="formatCNPJ(this)" placeholder="__.___.___/____-__">
+                  </div>
+                  
+            </div>
+            <div class="form-row">
+                <div class="full-width">
+                    <label for="endereco">Endereço Completo:</label>
+                    <input type="text" id="endereco" name="Endereço Completo da Sede">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="uf">UF:</label>
+                    <input type="text" id="uf" name="UF da Entidade" maxlength="2">
+                </div>
+                <div class="half-width">
+                    <label for="municipio">Município:</label>
+                    <input type="text" id="municipio" name="Município da Entidade">
+                </div>
+            </div>
+
+            <!-- Dados da Proposta e Objeto -->
+            <h2>Dados da Proposta</h2>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="proposta">Nº da Proposta:</label>
+                    <input type="text" id="proposta" name="Número da Proposta">
+                </div>
+                <div class="half-width">
+                    <label for="objeto">Objeto:</label>
+                    <input type="text" id="objeto" name="Objeto">
+                </div>
+            </div>
+
+            <!-- Coordenador Geral -->
+            <h2>Coordenador Geral</h2>
+            <div class="form-row">
+                <label>O Coordenador Geral será cedido pelo proponente?</label>
+            </div>
+            <div class="form-row button-group">
+                <button type="button" onclick="mostrarCoordenador('Sim')">Sim</button>
+                <button type="button" onclick="mostrarCoordenador('Não')">Não</button>
+            </div>
+
+            <!-- Seção que aparece somente se "Sim" for selecionado -->
+            <div id="coordenadorFields" class="hidden">
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="nomeCoordenador">Nome Completo:</label>
+                        <input type="text" id="nomeCoordenador" name="Nome do Coordenador" required>
+                    </div>
+                    <div class="half-width">
+                        <label for="cpfCoordenador">CPF (apenas números):</label>
+                        <input type="text" id="cpfCoordenador" name="CPF do Coordenador" maxlength="14" required
+                            oninput="formatarCPF(this)">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="rgCoordenador">RG:</label>
+                        <input type="text" id="rgCoordenador" name="RG do Coordenador">
+                    </div>
+                    <div class="half-width">
+                        <label for="orgaoExpedidorCoordenador">Órgão Expedidor:</label>
+                        <input type="text" id="orgaoExpedidorCoordenador" name="Órgão Expedidor do Coordenador">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="nomePrograma">Programa:</label>
+                        <input type="text" id="nomePrograma" name="Programa">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <!-- Botão para gerar PDF -->
+        <div class="container1">
+            <div class="teste">
+                <button id="botaoGerarPDF">Gerar PDFs</button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        
+            <div class="teste">
+                <button id="botaoGerarAtestadoPDF">Gerar PDF Atestado de Capacidade Técnica</button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        
+            <div class="teste">
+                <button id="botaoGerarAtestadoPDF"><a href="Formulario2.html">vincular dirigentes</a></button>
+                <!-- Aviso de carregamento oculto inicialmente -->
+            </div>
+        </div>
+        <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
+            Aguarde um momento, o download está sendo processado...
+        </div>      
+    </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ministério do Esporte</p>
+    </footer>
+
+    <!-- Link para o arquivo JS externo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="Config.js/script.js"></script>    
+</body>
+</html>
