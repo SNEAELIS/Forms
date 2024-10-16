@@ -945,10 +945,19 @@ var docDefinition = {
             fontSize: 12,
             margin: [0, 0, 0, 20]
         },
-                  // Espaços para assinatura
-                  '____________________________________\n',
-                  'Nome do Responsável da Entidade Proponente\n',
-                  `${cargoDirigente}\n\n`,
+        // Assinatura centralizada
+        {
+            text: '\n\n____________________________________\n',
+            alignment: 'center', // Centraliza a linha de assinatura
+            fontSize: 12,
+            margin: [0, 10, 0, 0]
+        },
+        {
+            text: `${cargoDirigente}\n\n`,
+            alignment: 'center', // Centraliza o cargo do dirigente
+            fontSize: 12,
+            margin: [0, 0, 0, 20]
+        },
         
                 { text: '', pageBreak: 'after' }, // Quebra de página
         
