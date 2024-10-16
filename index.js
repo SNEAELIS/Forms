@@ -7,92 +7,24 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// Definir o diretório 'Views' como pasta para arquivos estáticos (CSS, JS, imagens, etc.)
+
+// Configura o Body-Parser para processar requisições com JSON e formulários
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Configura o diretório 'public' para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'Views')));
 
-// Rota para servir o index.html
+// Servindo a página inicial (index.html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Views', 'index.html'));
 });
 
+// Rota para a página de confirmação
 app.get('/confirmacao', (req, res) => {
-    res.render('confirmacao'); // Certifique-se de que o mecanismo de visualização está configurado corretamente
-  });
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Evento para gerar PDFs
-    const botaoGerarPDF = document.getElementById('botaoGerarPDF');
-    if (botaoGerarPDF) {
-        botaoGerarPDF.addEventListener('click', function (e) {
-            e.preventDefault();
-            const loadingMessage = document.getElementById('loadingMessage');
-            if (loadingMessage) {
-                loadingMessage.style.display = 'block';
-            }
-            generateAllInOnePDF().then(() => {
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            }).catch((error) => {
-                alert("Ocorreu um erro ao gerar os PDFs.");
-                console.error(error);
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            });
-        });
-    }
-
-    // Evento para gerar o Atestado em PDF
-    const botaoGerarAtestadoPDF = document.getElementById('botaoGerarAtestadoPDF');
-    if (botaoGerarAtestadoPDF) {
-        botaoGerarAtestadoPDF.addEventListener('click', function (e) {
-            e.preventDefault();
-            const loadingMessage = document.getElementById('loadingMessage');
-            if (loadingMessage) {
-                loadingMessage.style.display = 'block';
-            }
-
-            try {
-                generateAtestadoPDF();
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            } catch (error) {
-                alert("Ocorreu um erro ao gerar os PDFs.");
-                console.error(error);
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    // Evento para gerar o Termo de Compromisso do Coordenador
-    const botaoGerarTermoCompromisso = document.getElementById('generateTermoCompromissoCoordenadorPDF');
-    if (botaoGerarTermoCompromisso) {
-        botaoGerarTermoCompromisso.addEventListener('click', function (e) {
-            e.preventDefault();
-            const loadingMessage = document.getElementById('loadingMessage');
-            if (loadingMessage) {
-                loadingMessage.style.display = 'block';
-            }
-
-            try {
-                generateTermoCompromissoCoordenadorPDF();
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            } catch (error) {
-                alert("Ocorreu um erro ao gerar os PDFs.");
-                console.error(error);
-                if (loadingMessage) {
-                    loadingMessage.style.display = 'none';
-                }
-            }
-        });
-    }
+    res.sendFile(path.join(__dirname, 'Views', 'confirmacao.html'));
 });
+
 
 // Configurações de body-parser para lidar com formulários
 app.use(bodyParser.urlencoded({ extended: false }));

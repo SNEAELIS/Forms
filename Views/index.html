@@ -36,5 +36,31 @@
         <p>&copy; 2024 Ministério do Esporte</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const botaoGerarPDF = document.getElementById('botaoGerarPDF');
+            const loadingMessage = document.getElementById('loadingMessage');
+
+            if (botaoGerarPDF) {
+                botaoGerarPDF.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (loadingMessage) loadingMessage.style.display = 'block';
+
+                    generateAllInOnePDF().then(() => {
+                        if (loadingMessage) loadingMessage.style.display = 'none';
+                    }).catch((error) => {
+                        alert("Erro ao gerar PDF.");
+                        console.error(error);
+                        if (loadingMessage) loadingMessage.style.display = 'none';
+                    });
+                });
+            }
+
+            // Simulação da função de geração de PDF
+            async function generateAllInOnePDF() {
+                return new Promise((resolve) => setTimeout(resolve, 2000));
+            }
+        });
+    </script>
 </body>
 </html>
