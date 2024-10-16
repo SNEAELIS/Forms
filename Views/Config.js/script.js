@@ -173,10 +173,19 @@ var docDefinition = {
             margin: [0, 0, 0, 20]
         },
 
-        // Espaços para assinatura
-        '____________________________________\n',
-        'Nome do Responsável da Entidade Proponente\n',
-        `${cargoDirigente}\n\n`,
+        // Assinatura centralizada
+        {
+            text: '\n\n____________________________________\n',
+            alignment: 'center', // Centraliza a linha de assinatura
+            fontSize: 12,
+            margin: [0, 10, 0, 0]
+        },
+        {
+            text: `${cargoDirigente}\n\n`,
+            alignment: 'center', // Centraliza o cargo do dirigente
+            fontSize: 12,
+            margin: [0, 0, 0, 20]
+        },
 
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -219,10 +228,20 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-                // Espaços para assinatura
-                '____________________________________\n',
-                'Nome do Responsável da Entidade Proponente\n',
-                `${cargoDirigente}\n\n`,
+
+        // Assinatura centralizada
+            {
+                text: '\n\n____________________________________\n',
+                alignment: 'center', // Centraliza a linha de assinatura
+                fontSize: 12,
+                margin: [0, 10, 0, 0]
+            },
+            {
+                text: `${cargoDirigente}\n\n`,
+                alignment: 'center', // Centraliza o cargo do dirigente
+                fontSize: 12,
+                margin: [0, 0, 0, 20]
+            },
 
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -253,10 +272,20 @@ var docDefinition = {
             fontSize: 12,
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
-        // Espaços para assinatura
-        '____________________________________\n',
-        'Nome do Responsável da Entidade Proponente\n',
-        `${cargoDirigente}\n\n`,
+
+         // Assinatura centralizada
+        {
+            text: '\n\n____________________________________\n',
+            alignment: 'center', // Centraliza a linha de assinatura
+            fontSize: 12,
+            margin: [0, 10, 0, 0]
+        },
+        {
+            text: `${cargoDirigente}\n\n`,
+            alignment: 'center', // Centraliza o cargo do dirigente
+            fontSize: 12,
+            margin: [0, 0, 0, 20]
+        },
 
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -300,10 +329,19 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-        // Espaços para assinatura
-        '____________________________________\n',
-        'Nome do Responsável da Entidade Proponente\n',
-        `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -353,10 +391,19 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-              // Espaços para assinatura
-              '____________________________________\n',
-              'Nome do Responsável da Entidade Proponente\n',
-              `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
       
               { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -396,10 +443,19 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-        // Espaços para assinatura
-        '____________________________________\n',
-        'Nome do Responsável da Entidade Proponente\n',
-        `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
               
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -444,10 +500,19 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-        // Espaços para assinatura
-        '____________________________________\n',
-        'Nome do Responsável da Entidade Proponente\n',
-        `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
         { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -483,10 +548,19 @@ var docDefinition = {
     margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
 },
 
-    // Espaços para assinatura
-    '____________________________________\n',
-    'Nome do Responsável da Entidade Proponente\n',
-    `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -527,10 +601,19 @@ var docDefinition = {
     margin: [0, 0, 0, 20]
 },
 
-    // Espaços para assinatura
-    '____________________________________\n',
-    'Nome do Responsável da Entidade Proponente\n',
-    `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -564,10 +647,19 @@ var docDefinition = {
     margin: [0, 0, 0, 20]
 },
 
-    // Espaços para assinatura
-    '____________________________________\n',
-    'Nome do Responsável da Entidade Proponente\n',
-    `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -606,10 +698,19 @@ var docDefinition = {
     margin: [0, 0, 0, 20]
 },
 
-   // Espaços para assinatura
-   '____________________________________\n',
-   'Nome do Responsável da Entidade Proponente\n',
-   `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -652,10 +753,19 @@ var docDefinition = {
     margin: [0, 0, 0, 20]
 },
 
-   // Espaços para assinatura
-   '____________________________________\n',
-   'Nome do Responsável da Entidade Proponente\n',
-   `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
@@ -699,10 +809,19 @@ var docDefinition = {
 },
 
 
-  // Espaços para assinatura
-  '____________________________________\n',
-  'Nome do Responsável da Entidade Proponente\n',
-  `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
   {
     // Nota de rodapé ao final do texto   
@@ -749,10 +868,19 @@ margin: [0, 20, 0, 0], color: 'gray'
     margin: [0, 0, 0, 40]
 },
 
-  // Espaços para assinatura
-  '____________________________________\n',
-  'Nome do Responsável da Entidade Proponente\n',
-  `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
 
 
 ],
@@ -931,10 +1059,19 @@ function generateTermoCompromissoCoordenadorPDF() {
             margin: [0, 0, 0, 20]
             
         },
-          // Espaços para assinatura
-          '____________________________________\n',
-          'Nome do Responsável da Entidade Proponente\n',
-          `${cargoDirigente}\n\n`,
+ // Assinatura centralizada
+ {
+    text: '\n\n____________________________________\n',
+    alignment: 'center', // Centraliza a linha de assinatura
+    fontSize: 12,
+    margin: [0, 10, 0, 0]
+},
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
     ],
     
     
@@ -959,4 +1096,3 @@ function generateTermoCompromissoCoordenadorPDF() {
     // Gerando o PDF
     pdfMake.createPdf(docDefinition).download(`Termo_Compromisso_.pdf`);
     }
-    
