@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css/style2.css">
+    <title>Ficha Técnica de Execução - Entidade</title>
+    
+
+
+</head>
+
+
+<body>
+
+    <header>
+        <h2>Ministério do Esporte</h2>
+        <img src="IMG/Imagem1.png" alt="IMG1" width="10%">
+    </header>
+
+    <div class="container">
+        <h1>Ficha Técnica de Execução - Entidade</h1>
+
+        <!-- Abas -->
+        <div class="tabs">
+            <div class="tab active" data-tab="tab1">Dados da Parceria</div>
+            <div class="tab" data-tab="tab1.1">Termos Aditivos</div>
+            <div class="tab" data-tab="tab1.2">Ajustes do Plano de Trabalho</div>
+            <div class="tab" data-tab="tab2">Valores Recebidos</div>
+            <div class="tab" data-tab="tab3">Cumprimento das Metas</div>
+            <div class="tab" data-tab="tab3.1">Análise de Procedimentos Executados</div>
+            <div class="tab" data-tab="tab4">Atividades Propostas</div>
+            <div class="tab " data-tab="tab5">Execução</div>
+            <div class="tab " data-tab="tab6">Inscrição dos Beneficiados</div>
+            <div class="tab " data-tab="tab7">Identificação dos Núcleos</div>
+            <div class="tab " data-tab="tab8">Impactos do Benefício Social</div>
+            
+        </div>
+
+        <!-- Conteúdo das Abas -->
+        <form action="/submit" method="POST">
+<!-- Aba 1: Dados e Informações da Parceria -->
+<div class="tab-content active" id="tab1">
+    <fieldset>
+        <legend>1 - Dados e Informações da Parceria</legend>
+
+        <label for="processo_sei">Processo SEI:</label>
+        <input type="text" id="processo_sei" name="processo_sei" class="input-text">
+
+        <label for="termo_fomento">Termo de Fomento:</label>
+        <input type="text" id="termo_fomento" name="termo_fomento" class="input-text">
+
+        <label for="entidade_parceira">Entidade Parceira:</label>
+        <input type="text" id="entidade_parceira" name="entidade_parceira" class="input-text">
+
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" class="input-text">
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" class="input-text">
+
+        <div class="form-row">
+            <div class="half-width">
+                <label for="representante_legal">Representante Legal:</label>
+                <input type="text" id="representante_legal" name="representante_legal" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" class="input-text">
+            </div>
+        </div>
+
+        <label for="objeto">Objeto:</label>
+        <textarea id="objeto" name="objeto" rows="4" class="input-text"></textarea>
+
+        <div class="form-row">
+            <div class="half-width">
+                <label for="vigencia_inicio">Vigência - Início:</label>
+                <input type="date" id="vigencia_inicio" name="vigencia_inicio" class="input-date">
+            </div>
+            <div class="half-width">
+                <label for="vigencia_fim">Vigência - Fim:</label>
+                <input type="date" id="vigencia_fim" name="vigencia_fim" class="input-date">
+            </div>
+        </div>
+
+        <label for="valor_pactuado">Valor Pactuado:</label>
+        <input type="text" id="valor_pactuado" name="valor_pactuado" class="input-text">
+
+        <label for="valor_executado">Valor Executado:</label>
+        <input type="text" id="valor_executado" name="valor_executado" class="input-text">
+
+        <label for="parlamentar">Parlamentar:</label>
+        <input type="text" id="parlamentar" name="parlamentar" class="input-text">
+
+        <label for="emenda">Emenda:</label>
+        <input type="text" id="emenda" name="emenda" class="input-text">
+
+    </fieldset>
+</div>
+
+
+
+<!-- Aba 1.1: Termos Aditivos -->
+<div class="tab-content" id="tab1.1">
+    <fieldset>
+        <legend>1.1 - TERMOS ADITIVOS</legend>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>TERMO</th>
+                    <th>OBJETO DO ADITIVO</th>
+                    <th>DATA DA ASSINAT.</th>
+                    <th>SOLICITAÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PRIMEIRO:</td>
+                    <td><input type="text" name="objeto_aditivo_primeiro" class="input-text"></td>
+                    <td><input type="date" name="data_assinatura_primeiro" class="input-date"></td>
+                    <td>
+                        <select name="solicitacao_primeiro" class="input-select">
+                            <option value="">Selecione</option>
+                            <option value="solicitado">Solicitado</option>
+                            <option value="nao_solicitado">Não Solicitado</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SEGUNDO:</td>
+                    <td><input type="text" name="objeto_aditivo_segundo" class="input-text"></td>
+                    <td><input type="date" name="data_assinatura_segundo" class="input-date"></td>
+                    <td>
+                        <select name="solicitacao_segundo" class="input-select">
+                            <option value="">Selecione</option>
+                            <option value="solicitado">Solicitado</option>
+                            <option value="nao_solicitado">Não Solicitado</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+
+<!-- Aba 1.2: Ajustes do Plano de Trabalho -->
+<div class="tab-content" id="tab1.2">
+    <fieldset>
+        <legend>1.2 - AJUSTES DO PLANO DE TRABALHO</legend>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="nao_solicitado" class="input-checkbox"> NÃO SOLICITADO</label>
+            <label><input type="checkbox" name="aprovado" class="input-checkbox"> APROVADO</label>
+            <label><input type="checkbox" name="nao_aprovado" class="input-checkbox"> NÃO APROVADO</label>
+        </div>
+
+        <label for="justificativa">JUSTIFICATIVA:</label>
+        <textarea id="justificativa" name="justificativa" rows="4" class="input-text"></textarea>
+    </fieldset>
+</div>
+
+
+
+<!-- Aba 2: Valores Recebidos -->
+<div class="tab-content" id="tab2">
+    <fieldset>
+        <legend>2 - Valores Efetivamente Recebidos</legend>
+
+        <div class="form-row">
+            <div class="half-width">
+                <label for="valor_recebido">Valor Recebido:</label>
+                <input type="text" id="valor_recebido" name="valor_recebido" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="valor_extenso">Valor por Extenso:</label>
+                <input type="text" id="valor_extenso" name="valor_extenso" class="input-text">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="half-width">
+                <label for="ordem_bancaria">Ordem Bancária:</label>
+                <input type="text" id="ordem_bancaria" name="ordem_bancaria" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="data_ordem">Data:</label>
+                <input type="date" id="data_ordem" name="data_ordem" class="input-date">
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+         <!-- Aba 3: Cumprimento das Metas -->
+<div class="tab-content" id="tab3">
+    <fieldset>
+        <legend>3 - Cumprimento das Metas</legend>
+        
+        <h4>Meta 01 – Planejamento e Desenvolvimento do Projeto</h4>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta1_1">Etapa 1 - Previsto:</label>
+                <input type="text" id="etapas_meta1_1" name="etapas_meta1_1" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta1_1">Executado:</label>
+                <input type="text" id="executado_meta1_1" name="executado_meta1_1" class="input-text">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta1_2">Etapa 2 - Previsto:</label>
+                <input type="text" id="etapas_meta1_2" name="etapas_meta1_2" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta1_2">Executado:</label>
+                <input type="text" id="executado_meta1_2" name="executado_meta1_2" class="input-text">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta1_3">Etapa 3 - Previsto:</label>
+                <input type="text" id="etapas_meta1_3" name="etapas_meta1_3" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta1_3">Executado:</label>
+                <input type="text" id="executado_meta1_3" name="executado_meta1_3" class="input-text">
+            </div>
+        </div>
+        
+        <h4>Meta 02 – Divulgação do Projeto</h4>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta2_1">Etapa 1 - Previsto:</label>
+                <input type="text" id="etapas_meta2_1" name="etapas_meta2_1" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta2_1">Executado:</label>
+                <input type="text" id="executado_meta2_1" name="executado_meta2_1" class="input-text">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta2_2">Etapa 2 - Previsto:</label>
+                <input type="text" id="etapas_meta2_2" name="etapas_meta2_2" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta2_2">Executado:</label>
+                <input type="text" id="executado_meta2_2" name="executado_meta2_2" class="input-text">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="half-width">
+                <label for="etapas_meta2_3">Etapa 3 - Previsto:</label>
+                <input type="text" id="etapas_meta2_3" name="etapas_meta2_3" class="input-text">
+            </div>
+            <div class="half-width">
+                <label for="executado_meta2_3">Executado:</label>
+                <input type="text" id="executado_meta2_3" name="executado_meta2_3" class="input-text">
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+             <!-- Aba 3.1: Análise de Procedimentos Executados -->
+<div class="tab-content" id="tab3.1">
+    <fieldset>
+        <legend>3.1 - ANÁLISE DE PROCEDIMENTOS EXECUTADOS</legend>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>ETAPAS</th>
+                    <th>TRÊS ORÇAMENTOS</th>
+                    <th>NOTAS FISCAIS</th>
+                    <th>OBSERVAÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Meta 01 -->
+                <tr class="meta-header">
+                    <td colspan="5">META 01 – Planejamento e Desenvolvimento do Projeto</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="etapa_meta1_1" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta1_1" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta1_1" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta1_1" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text" name="etapa_meta1_2" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta1_2" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta1_2" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta1_2" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text" name="etapa_meta1_3" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta1_3" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta1_3" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta1_3" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><input type="text" name="etapa_meta1_4" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta1_4" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta1_4" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta1_4" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><input type="text" name="etapa_meta1_5" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta1_5" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta1_5" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta1_5" class="input-text"></td>
+                </tr>
+
+                <!-- Meta 02 -->
+                <tr class="meta-header">
+                    <td colspan="5">META 02 – Divulgação do Projeto</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="etapa_meta2_1" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta2_1" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta2_1" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta2_1" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text" name="etapa_meta2_2" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta2_2" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta2_2" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta2_2" class="input-text"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><input type="text" name="etapa_meta2_3" class="input-text"></td>
+                    <td><input type="text" name="orcamentos_meta2_3" class="input-text"></td>
+                    <td><input type="text" name="notas_fiscais_meta2_3" class="input-text"></td>
+                    <td><input type="text" name="observacoes_meta2_3" class="input-text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+
+
+
+             <!-- Aba 2: Atividades Propostas -->
+            <div class="tab-content" id="tab4">
+                <fieldset>
+                    <legend>Atividades Propostas</legend>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>ATIVIDADES PROPOSTAS</th>
+                                <th>PACTUADO</th>
+                                <th>EXECUTADO</th>
+                                <th>OBSERVAÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Núcleo</td>
+                                <td><input type="text" name="pactuado_nucleo"></td>
+                                <td><input type="file" name="executado_nucleo"></td>
+                                <td><input type="text" name="observacoes_nucleo"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Modalidades</td>
+                                <td><input type="text" name="pactuado_modalidades"></td>
+                                <td><input type="file" name="executado_modalidades"></td>
+                                <td><input type="text" name="observacoes_modalidades"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Beneficiários</td>
+                                <td><input type="text" name="pactuado_beneficiarios"></td>
+                                <td><input type="file" name="executado_beneficiarios"></td>
+                                <td><input type="text" name="observacoes_beneficiarios"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Público</td>
+                                <td><input type="text" name="pactuado_publico"></td>
+                                <td><input type="file" name="executado_publico"></td>
+                                <td><input type="text" name="observacoes_publico"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Horário</td>
+                                <td><input type="text" name="pactuado_horario"></td>
+                                <td><input type="file" name="executado_horario"></td>
+                                <td><input type="text" name="observacoes_horario"></td>
+                            </tr>
+                            <!-- Continue para os outros itens de forma similar -->
+                            <tr>
+                                <td>6</td>
+                                <td>Turno</td>
+                                <td><input type="text" name="pactuado_turno"></td>
+                                <td><input type="file" name="executado_turno"></td>
+                                <td><input type="text" name="observacoes_turno"></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Peridiciodade</td>
+                                <td><input type="text" name="pactuado_periodicidade"></td>
+                                <td><input type="file" name="executado_periodicidade"></td>
+                                <td><input type="text" name="observacoes_periodicidade"></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Turmas</td>
+                                <td><input type="text" name="pactuado_turmas"></td>
+                                <td><input type="file" name="executado_turmas"></td>
+                                <td><input type="text" name="observacoes_turmas"></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Estruturação</td>
+                                <td><input type="text" name="pactuado_estruturacao"></td>
+                                <td><input type="file" name="executado_estruturacao"></td>
+                                <td><input type="text" name="observacoes_estruturacao"></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Execução/Mês</td>
+                                <td><input type="text" name="pactuado_execucao_mes"></td>
+                                <td><input type="file" name="executado_execucao_mes"></td>
+                                <td><input type="text" name="observacoes_execucao_mes"></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Vigência</td>
+                                <td><input type="text" name="pactuado_vigencia"></td>
+                                <td><input type="file" name="executado_vigencia"></td>
+                                <td><input type="text" name="observacoes_vigencia"></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Início das Atividades</td>
+                                <td><input type="text" name="pactuado_inicio_atividades"></td>
+                                <td><input type="file" name="executado_inicio_atividades"></td>
+                                <td><input type="text" name="observacoes_inicio_atividades"></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Atividades Extras</td>
+                                <td><input type="text" name="pactuado_atividades_extras"></td>
+                                <td><input type="file" name="executado_atividades_extras"></td>
+                                <td><input type="text" name="observacoes_atividades_extras"></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Termo aditivo</td>
+                                <td><input type="text" name="pactuado_termo_aditivo"></td>
+                                <td><input type="file" name="executado_termo_aditivo"></td>
+                                <td><input type="text" name="observacoes_termo_aditivo"></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Divulgação do Projeto</td>
+                                <td><input type="text" name="pactuado_divulgacao_projeto"></td>
+                                <td><input type="file" name="executado_divulgacao_projeto"></td>
+                                <td><input type="text" name="observacoes_divulgacao_projeto"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+
+
+
+ <!-- Aba 5: Execução -->
+<div class="tab-content" id="tab5">
+    <fieldset>
+        <legend>5 - EXECUÇÃO</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>DOCUMENTAÇÃO</th>
+                    <th>SITUAÇÃO</th>
+                    <th>OBSERVAÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ficha de Inscrição dos Beneficiários</td>
+                    <td>
+                        <select name="situacao_1">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_1"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Planilha de Núcleo/RH/Beneficiado</td>
+                    <td>
+                        <select name="situacao_2">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Folha de Frequência Recursos Humanos</td>
+                    <td>
+                        <select name="situacao_3">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_3"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Folha de Frequência Beneficiados</td>
+                    <td>
+                        <select name="situacao_4">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_4"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Grade Horária</td>
+                    <td>
+                        <select name="situacao_5">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_5"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Registro Fotográfico das Modalidades</td>
+                    <td>
+                        <select name="situacao_6">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_6"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Registro Fotográficos dos materiais adquiridos</td>
+                    <td>
+                        <select name="situacao_7">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_7"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Registro Fotográfico dos uniformes adquiridos</td>
+                    <td>
+                        <select name="situacao_8">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_8"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Registro Fotográfico dos núcleos/estruturas identificados ou dos espaços onde serão realizados os eventos</td>
+                    <td>
+                        <select name="situacao_9">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_9"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Registros Fotográficos da Divulgação do Projeto/Evento</td>
+                    <td>
+                        <select name="situacao_10">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_10"></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Registro Fotográfico de Identificação dos Núcleos</td>
+                    <td>
+                        <select name="situacao_11">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_11"></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Registros Fotográficos da equipe de RH</td>
+                    <td>
+                        <select name="situacao_12">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_12"></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Registros Fotográficos do material em utilização</td>
+                    <td>
+                        <select name="situacao_13">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_13"></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Registros Fotográficos dos uniformes em utilização</td>
+                    <td>
+                        <select name="situacao_14">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_14"></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Transparência e Divulgação das Ações Executadas</td>
+                    <td>
+                        <select name="situacao_15">
+                            <option value="">Selecione</option>
+                            <option value="completo">Completo</option>
+                            <option value="incompleto">Incompleto</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="observacao_15"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Campos para upload de documentos -->
+        <div style="margin-top: 20px;">
+            <label for="documento1">Anexar Ficha de Inscrição dos Beneficiários:</label>
+            <input type="file" id="documento1" name="documento1" required>
+
+            <label for="documento2">Anexar Folhas de frequência dos beneficiários:</label>
+            <input type="file" id="documento2" name="documento2" required>
+
+            <label for="documento3">Anexar Folhas de frequência dos recursos humanos:</label>
+            <input type="file" id="documento3" name="documento3" required>
+
+            <label for="documento4">Anexar Grade horária de cada núcleo:</label>
+            <input type="file" id="documento4" name="documento4" required>
+
+            <label for="documento5">Anexar Planilha de núcleos, recursos humanos e beneficiários:</label>
+            <input type="file" id="documento5" name="documento5" required>
+
+            <label for="documento6">Anexar Registros fotográficos da aquisição e utilização dos bens e serviços:</label>
+            <input type="file" id="documento6" name="documento6" required>
+
+            <label for="documento7">Anexar Registros fotográficos dos núcleos identificados:</label>
+            <input type="file" id="documento7" name="documento7" required>
+
+            <label for="documento8">Anexar Registros fotográficos com a equipe de trabalho:</label>
+            <input type="file" id="documento8" name="documento8" required>
+
+            <label for="documento9">Anexar Registros fotográficos que comprovem a execução das modalidades:</label>
+            <input type="file" id="documento9" name="documento9" required>
+        </div>
+
+        <!-- Campo de observações -->
+        <div style="margin-top: 20px;">
+            <label for="observacoes">OBSERVAÇÕES:</label>
+            <textarea id="observacoes" name="observacoes" rows="4" placeholder="Podem ser acrescentados ao presente documento quantas identificações de núcleo forem necessárias, bem como as metas e etapas." required></textarea>
+        </div>
+    </fieldset>
+</div>
+        <!-- Aba 6: Inscrição dos Beneficiados -->
+            <div class="tab-content" id="tab6">
+                <fieldset>
+                    <legend>6 - INSCRIÇÃO DOS BENEFICIADOS</legend>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PERÍODO DE INSCRIÇÃO</th>
+                                <th>INÍCIO</th>
+                                <th>FIM</th>
+                                <th>OCORREU EM TODOS OS NÚCLEOS?</th>
+                                <th>QTD INSCRITOS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tr">
+                                <td></td>
+                                <td><input type="date" name="inicio_periodo"></td>
+                                <td><input type="date" name="fim_periodo"></td>
+                                <td>
+                                    <label for="sim" style="margin-right: 40px;">
+                                        <input type="radio" id="sim" name="ocorreu_nucleos" value="sim"> SIM
+                                    </label>
+                                    <label for="nao">
+                                        <input type="radio" id="nao" name="ocorreu_nucleos" value="nao"> NÃO
+                                    </label>
+                                </td>
+                                <td><input type="text" name="qtd_inscritos"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label for="observacoes">OBSERVAÇÕES</label>
+                    <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+                </fieldset>
+            </div>
+
+            <!-- Aba 7: Identificação dos Núcleos -->
+            <div class="tab-content" id="tab7">
+                <fieldset id="nucleo-container">
+                    <legend>7 - IDENTIFICAÇÃO DOS NÚCLEOS</legend>
+
+                    <div class="nucleo">
+                        <label for="nome">NOME:</label>
+                        <input type="text" name="nome_nucleo[]" required>
+
+                        <label for="endereco">ENDEREÇO:</label>
+                        <input type="text" name="endereco_nucleo[]" required>
+
+                        <label for="responsavel">RESPONSÁVEL:</label>
+                        <input type="text" name="responsavel_nucleo[]" required>
+
+                        <label for="email">E-MAIL:</label>
+                        <input type="email" name="email_nucleo[]" required>
+
+                        <label for="telefone">TELEFONE:</label>
+                        <input type="tel" name="telefone_nucleo[]" required>
+
+                        <label for="quantitativo_beneficiados">QUANTITATIVO DE BENEFICIADOS:</label>
+                        <input type="text" name="quantitativo_beneficiados_nucleo[]" required>
+
+                        <label for="modalidades">MODALIDADES:</label>
+                        <input type="text" name="modalidades_nucleo[]" required>
+
+                        <label>PERÍODO:</label>
+                        <div class="form-row">
+                            <div class="half-width">
+                                <input type="checkbox" name="periodo_manha_nucleo[]"> MANHÃ
+                            </div>
+                            <div class="half-width">
+                                <input type="checkbox" name="periodo_tarde_nucleo[]"> TARDE
+                            </div>
+                            <div class="half-width">
+                                <input type="checkbox" name="periodo_noite_nucleo[]"> NOITE
+                            </div>
+                        </div>
+
+                        <label for="descricao_atividades">DESCRIÇÃO DAS ATIVIDADES REALIZADAS:</label>
+                        <textarea name="descricao_atividades_nucleo[]" rows="4" required></textarea>
+
+                        <label for="dificuldades_enfrentadas">DIFICULDADES ENFRENTADAS:</label>
+                        <textarea name="dificuldades_enfrentadas_nucleo[]" rows="4" required></textarea>
+                    </div>
+
+                </fieldset>
+
+                <button type="button" class="add-button" onclick="duplicarNucleo()">Adicionar Novo Núcleo</button>
+            </div>
+
+
+
+            <!-- Aba 9: Impactos do Benefício Social -->
+            <div class="tab-content" id="tab8">
+                <fieldset>
+                    <legend>9 - IMPACTOS DO BENEFÍCIO SOCIAL OBTIDO ATÉ O PERÍODO</legend>
+
+                    <label for="impactos_sociais">IMPACTOS SOCIAIS DO PROJETO/EVENTO:</label>
+                    <textarea id="impactos_sociais" name="impactos_sociais" rows="6" required></textarea>
+
+                    <label for="consideracoes_finais">CONSIDERAÇÕES FINAIS QUANTO AO PROJETO:</label>
+                    <textarea id="consideracoes_finais" name="consideracoes_finais" rows="6" required placeholder="Relatar informações não contempladas acima que impactam no desenvolvimento do Projeto/Evento, tais como: paralisação das atividades, recesso, atuação de profissionais de responsabilidade da OSC, alterações realizadas e não informadas oportunamente."></textarea>
+                </fieldset>
+            </div>
+
+
+
+
+
+
+            <!-- Botão de Enviar -->
+            <button type="submit" method="POST">Enviar Formulário</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Entidade MESP. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Script para alternar entre abas
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remover a classe 'active' de todas as abas e conteúdos
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Adicionar a classe 'active' à aba clicada e ao conteúdo correspondente
+                tab.classList.add('active');
+                const target = tab.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

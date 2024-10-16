@@ -1,0 +1,549 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header {
+    background-color: #005CAA;
+    padding: 0,8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Ajuste para as abas se adaptarem ao cabeçalho */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribui as abas uniformemente */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    flex: 1; /* Cada aba ocupa espaço igual */
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #f0f8ff;
+    border: 2px solid #ddd;
+    border-bottom: none;
+    font-weight: bold;
+    color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+    background-color: #e0e0e0;
+}
+
+.tab.active {
+    background-color: white;
+    border-top: 2px solid #0056b3;
+    border-left: 2px solid #0056b3;
+    border-right: 2px solid #0056b3;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+fieldset {
+    border: 2px solid #0056b3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 18px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"], input[type="date"], input[type="file"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    background-color: #0056b3;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003d80;
+}
+
+footer {
+    background-color: #005CAA;
+    color: #fff; /* Ajuste a cor do texto para branco */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+footer a {
+    color: #fff !important; /* Garantir que os links dentro do footer também sejam brancos */
+    text-decoration: none;
+}
+
+footer p, footer span {
+    color: #fff !important; /* Garantir que qualquer texto dentro do footer seja branco */
+}
+
+ /* Geral */
+ fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.input-text, .input-date, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus, .input-date:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half-width {
+    width: 48%;
+}
+
+/* Estilo para botões, se necessário */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .half-width {
+        width: 100%;
+    }
+}
+
+
+
+/* Geral */
+fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s ease;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.input-text, .input-date, .input-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus, .input-date:focus, .input-select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.input-select {
+    background-color: #f9f9f9;
+}
+
+
+  /* Geral */
+  fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.input-text, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Estilo para checkboxes */
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-checkbox {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.checkbox-group label:hover {
+    color: #4CAF50;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .checkbox-group {
+        flex-direction: column;
+    }
+
+    .checkbox-group label {
+        margin-bottom: 10px;
+    }
+}
+
+
+.input-text, .input-date {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus, .input-date:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Estilo das linhas do formulário */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half-width {
+    width: 48%;
+}
+td label {
+    display: inline-block;
+    margin-right: 20px; /* Espaço entre SIM e NÃO */
+}
+
+/* Adicionar margem ao redor dos radios */
+input[type="radio"] {
+    margin-right: 5px; /* Espaçamento entre o botão de rádio e o texto */
+}
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .half-width {
+        width: 100%;
+    }
+}
+
+h4 {
+    color: #4CAF50;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo do Cabeçalho */
+header {
+    background-color: #005CAA;
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 1.3rem;
+    white-space: nowrap;
+    margin-left: 10%;
+}
+
+header img {
+    max-width: 150px;
+    margin-right: 10%;
+}
+
+.input-text:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half-width {
+    width: 48%;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .half-width {
+        width: 100%;
+    }
+}
+
+
+  /* Estilo da Tabela */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.styled-table thead th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.input-text {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Estilo para as linhas de cabeçalho de metas */
+.meta-header {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    .styled-table thead th, .styled-table tbody td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .input-text {
+        font-size: 0.9rem;
+    }
+}

@@ -81,12 +81,11 @@ function gerarPDF() {
             { text: 'DECLARAÇÃO DOS ARTS. 26 E 27 DO DECRETO Nº 8.726 DE 2016 E DO ART. 39 DA LEI Nº 13.019 DE 2014', style: 'header', margin: [0, 0, 0, 20] },
             { text: 'Declaro para os devidos fins em nome da [identificação da organização da sociedade civil – OSC] que os seus dirigentes abaixo relacionados a saber:', margin: [0, 0, 0, 10], alignment: 'justify' },
             { text: 'RELAÇÃO NOMINAL ATUALIZADA DOS DIRIGENTES DA ENTIDADE', style: 'subheader', margin: [0, 20, 0, 10], alignment: 'justify' },
-
             // Tabela dos dirigentes
             {
                 table: {
                     headerRows: 1,
-                    widths: ['*', '*', '*', 'auto', '*', '*', 'auto', 'auto'], // Distribuição adaptativa das colunas
+                    widths: ['*', '*', '*', 'auto', '*', '*', 'auto', '*'], // Distribuição adaptativa das colunas
                     body: [
                         [
                             { text: 'Nome', bold: true, alignment: 'center', fontSize: 10 },
@@ -130,17 +129,31 @@ function gerarPDF() {
             { text: '• servidor ou empregado público, inclusive aquele que exerça cargo em comissão ou função de confiança de órgão ou entidade da administração pública federal celebrante, ou seu cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade até o segundo grau, ressalvadas as hipóteses previstas em lei específica e na lei de diretrizes orçamentárias;', margin: [10, 5], alignment: 'justify' },
             { text: '• pessoas naturais condenadas pela prática de crimes contra a administração pública ou contra o patrimônio público, de crimes eleitorais para os quais a lei comine pena privativa de liberdade, e de crimes de lavagem ou ocultação de bens, direitos e valores.', margin: [10, 5], alignment: 'justify' },
             { text: 'V – não tiveram as contas rejeitadas pela Administração Pública nos últimos cinco anos;', margin: [0, 10], alignment: 'justify' },
+            { text: 'OU', color: 'red', margin: [0, 5], alignment: 'justify' },
+            { text: 'V – tiveram as contas rejeitadas mas demonstraram nos termos do art. 39 IV alíneas “a” “b” e “c” da Lei nº 13.1019 de 2014 que:', margin: [0, 10], alignment: 'justify' },
+            { text: 'V.1 – a irregularidade que motivou a rejeição das contas foi sanada e que os débitos eventualmente imputados foram quitados;', margin: [10, 5], alignment: 'justify' },
+            { text: 'V.2 – a decisão de rejeição das contas foi reconsiderada ou revista;', margin: [10, 5], alignment: 'justify' },
+            { text: 'V.3 – a decisão sobre a apreciação das contas está pendente de decisão sobre recurso com efeito suspensivo;', margin: [10, 5], alignment: 'justify' },
             { text: 'VI – não foram punidos com as seguintes sanções:', margin: [0, 10], alignment: 'justify' },
-            { text: '• suspensão de participação em licitação e impedimento de contratar com a administração;', margin: [10, 5], alignment: 'justify' },
-            { text: '• declaração de inidoneidade para licitar ou contratar com a administração pública;', margin: [10, 5], alignment: 'justify' },
-            { text: '• suspensão temporária da participação em chamamento público e impedimento de celebrar parceria ou contrato com órgãos e entidades da esfera de governo da administração pública sancionadora, por prazo não superior a dois anos, conforme art. 73 inciso II da Lei nº 13.019 de 2014;', margin: [10, 5], alignment: 'justify' },
+            { text: '• suspensão de participação em licitação e impedimento de contratar com a administração;', color: 'red', margin: [10, 5], alignment: 'justify' },
+            { text: '• declaração de inidoneidade para licitar ou contratar com a administração pública;', color: 'red', margin: [10, 5], alignment: 'justify' },
             { text: 'VII – não são pessoas que durante os últimos 08 (oito) anos:', margin: [0, 10], alignment: 'justify' },
             { text: 'a) tiveram suas contas relativas a parcerias julgadas irregulares ou rejeitadas por Tribunal ou Conselho de Contas de qualquer esfera da Federação, em decisão irrecorrível nos últimos 8 (oito) anos;', margin: [10, 5], alignment: 'justify' },
             { text: 'b) foram julgados responsáveis por falta grave e inabilitada para o exercício de cargo em comissão ou função de confiança, enquanto durar a inabilitação;', margin: [10, 5], alignment: 'justify' },
             { text: 'c) foram considerados responsáveis por ato de improbidade;', margin: [10, 5], alignment: 'justify' },
-            { text: 'Local-UF ____ de ______________ de 20___.', margin: [0, 20], alignment: 'justify' },
+            { text: 'OU', color: 'red', margin: [0, 5], alignment: 'justify' },
+            { text: 'c) foram consideradas responsáveis por ato de improbidade mas os respectivos efeitos nos prazos previstos no art. 12 incisos I, II e III da Lei nº 8.429 de 1992 já se exauriram.', color: 'red', margin: [10, 5], alignment: 'justify' },
+            {
+                text: '\nPara os itens V, VI e letra “c” do item VII, a OSC deverá usar uma ou outra opção, de modo que, se marcar uma, deverá excluir a outra. EXCLUIR ESSE COMENTÁRIO ANTES DA ASSINATURA.',
+                color: 'red',
+                margin: [0, 20]
+            },
+            {
+                text: '\nLocal-UF ____ de ______________ de 20___.\n\n...........................................................................................\n(Nome e Cargo do Representante Legal da OSC)',
+                alignment: 'center',
+                margin: [0, 40]
+            },
             { text: '...........................................................................................', margin: [0, 40], alignment: 'justify' },
-            { text: 'Na data da assinatura'},
             { text: '(Nome e Cargo do Representante Legal da OSC)', margin: [0, 10], alignment: 'justify' }
         ],
         styles: {
