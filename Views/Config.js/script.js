@@ -768,7 +768,7 @@ margin: [0, 20, 0, 0], color: 'gray'
 
 // Título centralizado
 {
-    text: 'DECLARAÇÃO DE CIÊNCIA DOS DEVERES E RESPONSABILIDADES',
+    text: 'ATESTADO DE VERACIDADE DAS INFORMAÇÕES PRESTADAS',
     style: 'header',
     alignment: 'center',
     margin: [0, 0, 0, 10]
@@ -777,18 +777,23 @@ margin: [0, 20, 0, 0], color: 'gray'
 // Texto principal
 {
     text: [
-        `Eu, ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${orgaoEmissor}, inscrito no CPF sob nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ sob nº ${cnpj}, `,
+        `Eu ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${orgaoEmissor}, CPF ${cpf}, na condição de representante legal do(a) ${entidade}, inscrita no CNPJ nº ${cnpj}, `,
+        'ATESTO que a assinatura eletrônica deste documento garante a integridade e a ciência da responsabilidade de todas as declarações, bem como tenho ciência da responsabilidade sob todos os efeitos das minhas declarações prestadas conforme os documentos apresentados:\n\n',
+        '• Declaração de não utilização de recursos para finalidade alheia ao objeto da parceria;\n',
+        '• Declaração dos arts. 26 e 27 do Decreto nº 8.726 de 2016 e do art. 39 da Lei nº 13.019 de 2014;\n',
+        '• Declaração de ausência de destinação de recursos;\n',
+        '• Declaração de cumprimento do art. 90 da Lei nº 14.791 de 29 de dezembro de 2023;\n',
+        '• Declaração de não contratação com recursos da parceria;\n',
+        '• Declaração do art. 299 do Código Penal e autonomia financeira;\n',
+        '• Declaração da não ocorrência de impedimentos;\n',
+        '• Declaração de que não recebe recursos para a mesma finalidade de outra entidade ou órgão;\n',
+        '• Declaração de comprovação de existência, experiência, instalações e outras condições materiais;\n',
+        '• Declaração de Compromisso;\n',
+        '• Declaração de Custos;\n',
+        '• Declaração de Adimplência;\n',
+        '• Declaração de Ciência dos Deveres e Responsabilidades impostos pela legislação eleitoral;\n\n',
         { text: 'DECLARO ', bold: true },
-        `, sob as penas da lei e passível de devolução dos recursos do Termo de Fomento nº ${proposta}:\n\n`,
-        '1. Estar ciente das condutas vedadas aos agentes públicos durante o período do defeso eleitoral, de acordo com disposto no caput do art. 73 da Lei nº 9.504 de 1997;\n',
-        '2. Estar ciente de que as condutas vedadas dispensam comprovação de dolo ou culpa, sendo cláusulas de responsabilidade objetiva;\n',
-        '3. Que a presente Entidade não possui dentro do quadro de dirigentes candidatos ao pleito eleitoral de 2024;\n',
-        `4. Que não será permitido no âmbito do Termo de Fomento nº ${proposta}/2024 a distribuição de brindes ou outros bens que possam proporcionar vantagem ao eleitor durante o período de campanha eleitoral;\n`,
-        `5. Que não será permitido o uso promocional em favor de candidatos, partidos políticos ou coligações na **distribuição de bens e serviços de caráter social** custeados pelo Termo de Fomento nº ${proposta}/2024;\n`,
-        '6. Que não será permitida qualquer promoção pessoal ou condutas que afetem a igualdade de oportunidades entre candidatos nos pleitos eleitorais;\n',
-        '7. Que não será realizada publicidade institucional de atos, programas, obras, serviços e campanhas dos órgãos públicos federais;\n',
-        '8. Estar ciente do inteiro teor da Cartilha de Condutas Vedadas aos Agentes Públicos Federais em Eleições, disponível no site do governo.\n\n',
-        'Por ser expressão da verdade, firmo a presente declaração.\n\n',
+        'para os devidos fins de direito, sob as penas da lei, que as informações prestadas nos documentos mencionados são verdadeiras e autênticas.\n\n',
         `${municipio}/${uf}, ${date}\n\n`
     ],
     alignment: 'justify',
