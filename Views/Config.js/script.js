@@ -149,6 +149,12 @@ var docDefinition = {
             alignment: 'center',
             margin: [0, 0, 0, 20]
         },
+        {
+            text: 'PARA FINALIDADE ALHEIA AO OBJETO DA PARCERIA',
+            style: 'header',
+            alignment: 'center',
+            margin: [0, 0, 0, 20]
+        },
 
         // Texto principal justificado
         {
@@ -171,14 +177,6 @@ var docDefinition = {
             alignment: 'left',
             fontSize: 12,
             margin: [0, 0, 0, 20]
-        },
-
-        // Assinatura centralizada
-        {
-            text: '\n\n____________________________________\n',
-            alignment: 'center', // Centraliza a linha de assinatura
-            fontSize: 12,
-            margin: [0, 10, 0, 0]
         },
         {
             text: `${cargoDirigente}\n\n`,
@@ -228,14 +226,6 @@ var docDefinition = {
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
 
-
-        // Assinatura centralizada
-            {
-                text: '\n\n____________________________________\n',
-                alignment: 'center', // Centraliza a linha de assinatura
-                fontSize: 12,
-                margin: [0, 10, 0, 0]
-            },
             {
                 text: `${cargoDirigente}\n\n`,
                 alignment: 'center', // Centraliza o cargo do dirigente
@@ -274,12 +264,6 @@ var docDefinition = {
         },
 
          // Assinatura centralizada
-        {
-            text: '\n\n____________________________________\n',
-            alignment: 'center', // Centraliza a linha de assinatura
-            fontSize: 12,
-            margin: [0, 10, 0, 0]
-        },
         {
             text: `${cargoDirigente}\n\n`,
             alignment: 'center', // Centraliza o cargo do dirigente
@@ -328,14 +312,6 @@ var docDefinition = {
             fontSize: 12,
             margin: [0, 0, 0, 20] // Margem inferior antes da assinatura
         },
-
- // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -370,7 +346,7 @@ var docDefinition = {
                 // Itens 1 a 4 em negrito
                 { text: '1. Empresas que sejam do mesmo grupo econômico;\n', bold: true },
                 { text: '2. Empresas que tenham participação societária cruzada;\n', bold: true },
-                { text: '3. Empresas que possuam participação societária de parentes de dirigentes ou funcionários da entidade;\n', bold: true },
+                { text: '3. Empresas que pertençam ou possuam participação societária de parentes de dirigentes ou funcionários da entidade;\n', bold: true },
                 { text: '4. Empresas que possuam o mesmo endereço, telefone e CNPJ.\n\n', bold: true },
        
                 // Texto sem negrito
@@ -392,12 +368,7 @@ var docDefinition = {
         },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
+
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -421,12 +392,12 @@ var docDefinition = {
                 `A ${entidade}, pessoa jurídica de direito privado na forma de associação sem fins lucrativos, com sede na ${endereco}, inscrita no CNPJ nº ${cnpj}, neste ato representada por ${dirigente}, brasileiro, ${cargoDirigente}, RG ${rg}, declara para fins de cadastramento de celebração do presente Termo de Fomento junto ao Ministério do Esporte - MESP que a ${entidade} `,
  
                 // Trecho em negrito
-                { text: 'é uma entidade viável e autônoma financeiramente e que de acordo com as demonstrações contábeis regularmente escrituradas sob pena do Art. 299 do Código Penal:\n\n', bold: true },
+                { text: 'é uma entidade viável e autônoma financeiramente, e que, de acordo com as demonstrações contábeis regularmente escrituradas, sob pena do Art. 299 do Código Penal:\n\n', bold: true },
  
                 // Itens da declaração
-                { text: '1. Compromete-se em manter a escrituração completa de suas receitas e despesas em livros revestidos das formalidades que assegurem a respectiva exatidão de acordo com a legislação e normas editadas pelo Conselho Federal de Contabilidade;\n\n', bold: true },
-                { text: '2. Compromete-se a conservar em boa ordem, pelo prazo de cinco, anos contado da data da emissão, os documentos que comprovem a origem de suas receitas e a efetivação de suas despesas, bem como a realização de quaisquer outros atos ou operações que venham modificar a sua situação patrimonial;\n\n', bold: true },
-                { text: '3. Apresentar à Secretaria da Receita Federal do Brasil, anualmente, Declaração de Rendimentos em conformidade com o disposto em ato daquele órgão, sem prejuízo da exigência de apresentação da cópia do respectivo recibo de entrega da referida Declaração de Rendimentos.\n\n', bold: true },
+                { text: '1. Compromete-se em manter a escrituração completa de suas receitas e despesas em livros revestidos das formalidades que assegurem a respectiva exatidão, de acordo com a legislação e normas editadas pelo Conselho Federal de Contabilidade;\n\n', bold: true },
+                { text: '2. Compromete-se a conservar em boa ordem, pelo prazo de cinco anos, contado da data da emissão, os documentos que comprovem a origem de suas receitas e a efetivação de suas despesas, bem como a realização de quaisquer outros atos ou operações que venham modificar a sua situação patrimonial;\n\n', bold: true },
+                { text: '3. Apresentar à Secretaria da Receita Federal do Brasil, anualmente, Declaração de Rendimentos, em conformidade com o disposto em ato daquele órgão, sem prejuízo da exigência de apresentação da cópia do respectivo recibo de entrega da referida Declaração de Rendimentos.\n\n', bold: true },
 
  
             ],
@@ -444,12 +415,6 @@ var docDefinition = {
         },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -474,7 +439,7 @@ var docDefinition = {
  
                 // Palavras em negrito
                 { text: 'DECLARO ', bold: true },
-                `para os devidos fins, nos termos do art. 26, caput inciso IX do Decreto nº 8.726 de 2016, que `,
+                `para os devidos fins, nos termos do art. 26, caput, inciso IX, do Decreto nº 8.726 de 2016, que `,
  
                 // Palavras em negrito
                 { text: 'a presente Entidade e seus dirigentes ', bold: true },
@@ -501,12 +466,6 @@ var docDefinition = {
         },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -533,8 +492,15 @@ var docDefinition = {
 // Texto principal justificado
 {
     text: [
-        `Eu, ${dirigente}, portador(a) da carteira de identidade nº ${rg}, expedida pelo(a) ${orgaoEmissor}, CPF nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ nº ${cnpj}, DECLARO ao Ministério do Esporte - MESP, que a entidade a qual represento, apresentou informações para apreciação SOMENTE junto a esse órgão e em nenhum outro ente da administração pública, bem como não recebe recursos financeiros de outra entidade ou órgão (incluindo a Lei de Incentivo ao Esporte, a Lei Agnelo-Piva e/ou patrocínio de empresas estatais) para a mesma finalidade na execução das ações apresentadas e especificadas na Proposta N° ${proposta}/2024, cadastrada no Sistema Eletrônico Transferegov para ${objeto}, evitando desta forma a sobreposição de recursos.\n\n`
+        `Eu, ${dirigente}, portador(a) da carteira de identidade nº ${rg}, expedida pelo(a) ${orgaoEmissor}, CPF nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ nº ${cnpj}, `,
+        { text: 'DECLARO ', bold: true },
+        `ao Ministério do Esporte - MESP, que a entidade a qual represento, apresentou informações para apreciação `,
+        { text: 'SOMENTE ', bold: true },
+        `junto a esse órgão e em nenhum outro ente da administração pública, bem como não recebe recursos financeiros de outra entidade ou órgão `,
+        { text: '(incluindo a Lei de Incentivo ao Esporte, a Lei Agnelo-Piva e/ou patrocínio de empresas estatais)', bold: true },
+        ` para a mesma finalidade na execução das ações apresentadas e especificadas na Proposta N° ${proposta}/2024, cadastrada no Sistema Eletrônico Transferegov, evitando desta forma a sobreposição de recursos.\n\n`
     ],
+ 
     alignment: 'justify', // Alinhamento justificado
     fontSize: 12,
     margin: [0, 0, 0, 40] // Margem inferior
@@ -549,12 +515,6 @@ var docDefinition = {
 },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -586,7 +546,7 @@ var docDefinition = {
         // "ATESTO" em negrito
         { text: 'ATESTO ', bold: true },
  
-        `que a presente entidade, existe há, no mínimo, 3 (três) anos e possui o cadastro ativo, bem como experiência prévia na realização, com efetividade, no desenvolvimento de Projetos e/ou Eventos de objeto de natureza semelhante, assim como, instalações, condições materiais e capacidade técnica e operacional para o desenvolvimento do objeto apresentado na Proposta nº ${proposta}/2024 e para o cumprimento das metas estabelecidas em atendimento aos dispostos no art.90, inciso XI, da Lei n° 14.791/2023 (LDO 2024), no art.33, inciso V, da Lei n° 13.019/2024 e no art.26, incisos I, II e III, do Decreto n°8.726/2016 ou outras condições materiais para contratar ou adquirir com recursos da parceria, em conformidade com o art.26, inciso X, do Decreto n°8.726/2016.\n\n`
+        `que a presente entidade, existe há, no mínimo, 3 (três) anos e possui o cadastro ativo, bem como experiência prévia na realização, com efetividade, no desenvolvimento de Projetos e/ou Eventos de objeto de natureza semelhante, assim como, instalações, condições materiais e capacidade técnica e operacional para o desenvolvimento do objeto apresentado na Proposta nº ${proposta}/2024 e para o cumprimento das metas estabelecidas, em atendimento aos dispostos no art.90, inciso XI, da Lei n° 14.791/2023 (LDO 2024), no art.33, inciso V, da Lei n° 13.019/2024 e no art.26, incisos I, II e III, do Decreto n°8.726/2016 ou outras condições materiais para contratar ou adquirir com recursos da parceria, em conformidade com o art.26, inciso X, do Decreto n°8.726/2016.\n\n`
     ],
     alignment: 'justify',
     fontSize: 12,
@@ -601,13 +561,7 @@ var docDefinition = {
     margin: [0, 0, 0, 20]
 },
 
- // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
+
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -648,12 +602,6 @@ var docDefinition = {
 },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -663,56 +611,6 @@ var docDefinition = {
 
 { text: '', pageBreak: 'after' }, // Quebra de página
 
- // Título centralizado
- {
-    text: 'DECLARAÇÃO DE COMPROVAÇÃO DE EXISTÊNCIA,',
-    style: 'header',
-    alignment: 'center',
-    margin: [0, 0, 0, 10]
-},
-{
-    text: 'EXPERIÊNCIA, INSTALAÇÕES',
-    style: 'header',
-    alignment: 'center',
-    margin: [0, 0, 0, 20]
-},
-
-// Texto principal
-{
-    text: [
-        `Eu, ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${orgaoEmissor}, CPF nº ${cpf}, na condição de representante legal da ${entidade}, CNPJ nº ${cnpj}, `,
-        { text: 'ATESTO', bold: true },
-        ` que a presente entidade existe há no mínimo 3 (três) anos e possui o cadastro ativo, bem como experiência prévia na realização com efetividade no desenvolvimento de Projetos e/ou Eventos de objeto de natureza semelhante. A entidade dispõe de instalações, condições materiais e capacidade técnica e operacional para o desenvolvimento do objeto apresentado na Proposta nº ${proposta}, e para o cumprimento das metas estabelecidas em atendimento aos dispostos no art. 90 inciso XI da Lei nº 14.791/2023 (LDO 2024), no art. 33 inciso V da Lei nº 13.019/2014 e no art. 26 incisos I, II e III do Decreto nº 8.726/2016, ou outras condições materiais para contratar ou adquirir com recursos da parceria em conformidade com o art. 26 inciso X do Decreto nº 8.726/2016.\n\n`,
-        'Por ser expressão da verdade, firmo a presente declaração.'
-    ],
-    alignment: 'justify',
-    fontSize: 12,
-    margin: [0, 0, 0, 40]
-},
-
-// Local e data
-{
-    text: `${municipio}/${uf}, na data da assinatura digital.`,
-    alignment: 'left',
-    fontSize: 12,
-    margin: [0, 0, 0, 20]
-},
-
- // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
-{
-    text: `${cargoDirigente}\n\n`,
-    alignment: 'center', // Centraliza o cargo do dirigente
-    fontSize: 12,
-    margin: [0, 0, 0, 20]
-},
-
-{ text: '', pageBreak: 'after' }, // Quebra de página
 
 // Título centralizado
 {
@@ -754,12 +652,6 @@ var docDefinition = {
 },
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -810,12 +702,6 @@ var docDefinition = {
 
 
  // Assinatura centralizada
- {
-    text: '\n\n____________________________________\n',
-    alignment: 'center', // Centraliza a linha de assinatura
-    fontSize: 12,
-    margin: [0, 10, 0, 0]
-},
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
@@ -852,12 +738,14 @@ margin: [0, 20, 0, 0], color: 'gray'
 // Texto principal
 {
     text: [
-        `Eu, ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${dirigente}, inscrito no CPF sob nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ sob nº ${cnpj}, DECLARO, sob as penas da lei e passível de devolução dos recursos do Termo de Fomento nº ${entidade}/2024:\n\n`,
+        `Eu, ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${orgaoEmissor}, inscrito no CPF sob nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ sob nº ${cnpj}, `,
+        { text: 'Declaro', bold: true },
+        `, sob as penas da lei e passível de devolução dos recursos do Termo de Fomento nº ${proposta}:\n\n`,
         '1. Estar ciente das condutas vedadas aos agentes públicos durante o período do defeso eleitoral, de acordo com disposto no caput do art. 73 da Lei nº 9.504 de 1997;\n',
         '2. Estar ciente de que as condutas vedadas dispensam comprovação de dolo ou culpa, sendo cláusulas de responsabilidade objetiva;\n',
         '3. Que a presente Entidade não possui dentro do quadro de dirigentes candidatos ao pleito eleitoral de 2024;\n',
-        `4. Que não será permitido no âmbito do Termo de Fomento nº ${entidade}/2024 a distribuição de brindes ou outros bens que possam proporcionar vantagem ao eleitor durante o período de campanha eleitoral;\n`,
-        `5. Que não será permitido o uso promocional em favor de candidatos, partidos políticos ou coligações de bens e serviços custeados pelo Termo de Fomento nº ${entidade}/2024;\n`,
+        `4. Que não será permitido no âmbito do Termo de Fomento nº ${proposta} a distribuição de brindes ou outros bens que possam proporcionar vantagem ao eleitor durante o período de campanha eleitoral;\n`,
+        `5. Que não será permitido o uso promocional em favor de candidatos, partidos políticos ou coligações, na distribuição de bens e serviços de caráter social custeados pelo Termo de Fomento nº ${entidade}/2024;\n`,
         '6. Que não será permitida qualquer promoção pessoal ou condutas que afetem a igualdade de oportunidades entre candidatos nos pleitos eleitorais;\n',
         '7. Que não será realizada publicidade institucional de atos, programas, obras, serviços e campanhas dos órgãos públicos federais;\n',
         '8. Estar ciente do inteiro teor da Cartilha de Condutas Vedadas aos Agentes Públicos Federais em Eleições, disponível no site do governo.\n\n',
@@ -869,12 +757,53 @@ margin: [0, 20, 0, 0], color: 'gray'
 },
 
  // Assinatura centralizada
- {
+{
+    text: `${cargoDirigente}\n\n`,
+    alignment: 'center', // Centraliza o cargo do dirigente
+    fontSize: 12,
+    margin: [0, 0, 0, 20]
+},
+
+{ text: '', pageBreak: 'after' }, // Quebra de página
+
+// Título centralizado
+{
+    text: 'DECLARAÇÃO DE CIÊNCIA DOS DEVERES E RESPONSABILIDADES',
+    style: 'header',
+    alignment: 'center',
+    margin: [0, 0, 0, 10]
+},
+
+// Texto principal
+{
+    text: [
+        `Eu, ${dirigente}, portador da carteira de identidade nº ${rg}, expedida pelo ${orgaoEmissor}, inscrito no CPF sob nº ${cpf}, na condição de representante legal da ${entidade}, inscrita no CNPJ sob nº ${cnpj}, `,
+        { text: 'DECLARO ', bold: true },
+        `, sob as penas da lei e passível de devolução dos recursos do Termo de Fomento nº ${proposta}:\n\n`,
+        '1. Estar ciente das condutas vedadas aos agentes públicos durante o período do defeso eleitoral, de acordo com disposto no caput do art. 73 da Lei nº 9.504 de 1997;\n',
+        '2. Estar ciente de que as condutas vedadas dispensam comprovação de dolo ou culpa, sendo cláusulas de responsabilidade objetiva;\n',
+        '3. Que a presente Entidade não possui dentro do quadro de dirigentes candidatos ao pleito eleitoral de 2024;\n',
+        `4. Que não será permitido no âmbito do Termo de Fomento nº ${proposta}/2024 a distribuição de brindes ou outros bens que possam proporcionar vantagem ao eleitor durante o período de campanha eleitoral;\n`,
+        `5. Que não será permitido o uso promocional em favor de candidatos, partidos políticos ou coligações na **distribuição de bens e serviços de caráter social** custeados pelo Termo de Fomento nº ${proposta}/2024;\n`,
+        '6. Que não será permitida qualquer promoção pessoal ou condutas que afetem a igualdade de oportunidades entre candidatos nos pleitos eleitorais;\n',
+        '7. Que não será realizada publicidade institucional de atos, programas, obras, serviços e campanhas dos órgãos públicos federais;\n',
+        '8. Estar ciente do inteiro teor da Cartilha de Condutas Vedadas aos Agentes Públicos Federais em Eleições, disponível no site do governo.\n\n',
+        'Por ser expressão da verdade, firmo a presente declaração.\n\n',
+        `${municipio}/${uf}, ${date}\n\n`
+    ],
+    alignment: 'justify',
+    fontSize: 12,
+    margin: [0, 0, 0, 40]
+},
+
+{
     text: '\n\n____________________________________\n',
     alignment: 'center', // Centraliza a linha de assinatura
     fontSize: 12,
     margin: [0, 10, 0, 0]
 },
+
+ // Assinatura centralizada
 {
     text: `${cargoDirigente}\n\n`,
     alignment: 'center', // Centraliza o cargo do dirigente
