@@ -1,5 +1,4 @@
- // Função para gerar os campos de acordo com o número de dirigentes
- function gerarCampos() {
+function gerarCampos() {
     const numDirigentes = document.getElementById('numDirigentes').value;
     const container = document.getElementById('camposDirigentes');
     container.innerHTML = ''; // Limpa os campos anteriores
@@ -85,7 +84,7 @@ function gerarPDF() {
             {
                 table: {
                     headerRows: 1,
-                    widths: ['*', '*', '*', 'auto', '*', '*', 'auto', '*'], // Distribuição adaptativa das colunas
+                    widths: ['15%', '10%', '10%', '10%', '12%', '18%', '10%', '15%'], // Distribuição adaptativa das colunas
                     body: [
                         [
                             { text: 'Nome', bold: true, alignment: 'center', fontSize: 10 },
@@ -135,18 +134,28 @@ function gerarPDF() {
             { text: 'V.2 – a decisão de rejeição das contas foi reconsiderada ou revista;', margin: [10, 5], alignment: 'justify' },
             { text: 'V.3 – a decisão sobre a apreciação das contas está pendente de decisão sobre recurso com efeito suspensivo;', margin: [10, 5], alignment: 'justify' },
             { text: 'VI – não foram punidos com as seguintes sanções:', margin: [0, 10], alignment: 'justify' },
-            { text: '• suspensão de participação em licitação e impedimento de contratar com a administração;', color: 'red', margin: [10, 5], alignment: 'justify' },
-            { text: '• declaração de inidoneidade para licitar ou contratar com a administração pública;', color: 'red', margin: [10, 5], alignment: 'justify' },
+            { text: 'VI.1 – suspensão de participação em licitação e impedimento de contratar com a administração;\n' },
+            { text: 'VI.2 – declaração de inidoneidade para licitar ou contratar com a administração pública;\n' },
+            { text: 'VI.3 – suspensão temporária da participação em chamamento público e impedimento de celebrar parceria ou contrato com órgãos e entidades da esfera de governo da administração pública sancionadora, por prazo não superior a dois anos; conforme art. 73, inciso II, da Lei nº 13.019, de 2014;\n' },
+            { text: 'VI.4 - declaração de inidoneidade para participar de chamamento público ou celebrar parceria ou contrato com órgãos e entidades de todas as esferas de governo, nos termos do art. 73, inciso III, da Lei nº 13.019, de 2014;\n' },
+            {
+                text: 'VI – foram punidos com as sanções previstas no art. 39, inciso V, alíneas “a”, “b”, “c” e “d”, da Lei nº 13.019, de 2014, mas o período que durou a penalidade já se exauriu;',
+                margin: [10, 5],
+                alignment: 'justify',
+                color: 'red'
+            },
             { text: 'VII – não são pessoas que durante os últimos 08 (oito) anos:', margin: [0, 10], alignment: 'justify' },
             { text: 'a) tiveram suas contas relativas a parcerias julgadas irregulares ou rejeitadas por Tribunal ou Conselho de Contas de qualquer esfera da Federação, em decisão irrecorrível nos últimos 8 (oito) anos;', margin: [10, 5], alignment: 'justify' },
             { text: 'b) foram julgados responsáveis por falta grave e inabilitada para o exercício de cargo em comissão ou função de confiança, enquanto durar a inabilitação;', margin: [10, 5], alignment: 'justify' },
-            { text: 'c) foram considerados responsáveis por ato de improbidade;', margin: [10, 5], alignment: 'justify' },
+            { text: 'c', color: 'red', noWrap: 'true' }, 
+            { text: '   foram consideradas responsáveis por ato de improbidade;' },
             { text: 'OU', color: 'red', margin: [0, 5], alignment: 'justify' },
-            { text: 'c) foram consideradas responsáveis por ato de improbidade mas os respectivos efeitos nos prazos previstos no art. 12 incisos I, II e III da Lei nº 8.429 de 1992 já se exauriram.', color: 'red', margin: [10, 5], alignment: 'justify' },
+            { text: 'c', color: 'red', noWrap: 'true' }, 
+            { text: '  foram consideradas responsáveis por ato de improbidade mas os respectivos efeitos nos prazos previstos no art. 12 incisos I, II e III da Lei nº 8.429 de 1992 já se exauriram.' },
             {
                 text: '\nPara os itens V, VI e letra “c” do item VII, a OSC deverá usar uma ou outra opção, de modo que, se marcar uma, deverá excluir a outra. EXCLUIR ESSE COMENTÁRIO ANTES DA ASSINATURA.',
                 color: 'red',
-                margin: [0, 20]
+                margin: [0, 15]
             },
             {
                 text: '\nLocal-UF ____ de ______________ de 20___.\n\n...........................................................................................\n(Nome e Cargo do Representante Legal da OSC)',

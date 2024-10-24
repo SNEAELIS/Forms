@@ -1,0 +1,128 @@
+header {
+    background-color: #005CAA;
+    padding: 0,8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Ajuste Global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos Fieldsets */
+fieldset {
+    margin-bottom: 25px;
+    border: 1px solid #005CAA;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #005CAA;
+    margin-bottom: 10px;
+}
+
+/* Linhas do Formulário */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Label e input proporcionais */
+    align-items: center;
+    gap: 10px 20px; /* Espaçamento vertical e horizontal */
+    margin-bottom: 15px;
+}
+
+/* Inputs e Textareas */
+.input-text, .input-date, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-text:focus, .input-date:focus, textarea:focus {
+    border-color: #005CAA;
+    box-shadow: 0 0 5px rgba(0, 92, 170, 0.5);
+    outline: none;
+}
+
+/* Grupo de Radio Buttons */
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Botões */
+.button {
+    background-color: #005CAA;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #004b85;
+}
+
+.button.cancel {
+    background-color: #f44336;
+}
+
+.button.cancel:hover {
+    background-color: #d32f2f;
+}
+
+/* Footer */
+footer {
+    background-color: #005CAA;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr; /* Labels e inputs empilhados em telas pequenas */
+    }
+
+    .button {
+        width: 100%; /* Botões ocupam toda a largura */
+    }
+}

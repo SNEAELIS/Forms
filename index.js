@@ -4,151 +4,117 @@ const axios = require('axios');
 const csv = require('csvtojson');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const { v4: uuidv4 } = require('uuid'); // Gerador de IDs únicos
 
 const app = express();
+const PORT = 8080;
 
-
-// Configura o Body-Parser para processar requisições com JSON e formulários
+// Configuração do Body-Parser para formulários e JSON
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Configura o diretório 'public' para servir arquivos estáticos
+// Diretório de Views para arquivos estáticos
 app.use(express.static(path.join(__dirname, 'Views')));
 
-// Servindo a página inicial (index.html)
+// Caminhos do arquivo JSON para armazenamento dos dados
+const caminhoArquivo = path.join(__dirname, 'dados-formularios.json');
+
+// Função para garantir que o arquivo JSON exista
+const verificarOuCriarArquivoJSON = () => {
+    if (!fs.existsSync(caminhoArquivo)) {
+        fs.writeFileSync(caminhoArquivo, '[]', 'utf-8');
+    }
+};
+verificarOuCriarArquivoJSON();
+
+// Carrega os dados do arquivo JSON
+let dadosFormularios = JSON.parse(fs.readFileSync(caminhoArquivo, 'utf-8'));
+
+// **Rotas**
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Views', 'index.html'));
 });
 
-// Rota para a página de confirmação
-app.get('/confirmacao', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Views', 'confirmacao.html'));
+// Rota para o formulário Relma
+app.get('/formulario_relma', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Views', 'Formulário_Relma.html'));
 });
 
-
-// Configurações de body-parser para lidar com formulários
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// URL da planilha em formato CSV
-const planilhaURL = 'https://docs.google.com/spreadsheets/d/18oQWjrz0C0ajwBkwnOa1RagGqP_uv9ucCK4jRM8lvKQ/export?format=csv';
-
-// Função para remover zeros à esquerda da parte numérica antes da barra "/"
-const normalizarNumeroProposta = (num) => {
-    const [numero, ano] = num.split('/');
-    const numeroSemZeros = numero.replace(/^0+/, '');
-    return `${numeroSemZeros}/${ano}`;
-};
-
-// Função para buscar e filtrar os dados da planilha online
-const lerPropostas = async (propostaBuscada) => {
-    try {
-        const response = await axios.get(planilhaURL); // Faz a requisição para obter o CSV
-        const csvData = response.data;
-        const propostas = await csv().fromString(csvData); // Converte o CSV para JSON
-
-        const propostaNormalizada = normalizarNumeroProposta(propostaBuscada.trim());
-
-        // Filtrar as propostas com base na busca e remover zeros à esquerda
-        const propostasFiltradas = propostas.filter(row => {
-            const numeroPropostaOriginal = row['NºProposta'].trim();
-            const numeroPropostaNormalizado = normalizarNumeroProposta(numeroPropostaOriginal);
-            return numeroPropostaOriginal === propostaBuscada.trim() || numeroPropostaNormalizado === propostaNormalizada;
-        });
-
-        return propostasFiltradas;
-    } catch (error) {
-        console.error("Erro ao processar a planilha:", error.message);
-        throw error;
-    }
-};
-
-// Caminho para o arquivo JSON onde os dados dos formulários serão armazenados
-const caminhoArquivo = path.join(__dirname, 'dados-formularios.json');
-
-// Verifica e cria o arquivo JSON se ele não existir
-const verificarOuCriarArquivoJSON = () => {
-    if (!fs.existsSync(caminhoArquivo)) {
-        console.log("Arquivo JSON não encontrado. Criando um novo...");
-        fs.writeFileSync(caminhoArquivo, '[]', 'utf-8'); // Cria o arquivo vazio como array
-        console.log("Arquivo JSON criado.");
-    }
-};
-
-// Carrega dados existentes dos formulários ou cria um arquivo novo
-let dadosFormularios = [];
-
-try {
-    verificarOuCriarArquivoJSON();
-    const data = fs.readFileSync(caminhoArquivo, 'utf-8');
-    dadosFormularios = JSON.parse(data);
-    console.log("Dados carregados do arquivo JSON.");
-} catch (err) {
-    console.error("Erro ao carregar o arquivo JSON:", err);
-}
-
-// Rota para processar o envio do formulário e armazenar os dados
+// Rota para processar o formulário e redirecionar para a página de confirmação
 app.post('/submit', (req, res) => {
-    const novoFormulario = req.body;
+    const novoFormulario = { id: uuidv4(), ...req.body };
 
-    // Verifica se os dados do formulário foram recebidos
-    if (!novoFormulario || Object.keys(novoFormulario).length === 0) {
-        console.log("Nenhum dado foi enviado.");
-        return res.status(400).send('Nenhum dado foi enviado.');
-    }
-
-    // Adiciona os dados do formulário ao array
+    // Adiciona o formulário ao array e salva no arquivo JSON
     dadosFormularios.push(novoFormulario);
-
-    console.log("Dados recebidos do formulário:", novoFormulario);
 
     try {
         fs.writeFileSync(caminhoArquivo, JSON.stringify(dadosFormularios, null, 2));
-        console.log("Dados salvos com sucesso!");
+        console.log("Formulário salvo:", novoFormulario);
     } catch (err) {
-        console.error("Erro ao salvar os dados no arquivo JSON:", err);
+        console.error("Erro ao salvar os dados:", err);
     }
 
-    // Redireciona para a página de confirmação
+    // Redireciona para a nova página de confirmação
     res.redirect('/confirmacao');
 });
 
-// Rota para servir a página de confirmação e exibir o histórico de formulários
+// Nova rota para exibir a página de confirmação
 app.get('/confirmacao', (req, res) => {
-    fs.readFile(path.join(__dirname, 'Views', 'confirmacao.html'), 'utf-8', (err, data) => {
+    const confirmacaoPath = path.join(__dirname, 'Views', 'confirmacao.html');
+
+    fs.readFile(confirmacaoPath, 'utf-8', (err, data) => {
         if (err) {
-            console.error("Erro ao carregar a página de confirmação:", err);
-            res.status(500).send('Erro ao carregar a página de confirmação.');
-            return;
+            console.error("Erro ao carregar a página:", err);
+            return res.status(500).send('Erro ao carregar a página de confirmação.');
         }
 
-        // Gera o histórico de formulários enviados
-        const historicoHTML = dadosFormularios.map(formulario => `
-            <li>Processo SEI: ${formulario.processo_sei}, Termo de Fomento: ${formulario.termo_fomento}, Entidade Parceira: ${formulario.entidade_parceira}</li>
+        // Gera o histórico de formulários recebidos
+        const historicoHTML = dadosFormularios.map(f => `
+            <li>
+                <strong>Processo SEI:</strong> ${f.processo_sei || 'N/A'} |
+                <strong>Termo de Fomento:</strong> ${f.termo_fomento || 'N/A'} |
+                <a href="/pdf/${f.id}">Baixar PDF</a> |
+                <a href="/visualizar/${f.id}">Visualizar</a>
+            </li>
         `).join('');
 
-        // Substituir o marcador de histórico no HTML
         const paginaAtualizada = data.replace('<!-- HistoricoFormulario -->', `<ul>${historicoHTML}</ul>`);
         res.send(paginaAtualizada);
     });
 });
 
-// Rota para baixar o arquivo JSON gerado
-app.get('/gerar-documento', (req, res) => {
-    if (fs.existsSync(caminhoArquivo)) {
-        res.download(caminhoArquivo);
-    } else {
-        res.status(404).send('Arquivo não encontrado.');
-    }
+// Rota para visualizar os dados completos de um formulário
+app.get('/visualizar/:id', (req, res) => {
+    const formulario = dadosFormularios.find(f => f.id === req.params.id);
+    if (!formulario) return res.status(404).send('Formulário não encontrado.');
+    res.json(formulario);
 });
 
-// Rota para buscar dados filtrados da proposta
+// Rota para gerar PDF do formulário
+app.get('/pdf/:id', (req, res) => {
+    const formulario = dadosFormularios.find(f => f.id === req.params.id);
+    if (!formulario) return res.status(404).send('Formulário não encontrado.');
+
+    const PDFDocument = require('pdfkit');
+    const doc = new PDFDocument();
+
+    res.setHeader('Content-Disposition', `attachment; filename=formulario-${formulario.id}.pdf`);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+
+    doc.fontSize(20).text(`Formulário - ${formulario.tipo}`, { align: 'center' }).moveDown();
+    Object.entries(formulario).forEach(([key, value]) => {
+        doc.fontSize(14).text(`${key}: ${value}`);
+    });
+
+    doc.end();
+});
+
+// Rota para buscar propostas específicas no Google Sheets
 app.get('/api/get-proposal-data', async (req, res) => {
     const propostaBuscada = req.query.proposta;
-
-    if (!propostaBuscada || propostaBuscada.trim() === '') {
-        return res.status(400).send('Proposta não fornecida');
-    }
+    if (!propostaBuscada) return res.status(400).send('Proposta não fornecida');
 
     try {
         const propostas = await lerPropostas(propostaBuscada);
@@ -162,8 +128,7 @@ app.get('/api/get-proposal-data', async (req, res) => {
     }
 });
 
-// Inicializando o servidor na porta 8080
-const PORT = 8080;
+// Inicia o servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });

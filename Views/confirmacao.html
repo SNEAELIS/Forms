@@ -4,30 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmação de Envio</title>
-    <link rel="stylesheet" href="style.css/style2.css">
+    <link rel="stylesheet" href="/styles/confirmacao.css"> <!-- Opcional: CSS externo -->
 </head>
 <body>
+    <header>
+        <h1>Histórico de Formulários Enviados</h1>
+        <p>Abaixo você pode visualizar e baixar os formulários submetidos.</p>
+    </header>
 
-        <!-- Cabeçalho -->
-        <header>
-            <h1>Ministério do Esporte</h1>
-            <img src="img/Imagem1.png" alt="IMG1" width="10%">
-        </header>
-
-    <div class="container">
-        <h1>Formulário Enviado com Sucesso!</h1>
-        <p>Obrigado por enviar o formulário. Clique no botão abaixo para baixar o documento gerado:</p>
-
-        <a href="/gerar-documento" class="button">Baixar Documento</a>
-
-        <h2>Histórico de Formulários RELMA Enviados:</h2>
-        <!-- Aqui o histórico será inserido dinamicamente -->
-        <!-- HistoricoFormulario -->
-    </div>
+    <section>
+        <ul id="historico-formularios">
+            <!-- Histórico será inserido aqui dinamicamente -->
+            <!-- Exemplo de item gerado no JavaScript:
+            <li>
+                <strong>Processo SEI:</strong> 123456 |
+                <strong>Termo de Fomento:</strong> XYZ |
+                <a href="/visualizar/ID_DO_FORMULARIO">Visualizar</a> |
+                <a href="/pdf/ID_DO_FORMULARIO" download>Baixar PDF</a>
+            </li>
+            -->
+        </ul>
+    </section>
 
     <footer>
-        &copy; 2024 Entidade MESP. Todos os direitos reservados.
+        <p>&copy; 2024 - Sistema de Submissão de Formulários</p>
     </footer>
 
+    <script>
+        // Função para carregar o histórico dinamicamente
+        async function carregarHistorico() {
+            const response = await fetch('/api/historico');
+            const formularios = await response.json();
+
+            const historicoElement = document.getElementById('historico-formularios');
+            formularios.forEach(formulario => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>Processo SEI:</strong> ${formulario.processo_sei || 'N/A'} |
+                    <strong>Termo de Fomento:</strong> ${formulario.termo_fomento || 'N/A'} |
+                    <a href="/visualizar/${formulario.id}">Visualizar</a> |
+                    <a href="/pdf/${formulario.id}" download>Baixar PDF</a>
+                `;
+                historicoElement.appendChild(listItem);
+            });
+        }
+
+        // Chama a função assim que a página é carregada
+        carregarHistorico();
+    </script>
 </body>
 </html>

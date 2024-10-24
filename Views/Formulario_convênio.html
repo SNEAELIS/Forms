@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Atestado de Capacidade Técnica</title>
+    <link rel="stylesheet" href="style.css/style.css">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Ministério do Esporte</h1>
+        <img src="img/Imagem1.png" alt="Logo" width="10%">
+    </header>
+
+    <div class="container">
+        <h2>Atestado e Declarações</h2>
+
+        <!-- Formulário de Preenchimento -->
+        <form id="declaracoesForm">
+            <h3>Dados do Dirigente da Entidade</h3>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="dirigente">Nome Completo:</label>
+                    <input type="text" id="dirigente" name="Nome do Dirigente" required>
+                </div>
+                <div class="half-width">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" maxlength="14" oninput="formatarCPF(this)" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="rg">RG:</label>
+                    <input type="text" id="rg" required>
+                </div>
+                <div class="half-width">
+                    <label for="orgao">Órgão Expedidor:</label>
+                    <input type="text" id="orgao" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="cargoDirigente">Cargo:</label>
+                <input type="text" id="cargoDirigente" required>
+            </div>
+
+            <h3>Dados da Entidade</h3>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="entidade">Nome da Entidade:</label>
+                    <input type="text" id="entidade" required>
+                </div>
+                <div class="half-width">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" maxlength="18" oninput="formatCNPJ(this)" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="endereco">Endereço Completo:</label>
+                <input type="text" id="endereco" required>
+            </div>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="uf">UF:</label>
+                    <input type="text" id="uf" maxlength="2" required>
+                </div>
+                <div class="half-width">
+                    <label for="municipio">Município:</label>
+                    <input type="text" id="municipio" required>
+                </div>
+            </div>
+
+            <h3>Dados da Proposta</h3>
+            <div class="form-row">
+                <div class="half-width">
+                    <label for="proposta">Nº da Proposta:</label>
+                    <input type="text" id="proposta" required>
+                </div>
+                <div class="half-width">
+                    <label for="objeto">Objeto:</label>
+                    <input type="text" id="objeto" required>
+                </div>
+            </div>
+
+            <h3>Coordenador Geral</h3>
+            <div class="form-row">
+                <label>O Coordenador será cedido pelo proponente?</label>
+                <div class="button-group">
+                    <button type="button" onclick="mostrarCoordenador('Sim')">Sim</button>
+                    <button type="button" onclick="mostrarCoordenador('Não')">Não</button>
+                </div>
+            </div>
+
+            <div id="coordenadorFields" class="hidden">
+                <h3>Dados do Coordenador</h3>
+                <div class="form-row">
+                    <div class="half-width">
+                        <label for="nomeCoordenador">Nome do Coordenador:</label>
+                        <input type="text" id="nomeCoordenador">
+                    </div>
+                    <div class="half-width">
+                        <label for="cpfCoordenador">CPF:</label>
+                        <input type="text" id="cpfCoordenador" maxlength="14" oninput="formatarCPF(this)">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Botão para Vincular Dirigentes -->
+        <div class="container1">
+            <button id="vincularDirigente">
+                <a href="Formulario2.html">Vincular Dirigentes</a>
+            </button>
+        </div>
+
+        <!-- Escolha de Opções -->
+        <h3>Escolha uma Opção para Gerar o PDF</h3>
+        <select id="opcaoSelecao" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="20JP_20JQ_ate_50k">20JP e 20JQ - Discricionário - Até 50 mil habitantes</option>
+            <option value="00SL_emendas">00SL - Emendas Individual e Bancada</option>
+            <option value="20JP_20JQ_emenda">20JP e 20JQ - Emenda Individual e de Bancada</option>
+            <option value="20JP_20JQ_comissao_mais_50k">20JP e 20JQ - Discricionário de Comissão - Mais de 50 mil habitantes</option>
+            <option value="00SL_comissao_mais_50k">00SL - Discricionário e Comissão - Mais de 50 mil habitantes</option>
+            <option value="00SL_comissao_ate_50k">00SL - Discricionário e Comissão - Até 50 mil habitantes</option>
+        </select>
+
+        <button id="gerarPDF">Gerar PDF Selecionado</button>
+
+        <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
+            Aguarde, gerando PDF...
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ministério do Esporte</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="Config.js/script3.js"></script>
+
+</body>
+</html>
