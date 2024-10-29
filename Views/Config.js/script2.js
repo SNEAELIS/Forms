@@ -122,17 +122,37 @@ function gerarPDF() {
             // Texto completo da declaração, com alinhamento justificado
             { text: 'I - não são membros de Poder ou do Ministério Público ou dirigente de órgão ou entidade da Administração Pública Federal;', margin: [0, 10], alignment: 'justify' },
             { text: 'II – não são cônjuges ou companheiros, bem como parentes em linha reta, colateral ou por afinidade, até o segundo grau de quaisquer membros de Poder ou do Ministério Público ou de dirigente de órgão ou entidade da Administração Pública Federal;', margin: [0, 10], alignment: 'justify' },
-            { text: 'III - Não contratará com recursos da parceria, para prestação de serviços, servidor ou empregado público, inclusive aquele que exerça cargo em comissão ou função de confiança de órgão ou entidade da administração pública federal celebrante, ou seu cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade até o segundo grau, ressalvadas as hipóteses previstas em lei específica e na lei de diretrizes orçamentárias;', margin: [0, 10], alignment: 'justify' },
-            { text: 'IV - Não serão remunerados, a qualquer título, com os recursos repassados:', margin: [0, 10], alignment: 'justify' },
+            { text: 'III - não contratará com recursos da parceria, para prestação de serviços, servidor ou empregado público, inclusive aquele que exerça cargo em comissão ou função de confiança de órgão ou entidade da administração pública federal celebrante, ou seu cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade até o segundo grau, ressalvadas as hipóteses previstas em lei específica e na lei de diretrizes orçamentárias;', margin: [0, 10], alignment: 'justify' },
+            { text: 'IV - não serão remunerados, a qualquer título, com os recursos repassados:', margin: [0, 10], alignment: 'justify' },
             { text: '• membro de Poder ou do Ministério Público, ou dirigente de órgão ou entidade da administração pública federal;', margin: [10, 5], alignment: 'justify' },
             { text: '• servidor ou empregado público, inclusive aquele que exerça cargo em comissão ou função de confiança de órgão ou entidade da administração pública federal celebrante, ou seu cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade até o segundo grau, ressalvadas as hipóteses previstas em lei específica e na lei de diretrizes orçamentárias;', margin: [10, 5], alignment: 'justify' },
             { text: '• pessoas naturais condenadas pela prática de crimes contra a administração pública ou contra o patrimônio público, de crimes eleitorais para os quais a lei comine pena privativa de liberdade, e de crimes de lavagem ou ocultação de bens, direitos e valores.', margin: [10, 5], alignment: 'justify' },
             { text: 'V – não tiveram as contas rejeitadas pela Administração Pública nos últimos cinco anos;', margin: [0, 10], alignment: 'justify' },
             { text: 'OU', color: 'red', margin: [0, 5], alignment: 'justify' },
-            { text: 'V – tiveram as contas rejeitadas mas demonstraram nos termos do art. 39 IV alíneas “a” “b” e “c” da Lei nº 13.1019 de 2014 que:', margin: [0, 10], alignment: 'justify' },
-            { text: 'V.1 – a irregularidade que motivou a rejeição das contas foi sanada e que os débitos eventualmente imputados foram quitados;', margin: [10, 5], alignment: 'justify' },
-            { text: 'V.2 – a decisão de rejeição das contas foi reconsiderada ou revista;', margin: [10, 5], alignment: 'justify' },
-            { text: 'V.3 – a decisão sobre a apreciação das contas está pendente de decisão sobre recurso com efeito suspensivo;', margin: [10, 5], alignment: 'justify' },
+            {
+                text: 'V – tiveram as contas rejeitadas mas demonstraram nos termos do art. 39 IV alíneas “a” “b” e “c” da Lei nº 13.1019 de 2014 que:', 
+                margin: [0, 10], 
+                alignment: 'justify', 
+                color: 'red'
+            },
+            {
+                text: 'V.1 – a irregularidade que motivou a rejeição das contas foi sanada e que os débitos eventualmente imputados foram quitados;', 
+                margin: [10, 5], 
+                alignment: 'justify', 
+                color: 'red'
+            },
+            {
+                text: 'V.2 – a decisão de rejeição das contas foi reconsiderada ou revista;', 
+                margin: [10, 5], 
+                alignment: 'justify', 
+                color: 'red'
+            },
+            {
+                text: 'V.3 – a decisão sobre a apreciação das contas está pendente de decisão sobre recurso com efeito suspensivo;', 
+                margin: [10, 5], 
+                alignment: 'justify', 
+                color: 'red'
+            },
             { text: 'VI – não foram punidos com as seguintes sanções:', margin: [0, 10], alignment: 'justify' },
             { text: 'VI.1 – suspensão de participação em licitação e impedimento de contratar com a administração;\n' },
             { text: 'VI.2 – declaração de inidoneidade para licitar ou contratar com a administração pública;\n' },

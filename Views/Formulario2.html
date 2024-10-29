@@ -16,33 +16,29 @@
     </header>
 
     <div class="container">
-
+        <h2>Opções de Ajuste</h2>
+    
+        <!-- Adicionar três checkboxes para alterar o comportamento -->
+        <form id="checkboxForm">
+            <label><input type="checkbox" id="opcao1" onchange="alterarComportamento()"> Conta rejeitada</label><br>
+            <label><input type="checkbox" id="opcao2" onchange="alterarComportamento()"> Foram punidos Art 39, inciso V</label><br>
+            <label><input type="checkbox" id="opcao3" onchange="alterarComportamento()"> Improbidade Administrativa</label><br>
+        </form>
+    
         <h2>Dados Gerais</h2>
-
-        <!-- Formulário para o número de dirigentes -->
         <form id="declaracoesForm">
             <label for="numDirigentes">Informe o número de dirigentes:</label>
             <input type="number" id="numDirigentes" name="numDirigentes" min="1" max="10">
             <button type="button" onclick="gerarCampos()">Gerar Campos</button>
         </form>
-
-        <!-- Formulário para preenchimento dos dados dos dirigentes -->
+    
         <form id="dirigentesForm">
             <div id="camposDirigentes"></div>
         </form>
-
-        <!-- Controles de navegação entre dirigentes -->
     
-        
-        <!-- Botão para gerar PDF -->
         <div class="container1">
-            <div class="teste">
-                <button id="botaoGerarPDF" onclick="gerarPDF()">Gerar PDF Art 26/27</button>
-            </div>
+            <button id="botaoGerarPDF" onclick="gerarPDF()">Gerar PDF Art 26/27</button>
         </div>
-        <div id="loadingMessage" style="display:none; color:blue; margin-top:10px;">
-            Aguarde um momento, o download está sendo processado...
-        </div>      
     </div>
 
     <footer>
