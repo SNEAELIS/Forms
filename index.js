@@ -41,6 +41,24 @@ app.get('/formulario_relma', (req, res) => {
     res.sendFile(path.join(__dirname, 'Views', 'Formulário_Relma.html'));
 });
 
+app.post('/submit/pagina2', (req, res) => {
+    const proposalNumber = req.body.proposalNumber || uuidv4(); // Identificador único
+    const novoFormulario = { id: proposalNumber, status: 'Enviado para análise', ...req.body };
+
+    // Adiciona o formulário ao array e salva no arquivo JSON
+    dadosFormularios.push(novoFormulario);
+
+    try {
+        fs.writeFileSync(caminhoArquivo, JSON.stringify(dadosFormularios, null, 2));
+        console.log("Formulário salvo com status 'Enviado para análise':", novoFormulario);
+    } catch (err) {
+        console.error("Erro ao salvar os dados:", err);
+    }
+
+    // Redireciona para a página de pré-visualização com o número da proposta
+    res.redirect(`/pre-page2.html?proposal=${proposalNumber}`);
+});
+
 // Rota para processar o formulário e redirecionar para a página de confirmação
 app.post('/submit', (req, res) => {
     const novoFormulario = { id: uuidv4(), ...req.body };
@@ -126,6 +144,72 @@ app.get('/api/get-proposal-data', async (req, res) => {
     } catch (error) {
         res.status(500).send('Erro ao processar a planilha.');
     }
+});
+// Rota para obter os dados de uma proposta
+app.get('/proposta/:id', (req, res) => {
+    const proposalId = req.params.id;
+    const proposalData = proposals[proposalId]; // Recupera os dados da proposta
+
+    if (proposalData) {
+        res.json({ success: true, data: proposalData });
+    } else {
+        res.json({ success: false, message: 'Proposta não encontrada' });
+    }
+});
+
+// Rota para salvar ou atualizar uma proposta
+app.post('/proposta/:id', (req, res) => {
+    const proposalId = req.params.id;
+    proposals[proposalId] = req.body; // Armazena os dados da proposta
+    res.json({ success: true, message: 'Proposta salva com sucesso' });
+});
+
+let dataPath = path.join(__dirname, 'dados-formularios.json');
+
+// Rota para gerar PDF do formulário preenchido
+app.get('/generate-pdf/:id', (req, res) => {
+    const proposalId = req.params.id;
+
+    // Carregar dados do arquivo JSON
+    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    const formData = data.find(item => item.id === proposalId);
+
+    if (!formData) {
+        return res.status(404).send('Formulário não encontrado.');
+    }
+
+    // Criar PDF
+    const doc = new PDFDocument();
+    res.setHeader('Content-Disposition', `attachment; filename=formulario_${proposalId}.pdf`);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+
+    // Título
+    doc.fontSize(16).text("PROJETO TÉCNICO PEDAGÓGICO", { align: 'center' }).moveDown();
+    doc.fontSize(14).text("IMPLEMENTAÇÃO E DESENVOLVIMENTO DE PROJETO", { align: 'center' }).moveDown(2);
+
+    // Dados do proponente
+    doc.fontSize(12).text("1. INFORMAÇÕES GERAIS DO PROPONENTE", { underline: true });
+    doc.text(`CNPJ da Proponente: ${formData.cnpj_proponente || ''}`);
+    doc.text(`Nome da Proponente: ${formData.nome_proponente || ''}`);
+    doc.text(`Nome do Dirigente: ${formData.nome_dirigente || ''}`);
+    doc.text(`Telefone de Contato: ${formData.telefone_contato || ''}`);
+    doc.text(`E-mail: ${formData.email_proponente || ''}`);
+    doc.text(`Número da Proposta: ${formData.numero_proposta || ''}`).moveDown();
+
+    // Informações adicionais
+    doc.text("1.2 RESPONSÁVEL PELA ELABORAÇÃO DO PROJETO", { underline: true });
+    doc.text(`Nome: ${formData.nome_responsavel || ''}`);
+    doc.text(`E-mail: ${formData.email_responsavel || ''}`);
+    doc.text(`Telefone de Contato: ${formData.telefone_responsavel || ''}`).moveDown();
+
+    doc.text("1.3 DIMENSÃO DO PROJETO", { underline: true });
+    doc.text(`Tipo: ${formData.tipo || ''}`).moveDown();
+
+    // Continuar com o restante das seções, formatando conforme solicitado
+    // Adicione todas as outras seções que desejar conforme seu modelo
+
+    doc.end();
 });
 
 // Inicia o servidor

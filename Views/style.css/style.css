@@ -1,12 +1,64 @@
 /* Estilo Geral */
+/* Reset para manter consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #eef2f3;
     margin: 0;
     padding: 0;
-    position: relative;
-    line-height: 1.6;
-    overflow-x: hidden; /* Evita rolagem horizontal em telas pequenas */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2c3e50;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 60px; /* Alinhar abaixo do header */
+    overflow-y: auto; /* Permitir rolagem se necessário */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    margin-top: 60px; /* Ajusta para baixo do cabeçalho */
+}
+
+.sidebar ul li {
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar ul li:hover {
+    background-color: #34495e;
+}
+
+.sidebar ul ul {
+    padding-left: 20px;
+}
+
+.sidebar ul li img {
+    width: 24px;
+    height: 24px;
 }
 
 a {
@@ -40,15 +92,38 @@ body::before {
     box-sizing: border-box;
 }
 
-/* Estilo do Cabeçalho */
+/* Imagem de Fundo na Seção Principal */
+/* Conteúdo Principal */
+.content {
+    margin-left: 250px;
+    padding: 40px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 250px); /* Adapta ao espaço restante */
+    min-height: calc(100vh - 60px); /* Considera o header e o footer */
+}
+.content.expanded {
+    margin-left: 0;
+    width: 100%; /* Ocupa toda a largura quando a sidebar é ocultada */
+}
+
+.page-break { 
+    page-break-before: always;
+    margin-top: 20px; /* Ajuste a margem conforme necessário */
+}
+
+/* Header */
 header {
     background-color: #005CAA;
-    padding: 0,8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     color: white;
-    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Para que fique acima do sidebar */
 }
 
 header h1 {
@@ -95,6 +170,31 @@ label {
 .full-width {
     flex: 1 1 100%;
     box-sizing: border-box;
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%; /* Ocupa toda a tela em telas menores */
+    }
+}
+
+/* Quando a sidebar é ocultada */
+.content.collapsed {
+    margin-left: 0;
 }
 
 /* Para telas pequenas */
@@ -164,23 +264,66 @@ a.btn {
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
+
+/* Estilo dos Botões */
+.button-container {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px; /* Espaço entre os botões */
+    display: inline-block; /* Garante que os botões fiquem em linha */
+    text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste de responsividade para sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Oculta o sidebar por padrão */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Exibe o sidebar ao abrir */
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%; /* Ocupa toda a largura da tela */
+    }
+}
+
 a.btn:hover {
     background-color: #003d80;
     box-shadow: 0 6px 12px rgba(0, 61, 128, 0.2);
     transform: translateY(-2px);
 }
 
-/* Rodapé fixo */
+/* Rodapé */
+/* Footer */
 footer {
     background-color: #005CAA;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    z-index: 1000;
 }
 
 /* Responsividade */

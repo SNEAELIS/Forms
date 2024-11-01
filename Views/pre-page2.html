@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Técnico - Projeto/Evento</title>
+    <link rel="stylesheet" href="style.css/style2.css">
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+
+<style>
+    /* Estilos gerais */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .choice-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        gap: 15px;
+    }
+    .choice-container button {
+        padding: 15px 30px;
+        background-color: #0e41cef8;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    .choice-container button:hover {
+        background-color: #564a9b;
+    }
+
+    /* Estilo dos botões de ação com ícones */
+    .action-buttons button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .edit-button { background-color: #4CAF50; }
+    .edit-button:hover { background-color: #45a049; }
+    .view-button { background-color: #2196F3; }
+    .view-button:hover { background-color: #0b7dda; }
+    .delete-button { background-color: #f44336; }
+    .delete-button:hover { background-color: #da190b; }
+</style>
+
+<header>
+    <h2>Ministério do Esporte</h2>
+    <img src="img/Imagem1.png" alt="Logo" width="10%">
+</header>
+
+<div class="container">
+    <div class="choice-container" id="choiceContainer">
+        <h1>Formulário Técnico - Projeto ou Evento</h1>
+        <p>Escolha uma das opções abaixo para continuar:</p>
+        <button onclick="showForm('search')">Pesquisar Proposta em Curso</button>
+        <button onclick="window.location.href = 'pagina2.html';">Gerar Projeto Técnico</button>
+    </div>
+
+    <div class="container">
+        <h1>Status da Proposta</h1>
+        <p>Status Atual: <span id="statusText">Em Elaboração</span></p>
+        <button id="visualizarPdfBtn" style="display: none;" onclick="visualizarPDF()">Visualizar PDF</button>
+    </div>
+
+    <!-- Div oculta do formulário de pesquisa -->
+    <div id="searchSection" style="display: none;">
+        <h2>Pesquisar Proposta em Curso</h2>
+        <form id="searchForm">
+            <label for="proposalNumber">Número da Proposta:</label>
+            <input type="text" id="proposalNumber" name="proposalNumber" required>
+            <button type="submit">Pesquisar</button>
+        </form>
+        <div id="proposalStatus" style="display: none;">
+            <h3>Status da Proposta: <span id="statusText"></span></h3>
+            <p><strong>Informações:</strong> <span id="proposalInfo"></span></p>
+
+            <!-- Botões de ação para a proposta em elaboração com ícones -->
+            <div class="action-buttons">
+                <button class="edit-button" onclick="editarProposta()">
+                    <img src="https://img.icons8.com/material-outlined/24/ffffff/edit--v1.png"/> Editar
+                </button>
+                <button class="view-button" onclick="visualizarProposta()">
+                    <img src="https://img.icons8.com/material-outlined/24/ffffff/eye.png"/> Visualizar
+                </button>
+                <button class="delete-button" onclick="excluirProposta()">
+                    <img src="https://img.icons8.com/material-outlined/24/ffffff/delete-forever.png"/> Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Ministério do Esporte. Todos os direitos reservados.
+</footer>
+
+<script>
+    function showForm(option) {
+        document.getElementById('choiceContainer').style.display = 'none';
+        if (option === 'search') {
+            document.getElementById('searchSection').style.display = 'block';
+        }
+    }
+
+    // Função para pesquisar uma proposta e exibir os dados salvos
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        const savedProposal = localStorage.getItem(proposalNumber);
+        
+        if (savedProposal) {
+            const proposalData = JSON.parse(savedProposal);
+            document.getElementById('statusText').innerText = proposalData.status || "Em Elaboração";
+            document.getElementById('proposalInfo').innerText = proposalData.info || "Informações não disponíveis";
+            document.getElementById('proposalStatus').style.display = 'block';
+        } else {
+            alert("Proposta não encontrada.");
+        }
+    });
+
+    // Função para editar a proposta
+    function editarProposta() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        window.location.href = `pagina2.html?proposal=${proposalNumber}&edit=true`; // Redireciona para edição
+    }
+
+    // Função para coletar dados salvos no localStorage e gerar um PDF com o layout do modelo
+    async function visualizarProjetoPDF() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        const savedProposalData = JSON.parse(localStorage.getItem(proposalNumber));
+
+        if (!savedProposalData) {
+            alert("Proposta não encontrada.");
+            return;
+        }
+
+        try {
+            // Caminho correto do PDF no servidor
+            const url = '/caminho/para/o/2-Modelo-Projeto-Tecnico-Projetos.pdf';
+            const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+
+            const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+            const pages = pdfDoc.getPages();
+            const firstPage = pages[0];
+            
+            const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+            const { width, height } = firstPage.getSize();
+
+            // Exemplo de preenchimento de um campo do PDF
+            firstPage.drawText(savedProposalData['cnpj_proponente'] || '', {
+                x: 100,
+                y: height - 100,
+                size: 12,
+                font,
+                color: PDFLib.rgb(0, 0, 0)
+            });
+
+            // Adicione mais campos conforme necessário...
+
+            // Exportar e baixar o PDF gerado
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Proposta_${proposalNumber}.pdf`;
+            link.click();
+            URL.revokeObjectURL(link.href);  // Libera a memória após o download
+
+        } catch (error) {
+            console.error("Erro ao gerar PDF:", error);
+            alert("Erro ao gerar PDF. Verifique o console para mais detalhes.");
+        }
+    }
+
+    // Função para excluir a proposta
+    function excluirProposta() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        if (confirm("Tem certeza de que deseja excluir esta proposta?")) {
+            localStorage.removeItem(proposalNumber); // Remove a proposta do armazenamento local
+            alert("Proposta excluída com sucesso.");
+            document.getElementById('proposalStatus').style.display = 'none';
+            document.getElementById('choiceContainer').style.display = 'block';
+        }
+    }
+
+    function saveProposal() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        const proposalInfo = document.getElementById('proposalInfo').value;
+
+        const proposalData = {
+            status: 'Em Elaboração',
+            info: proposalInfo
+        };
+
+        localStorage.setItem(proposalNumber, JSON.stringify(proposalData));
+        alert("Proposta salva com status 'Em Elaboração'.");
+    }
+
+    function editarProposta() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        window.location.href = `pagina2.html?proposal=${proposalNumber}&edit=true`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
+        const savedData = JSON.parse(localStorage.getItem(proposalNumber));
+
+        if (savedData) {
+            document.getElementById('statusText').innerText = savedData.status || "Em Elaboração";
+
+            // Exibe o botão "Visualizar" se o status for "Enviado para análise"
+            if (savedData.status === "Enviado para análise") {
+                document.getElementById('visualizarPdfBtn').style.display = 'block';
+            }
+        } else {
+            alert("Nenhum dado salvo encontrado para esta proposta.");
+        }
+    });
+
+    function visualizarPDF() {
+        const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
+        window.open(`/generate-pdf/${proposalNumber}`, '_blank');
+    }
+
+</script>
+
+</body>
+</html>

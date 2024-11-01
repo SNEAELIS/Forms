@@ -16,6 +16,11 @@ body {
     padding: 0;
 }
 
+.page-break { 
+    page-break-before: always;
+    margin-top: 20px; /* Ajuste a margem conforme necessário */
+}
+
 .container {
     width: 85%;
     max-width: 1000px;

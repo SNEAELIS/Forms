@@ -6,6 +6,25 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="style.css/style.css">
 </head>
+
+<!-- Importar Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script>
+    // Função para abrir e fechar a sidebar em telas menores
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+        sidebar.classList.toggle('open');
+        content.classList.toggle('collapsed');
+    }
+
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.classList.toggle('hidden');
+    }
+</script>
+
 <body>
 
     <!-- Cabeçalho -->
@@ -13,54 +32,36 @@
         <h1>Ministério do Esporte</h1>
         <img src="img/Imagem1.png" alt="IMG1" width="10%">
     </header>
+    <div class="sidebar">
+        <ul>
+            <li onclick="toggleSection('formalizacao')">
+                <i class="fas fa-folder"></i> Formalização
+            </li>
+            <ul id="formalizacao" class="hidden">
+                <li><a href="Documentações.html">OSC/Sociedade Civil</a></li>
+                <li><a href="Formulario_convênio.html">Entidades Públicas</a></li>
+            </ul>
+            <li onclick="toggleSection('acompanhamento')">
+                <i class="fas fa-file-alt"></i> Acompanhamento
+            </li>
+            <ul id="acompanhamento" class="hidden">
+                <li><a href="Formulário_Relma.html">Ficha Relmas</a></li>
+            </ul>
+            <li class="merito">
+                <a href="pre-page2.html">
+                    <i class="fas fa-star"></i> Mérito - Análise de Projeto
+                </a>
+            </li>
+        </ul>
+    </div>
 
-    <div class="container">
-        <div class="option-container">
-            <h1>Selecione a Opção</h1>
-            <p>Escolha entre Termo de Fomento ou Convênio para prosseguir.</p>
-
-            <!-- Botões para escolher entre Termo de Fomento ou Convênio -->
-            <a href="Documentações.html" class="btn">OSC/Sociedade Civil</a>
-            <a href="Formulario_convênio.html" class="btn">Entidades Publicas</a>
-        </div>
-        <div class="option-container">
-            <h1>Acompanhamento</h1>
-            <p>Aba para Formulário do RELMA</p>
-
-            <!-- Botões para escolher entre Termo de Fomento ou Convênio -->
-            <a href="Formulário_Relma.html" class="btn">Ficha Relmas</a>
-        </div>
+    <div class="content">
+        <h2>Bem-vindo à Página do Ministério do Esporte</h2>
+        <h2>Escolha uma das opções no menu para continuar.</h2>
     </div>
 
     <footer>
         <p>&copy; 2024 Ministério do Esporte</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const botaoGerarPDF = document.getElementById('botaoGerarPDF');
-            const loadingMessage = document.getElementById('loadingMessage');
-
-            if (botaoGerarPDF) {
-                botaoGerarPDF.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    if (loadingMessage) loadingMessage.style.display = 'block';
-
-                    generateAllInOnePDF().then(() => {
-                        if (loadingMessage) loadingMessage.style.display = 'none';
-                    }).catch((error) => {
-                        alert("Erro ao gerar PDF.");
-                        console.error(error);
-                        if (loadingMessage) loadingMessage.style.display = 'none';
-                    });
-                });
-            }
-
-            // Simulação da função de geração de PDF
-            async function generateAllInOnePDF() {
-                return new Promise((resolve) => setTimeout(resolve, 2000));
-            }
-        });
-    </script>
 </body>
 </html>

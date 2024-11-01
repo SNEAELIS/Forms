@@ -8,6 +8,140 @@
 </head>
 <body>
 
+    <style>
+    /* Estilos gerais */
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Estilo das tabelas */
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.9em;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .styled-table thead tr {
+        background-color: #5f91ff;
+        color: #9e3d3d;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #ededed;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #564a9b;
+    }
+
+    /* Botão de adicionar/remover linha */
+    .styled-table button {
+        padding: 6px 10px;
+        background-color: #ff4d4d;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    /* Ajustes para responsividade */
+    @media (max-width: 768px) {
+        .styled-table thead {
+            display: none;
+        }
+
+        .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+            display: block;
+            width: 100%;
+        }
+
+        .styled-table tr {
+            margin-bottom: 15px;
+        }
+
+        .styled-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+        .styled-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+        /* Estilo das abas para responsividade */
+        .tab {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os botões se movam para uma nova linha em telas menores */
+            gap: 5px;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+        
+        .tab button {
+            flex: 1 1 150px; /* Tamanho mínimo para botões em telas menores */
+            padding: 10px;
+            background-color: #0e41cef8;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+        }
+        
+        .tab button:hover {
+            background-color: #c1c4e4;
+        }
+        
+        .tab button.active {
+            background-color: #564a9b;
+            color: white;
+        }
+        
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .tab button {
+                flex: 1 1 45%; /* Reduz o tamanho do botão para telas menores */
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tab button {
+                flex: 1 1 100%; /* Botões ocupam toda a largura em telas muito pequenas */
+                padding: 6px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
 <header>
     <h2>Ministério do Esporte</h2>
     <img src="img/Imagem1.png" alt="Logo" width="10%">
@@ -15,609 +149,514 @@
 
 <div class="container">
     <h1>Formulário Técnico - Projeto ou Evento</h1>
+
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'identificacao')">Identificação do Proponente</button>
+        <button class="tablinks" onclick="openTab(event, 'responsavel')">Responsável</button>
+        <button class="tablinks" onclick="openTab(event, 'dimensao')">Dimensão</button>
+        <button class="tablinks" onclick="openTab(event, 'localidade')">Localidade</button>
+        <button class="tablinks" onclick="openTab(event, 'populacao')">População</button>
+        <button class="tablinks" onclick="openTab(event, 'entidade')">Entidade Proponente</button>
+        <button class="tablinks" onclick="openTab(event, 'parceira')">Entidade Parceira</button>
+        <button class="tablinks" onclick="openTab(event, 'coordenador')">Coordenador</button>
+        <button class="tablinks" onclick="openTab(event, 'capacidade')">Capacidade Técnica</button>
+        <button class="tablinks" onclick="openTab(event, 'objetivo')">Objetivo</button>
+        <button class="tablinks" onclick="openTab(event, 'justificativa')">Justificativa</button>
+        <button class="tablinks" onclick="openTab(event, 'metodologia')">Metodologia</button>
+        <button class="tablinks" onclick="openTab(event, 'nucleos')">Núcleos</button>
+        <button class="tablinks" onclick="openTab(event, 'modalidades')">Modalidades</button>
+        <button class="tablinks" onclick="openTab(event, 'reuniao')">Reuniões</button>
+        <button class="tablinks" onclick="openTab(event, 'materiais')">Materiais e Uniformes</button>
+        <button class="tablinks" onclick="openTab(event, 'equipe')">Equipe de Trabalho</button>
+        <button class="tablinks" onclick="openTab(event, 'divulgacao')">Divulgação</button>
+        <button class="tablinks" onclick="openTab(event, 'identificacao_projeto')">Identificação Visual</button>
+        <button class="tablinks" onclick="openTab(event, 'acompanhamento')">Acompanhamento</button>
+        <button class="tablinks" onclick="openTab(event, 'cronograma')">Cronograma e Vigência</button>
+    </div>
+
     <form action="/submit/pagina2" method="POST">
+        
+        <div id="identificacao" class="tab-content active">
+            <fieldset>
+                <legend>1.1 IDENTIFICAÇÃO DO PROPONENTE</legend>
+                <label for="cnpj_proponente">CNPJ da Proponente:</label>
+                <input type="text" id="cnpj_proponente" name="cnpj_proponente" required>
+                <label for="nome_proponente">Nome da Proponente:</label>
+                <input type="text" id="nome_proponente" name="nome_proponente" required>
+                <label for="nome_dirigente">Nome do Dirigente:</label>
+                <input type="text" id="nome_dirigente" name="nome_dirigente" required>
+                <label for="telefone_contato">Telefone de Contato (DDD):</label>
+                <input type="text" id="telefone_contato" name="telefone_contato" placeholder="(XX) XXXXX-XXXX" required>
+                <label for="email_proponente">E-mail:</label>
+                <input type="email" id="email_proponente" name="email_proponente" required>
+                <label for="numero_proposta">Número da Proposta (Plataforma +Brasil):</label>
+                <input type="text" id="numero_proposta" name="numero_proposta" required>
+            </fieldset>
+        </div>
 
-        <fieldset>
-            <legend>Seleção do Tipo</legend>
-            <label for="tipo">Escolha o tipo:</label>
-            <select id="tipo" name="tipo" class="input-select" required>
-                <option value="projeto">Projeto</option>
-                <option value="evento">Evento</option>
-            </select>
-        </fieldset>
+        <div id="responsavel" class="tab-content">
+            <fieldset>
+                <legend>1.2 RESPONSÁVEL PELA ELABORAÇÃO DO PROJETO TÉCNICO PEDAGÓGICO</legend>
+                <label for="nome_responsavel">Nome:</label>
+                <input type="text" id="nome_responsavel" name="nome_responsavel" required>
+                <label for="email_responsavel">E-mail:</label>
+                <input type="email" id="email_responsavel" name="email_responsavel" required>
+                <label for="telefone_responsavel">Telefone de Contato (DDD):</label>
+                <input type="text" id="telefone_responsavel" name="telefone_responsavel" placeholder="(XX) XXXXX-XXXX" required>
+            </fieldset>
+        </div>
 
-        <fieldset>
-            <legend>1.1 IDENTIFICAÇÃO DO PROPONENTE</legend>
-            <label for="cnpj_proponente">CNPJ da Proponente:</label>
-            <input type="text" id="cnpj_proponente" name="cnpj_proponente" class="input-text" required>
-        
-            <label for="nome_proponente">Nome da Proponente:</label>
-            <input type="text" id="nome_proponente" name="nome_proponente" class="input-text" required>
-        
-            <label for="nome_dirigente">Nome do Dirigente:</label>
-            <input type="text" id="nome_dirigente" name="nome_dirigente" class="input-text" required>
-        
-            <label for="telefone_contato">Telefone de Contato (DDD):</label>
-            <input type="text" id="telefone_contato" name="telefone_contato" class="input-text" placeholder="(XX) XXXXX-XXXX" required>
-        
-            <label for="email_proponente">E-mail:</label>
-            <input type="email" id="email_proponente" name="email_proponente" class="input-text" required>
-        
-            <label for="numero_proposta">Número da Proposta (Plataforma +Brasil):</label>
-            <input type="text" id="numero_proposta" name="numero_proposta" class="input-text" required>
-        </fieldset>
-        
-        <fieldset>
-            <legend>1.2 RESPONSÁVEL PELA ELABORAÇÃO DO PROJETO TÉCNICO PEDAGÓGICO</legend>
-            <label for="nome_responsavel">Nome:</label>
-            <input type="text" id="nome_responsavel" name="nome_responsavel" class="input-text" required>
-        
-            <label for="email_responsavel">E-mail:</label>
-            <input type="email" id="email_responsavel" name="email_responsavel" class="input-text" required>
-        
-            <label for="telefone_responsavel">Telefone de Contato (DDD):</label>
-            <input type="text" id="telefone_responsavel" name="telefone_responsavel" class="input-text" placeholder="(XX) XXXXX-XXXX" required>
-        </fieldset>
+        <div id="dimensao" class="tab-content">
+            <fieldset>
+                <legend>1.3 DIMENSÃO DO PROJETO</legend>
+                <label for="tipo">Escolha o tipo:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="educacional">Projeto Educacional</option>
+                    <option value="participacao">Projeto de Participação</option>
+                </select>
+            </fieldset>
+        </div>
 
-        <fieldset>
-            <legend>1.3. DIMENSÃO</legend>
-            <label for="tipo">Escolha o tipo:</label>
-            <select id="tipo" name="tipo" class="input-select" required>
-                <option value="projeto">Formação Esportiva</option>
-                <option value="evento">Esporte para toda vida</option>
-            </select>
+        <div id="localidade" class="tab-content">
+            <fieldset>
+                <legend>1.4 LOCALIDADE - Índice de Desenvolvimento Humano</legend>
+                <label for="idh">IDH:</label>
+                <input type="text" id="idh" name="idh" required>
+                <label for="fonte_idh">Fonte:</label>
+                <input type="text" id="fonte_idh" name="fonte_idh" required>
+                <label for="ano_idh">Ano de Referência:</label>
+                <input type="number" id="ano_idh" name="ano_idh" required>
+            </fieldset>
+        </div>
 
-            <label for="localidade">Localidade - Índice de Desenvolvimento Humano (IDH):</label>
-            <input type="text" id="localidade" name="localidade" class="input-text">
+        <div id="populacao" class="tab-content">
+            <fieldset>
+                <legend>1.5 POPULAÇÃO - Característica Demográfica</legend>
+                <label for="num_habitantes">Nº de Habitantes:</label>
+                <input type="number" id="num_habitantes" name="num_habitantes" required>
+                <label for="fonte_populacao">Fonte:</label>
+                <input type="text" id="fonte_populacao" name="fonte_populacao" required>
+                <label for="ano_populacao">Ano de Referência:</label>
+                <input type="number" id="ano_populacao" name="ano_populacao" required>
+            </fieldset>
+        </div>
 
-            <label for="populacao">Número de Habitantes:</label>
-            <input type="text" id="populacao" name="populacao" class="input-text">
-        </fieldset>
-        <fieldset>
-            <legend>1.4 LOCALIDADE - Índice de Desenvolvimento Humano</legend>
-            <label for="idh">IDH:</label>
-            <input type="text" id="idh" name="idh" class="input-text" required>
-        
-            <label for="fonte_idh">Fonte:</label>
-            <input type="text" id="fonte_idh" name="fonte_idh" class="input-text" required>
-        
-            <label for="ano_idh">Ano de Referência:</label>
-            <input type="number" id="ano_idh" name="ano_idh" class="input-text" required>
-        </fieldset>
-        
-        <fieldset>
-            <legend>1.5 POPULAÇÃO - Característica Demográfica da Localidade</legend>
-            <label for="num_habitantes">Nº de Habitantes:</label>
-            <input type="number" id="num_habitantes" name="num_habitantes" class="input-text" required>
-        
-            <label for="fonte_populacao">Fonte:</label>
-            <input type="text" id="fonte_populacao" name="fonte_populacao" class="input-text" required>
-        
-            <label for="ano_populacao">Ano de Referência:</label>
-            <input type="number" id="ano_populacao" name="ano_populacao" class="input-text" required>
-        </fieldset>
-        
-        <fieldset>
-            <legend>1.6 INFORMAÇÕES SOBRE A ENTIDADE PROPONENTE</legend>
-            <div class="checkbox-group">
-                <label><input type="radio" name="parcerias" value="sim" required> Sim</label>
-                <label><input type="radio" name="parcerias" value="nao" required> Não</label>
-            </div>
-        
-            <label for="num_parcerias">Nº de Parcerias (se houver):</label>
-            <input type="number" id="num_parcerias" name="num_parcerias" class="input-text">
-        
-            <label for="resultados_parcerias">Resultados das Parcerias Anteriores:</label>
-            <textarea id="resultados_parcerias" name="resultados_parcerias" rows="4" class="input-text" placeholder="Descreva os resultados positivos e negativos." required></textarea>
-        </fieldset>
-        
-        <fieldset>
-            <legend>1.7 CADASTRO DE ENTIDADES PARCEIRAS</legend>
-            <label for="nome_parceira">Nome da Entidade Parceira:</label>
-            <input type="text" id="nome_parceira" name="nome_parceira" class="input-text" required>
-        
-            <label for="email_parceira">E-mail:</label>
-            <input type="email" id="email_parceira" name="email_parceira" class="input-text" required>
-        
-            <label for="telefone_parceira">Telefone de Contato (DDD):</label>
-            <input type="text" id="telefone_parceira" name="telefone_parceira" class="input-text" placeholder="(XX) XXXXX-XXXX" required>
-        
-            <label for="endereco_parceira">Endereço:</label>
-            <input type="text" id="endereco_parceira" name="endereco_parceira" class="input-text" required>
-        
-            <div class="form-group-inline">
-                <label for="municipio_parceira">Município:</label>
-                <input type="text" id="municipio_parceira" name="municipio_parceira" class="input-text" required>
-        
-                <label for="uf_parceira">UF:</label>
-                <input type="text" id="uf_parceira" name="uf_parceira" class="input-text" required>
-        
-                <label for="cep_parceira">CEP:</label>
-                <input type="text" id="cep_parceira" name="cep_parceira" class="input-text" required>
-            </div>
-        
-            <label for="dirigente_parceira">Nome do Dirigente/Representante:</label>
-            <input type="text" id="dirigente_parceira" name="dirigente_parceira" class="input-text" required>
-        
-            <label for="cargo_parceira">Cargo do Dirigente/Representante:</label>
-            <input type="text" id="cargo_parceira" name="cargo_parceira" class="input-text" required>
-        
-            <fieldset class="nested-fieldset">
-                <legend>Contribuição da Entidade Parceira</legend>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="contribuicao[]" value="assistencia"> Assistência técnica. Especifique:</label>
-                    <input type="text" name="assistencia_tecnica" class="input-text">
-        
-                    <label><input type="checkbox" name="contribuicao[]" value="recursos"> Recursos humanos. Especifique:</label>
-                    <input type="text" name="recursos_humanos" class="input-text">
-        
-                    <label><input type="checkbox" name="contribuicao[]" value="infraestrutura"> Infraestrutura. Especifique:</label>
-                    <input type="text" name="infraestrutura" class="input-text">
-        
-                    <label><input type="checkbox" name="contribuicao[]" value="outras"> Outras contribuições. Especifique:</label>
-                    <input type="text" name="outras_contribuicoes" class="input-text">
+        <div id="entidade" class="tab-content">
+            <fieldset>
+                <legend>1.6 INFORMAÇÕES SOBRE A ENTIDADE PROPONENTE</legend>
+                <label>Já celebrou parcerias com o Ministério do Esporte?</label>
+                <input type="radio" id="parceria_sim" name="parcerias" value="sim" required><label for="parceria_sim">Sim</label>
+                <input type="radio" id="parceria_nao" name="parcerias" value="nao" required><label for="parceria_nao">Não</label>
+                <label for="num_parcerias">Nº de Parcerias (se houver):</label>
+                <input type="number" id="num_parcerias" name="num_parcerias">
+                <label for="resultados_parcerias">Resultados das Parcerias Anteriores:</label>
+                <textarea id="resultados_parcerias" name="resultados_parcerias" rows="4" placeholder="Descreva os resultados positivos e negativos." required></textarea>
+            </fieldset>
+        </div>
+        <div id="parceira" class="tab-content">
+            <fieldset>
+                <legend>1.7 CADASTRO DE ENTIDADES PARCEIRAS</legend>
+                <label for="nome_parceira">Nome da Entidade Parceira:</label>
+                <input type="text" id="nome_parceira" name="nome_parceira" required>
+                <label for="email_parceira">E-mail:</label>
+                <input type="email" id="email_parceira" name="email_parceira" required>
+                <label for="telefone_parceira">Telefone de Contato (DDD):</label>
+                <input type="text" id="telefone_parceira" name="telefone_parceira" placeholder="(XX) XXXXX-XXXX" required>
+                <label for="endereco_parceira">Endereço:</label>
+                <input type="text" id="endereco_parceira" name="endereco_parceira" required>
+                <div class="form-group-inline">
+                    <label for="municipio_parceira">Município:</label>
+                    <input type="text" id="municipio_parceira" name="municipio_parceira" required>
+                    <label for="uf_parceira">UF:</label>
+                    <input type="text" id="uf_parceira" name="uf_parceira" required>
+                    <label for="cep_parceira">CEP:</label>
+                    <input type="text" id="cep_parceira" name="cep_parceira" required>
                 </div>
             </fieldset>
-        </fieldset>
+        </div>
+      <!-- Coordenador -->
+      <div id="coordenador" class="tab-content">
         <fieldset>
             <legend>1.8 Coordenador Geral do Evento</legend>
             <p>(Preencher, caso o profissional seja cedido pela Entidade)</p>
-    
             <label for="nome_coordenador">Nome:</label>
-            <input type="text" id="nome_coordenador" name="nome_coordenador" class="input-text" required>
-    
+            <input type="text" id="nome_coordenador" name="nome_coordenador" required>
             <label for="email_coordenador">E-mail:</label>
-            <input type="email" id="email_coordenador" name="email_coordenador" class="input-text" required>
-    
-            <label for="telefone_coordenador">Telefone de contato com DDD:</label>
-            <input type="text" id="telefone_coordenador" name="telefone_coordenador" class="input-text" required>
+            <input type="email" id="email_coordenador" name="email_coordenador" required>
+            <label for="telefone_coordenador">Telefone de Contato (DDD):</label>
+            <input type="text" id="telefone_coordenador" name="telefone_coordenador" placeholder="(XX) XXXXX-XXXX" required>
         </fieldset>
+    </div>
+
+    <!-- Capacidade Técnica -->
+    <div id="capacidade" class="tab-content">
         <fieldset>
             <legend>1.9 CAPACIDADE TÉCNICA E GERENCIAL</legend>
-
             <label>Possui Capacidade Técnica e Gerencial?</label>
             <div class="radio-group">
                 <input type="radio" id="capacidade_sim" name="capacidade" value="Sim" required>
                 <label for="capacidade_sim">Sim</label>
-
                 <input type="radio" id="capacidade_nao" name="capacidade" value="Não" required>
                 <label for="capacidade_nao">Não</label>
             </div>
-
             <label for="historico">HISTÓRICO:</label>
-            <textarea id="historico" name="historico" rows="6" class="input-text" placeholder="Descreva os programas/projetos sociais e/ou esportivos desenvolvidos pela entidade. Pode incluir parcerias ou uso de recursos próprios." required></textarea>
-
-            <p class="obs">
-                <strong>Obs.:</strong> Demonstrar a capacidade técnica para realizar o objeto proposto.
-            </p>
+            <textarea id="historico" name="historico" rows="6" placeholder="Descreva os programas/projetos sociais e/ou esportivos desenvolvidos pela entidade." required></textarea>
         </fieldset>
+    </div>
+
+    <!-- Objetivo -->
+    <div id="objetivo" class="tab-content">
         <fieldset>
             <legend>2.1 OBJETO (Identificação do Projeto)</legend>
             <label for="objeto">Descreva o Objeto do Projeto:</label>
-            <textarea id="objeto" name="objeto" rows="4" class="input-text" placeholder="Ex: Implementação e Desenvolvimento do Projeto XXX, no Município/Estado de XXXXXX/XX." required></textarea>
+            <textarea id="objeto" name="objeto" rows="4" placeholder="Descreva o objeto do projeto." required></textarea>
         </fieldset>
+    </div>
 
-        <!-- 2.2 Justificativa do Projeto -->
+    <!-- Justificativa -->
+    <div id="justificativa" class="tab-content">
         <fieldset>
             <legend>2.2 JUSTIFICATIVA DO PROJETO</legend>
-        
-            <div class="form-group">
-                <label for="interesses_reciprocos">2.2.1 Caracterização dos interesses recíprocos:</label>
-                <textarea id="interesses_reciprocos" name="interesses_reciprocos" rows="3" class="input-text" required></textarea>
-            </div>
-        
-            <div class="form-group">
-                <label for="relacao_projeto">2.2.2 Relação entre o projeto e os objetivos/diretrizes da ação:</label>
-                <textarea id="relacao_projeto" name="relacao_projeto" rows="3" class="input-text" required></textarea>
-            </div>
-        
+            
+            <label for="interesses_reciprocos">2.2.1 Caracterização dos interesses recíprocos:</label>
+            <textarea id="interesses_reciprocos" name="interesses_reciprocos" rows="3" required></textarea>
+            
+            <label for="relacao_projeto">2.2.2 Relação entre o projeto e os objetivos/diretrizes da ação:</label>
+            <textarea id="relacao_projeto" name="relacao_projeto" rows="3" required></textarea>
+    
+            <!-- Público-Alvo -->
             <fieldset class="nested-fieldset">
                 <legend>2.2.3 Público-Alvo</legend>
-                <div class="form-group-inline">
-                    <label for="numero_beneficiados">Número de beneficiados:</label>
-                    <input type="number" id="numero_beneficiados" name="numero_beneficiados" min="1" class="input-text" required>
-                </div>
-        
-                <div class="form-group-inline">
-                    <label for="publico_direto">Público direto:</label>
-                    <input type="text" id="publico_direto" name="publico_direto" class="input-text" required>
-                </div>
-        
-                <div class="form-group-inline">
-                    <label for="faixa_etaria">Faixa etária do público direto:</label>
-                    <input type="text" id="faixa_etaria" name="faixa_etaria" class="input-text" required>
-                </div>
-        
-                <div class="form-group-inline">
-                    <label for="publico_indireto">Público indireto:</label>
-                    <input type="text" id="publico_indireto" name="publico_indireto" class="input-text" required>
-                </div>
+                <label for="numero_beneficiados">Número de beneficiados:</label>
+                <input type="number" id="numero_beneficiados" name="numero_beneficiados" min="1" required>
+    
+                <label for="publico_direto">Público direto:</label>
+                <input type="text" id="publico_direto" name="publico_direto" required>
+    
+                <label for="faixa_etaria">Faixa etária do público direto:</label>
+                <input type="text" id="faixa_etaria" name="faixa_etaria" required>
+    
+                <label for="publico_indireto">Público indireto:</label>
+                <input type="text" id="publico_indireto" name="publico_indireto" required>
             </fieldset>
-        
-            <div class="form-group">
-                <label for="problema">2.2.4 Problema a ser resolvido:</label>
-                <textarea id="problema" name="problema" rows="3" class="input-text" required></textarea>
-            </div>
-        
-            <div class="form-group">
-                <label for="resultados">2.2.5 Resultados esperados:</label>
-                <textarea id="resultados" name="resultados" rows="3" class="input-text" required></textarea>
-            </div>
+            
+            <!-- Objetivo Geral -->
+            <label for="objetivo_geral">2.2.4 Objetivo Geral:</label>
+            <textarea id="objetivo_geral" name="objetivo_geral" rows="4" placeholder="Descreva o objetivo geral do projeto." required></textarea>
+    
+            <!-- Objetivos Específicos -->
+            <label for="objetivos_especificos">2.2.5 Objetivos Específicos:</label>
+            <textarea id="objetivos_especificos" name="objetivos_especificos" rows="6" placeholder="Descreva os objetivos específicos do projeto." required></textarea>
+    
+            <label for="problema">2.2.6 Problema a ser resolvido:</label>
+            <textarea id="problema" name="problema" rows="3" required></textarea>
+    
+            <label for="resultados">2.2.7 Resultados esperados:</label>
+            <textarea id="resultados" name="resultados" rows="3" required></textarea>
         </fieldset>
-
+    </div>
+    <!-- Metodologia -->
+    <div id="metodologia" class="tab-content">
         <fieldset>
-            <legend>2.3/4 Objetivos</legend>
-            <label for="objetivo_geral">Objetivo Geral:</label>
-            <textarea id="objetivo_geral" name="objetivo_geral" rows="4" class="input-text" required></textarea>
-
-            <label for="objetivos_especificos">Objetivos Específicos:</label>
-            <textarea id="objetivos_especificos" name="objetivos_especificos" rows="6" class="input-text"></textarea>
-        </fieldset>
-
-        <fieldset>
-            <legend>3.1 Metodologia</legend>
+            <legend>3.1 METODOLOGIA</legend>
             <label for="metodologia">Metodologia Detalhada:</label>
-            <textarea id="metodologia" name="metodologia" rows="8" class="input-text"></textarea>
+            <textarea id="metodologia" name="metodologia" rows="8" placeholder="Descreva a metodologia do projeto."></textarea>
         </fieldset>
+    </div>
+<!-- Núcleos -->
+<div id="nucleos" class="tab-content">
+    <fieldset>
+        <legend>3.2 NÚCLEOS</legend>
+        <label for="numero_nucleos">Número de Núcleos:</label>
+        <input type="number" id="numero_nucleos" name="numero_nucleos" required>
 
-<!-- ITEM 6: TABELA DE MATERIAIS E UNIFORMES -->
-<fieldset>
-    <legend>3.5 Materiais</legend>
-    <table class="styled-table" id="materiaisTable">
-        <thead>
-            <tr>
-                <th>Modalidade</th>
-                <th>Especificação</th>
-                <th>Quantidade</th>
-                <th>Memória de Cálculo</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" name="modalidade_materiais[]" required></td>
-                <td><input type="text" name="especificacao_materiais[]" required></td>
-                <td><input type="number" name="quantidade_materiais[]" min="1" required></td>
-                <td><textarea name="memoria_materiais[]" rows="2" required></textarea></td>
-                <td><button type="button" class="delete-row" onclick="removerLinha(this)">🗑️</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" onclick="adicionarLinha('materiaisTable')">➕ Adicionar Material</button>
-</fieldset>
+        <label for="descricao_nucleos">Descrição dos Núcleos:</label>
+        <textarea id="descricao_nucleos" name="descricao_nucleos" rows="4" required></textarea>
+    </fieldset>
+</div>
 
-<!-- Uniformes -->
-<fieldset>
-    <legend>3.6 Uniformes</legend>
-    <table class="styled-table" id="uniformesTable">
-        <thead>
-            <tr>
-                <th>Vestimenta</th>
-                <th>Especificação</th>
-                <th>Quantidade</th>
-                <th>Memória de Cálculo</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" name="vestimenta_uniformes[]" required></td>
-                <td><input type="text" name="especificacao_uniformes[]" required></td>
-                <td><input type="number" name="quantidade_uniformes[]" min="1" required></td>
-                <td><textarea name="memoria_uniformes[]" rows="2" required></textarea></td>
-                <td><button type="button" class="delete-row" onclick="removerLinha(this)">🗑️</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" onclick="adicionarLinha('uniformesTable')">➕ Adicionar Uniforme</button>
-</fieldset>
-<!-- ITEM 7: TABELA DE EQUIPE DE TRABALHO -->
-<fieldset>
-    <legend>3.7 Equipe de Trabalho</legend>
-    <table class="styled-table" id="equipeTable">
-        <thead>
-            <tr>
-                <th>Função</th>
-                <th>Quantidade</th>
-                <th>Memória de Cálculo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" name="funcao_equipe[]" required></td>
-                <td><input type="number" name="quantidade_equipe[]" min="1" required></td>
-                <td><textarea name="memoria_equipe[]" rows="2" required></textarea></td>
-            </tr>
-        </tbody>
-    </table>
-    <button type="button" onclick="adicionarLinha('equipeTable')">Adicionar Função</button>
-</fieldset>
+<!-- Modalidades -->
+<div id="modalidades" class="tab-content">
+    <fieldset>
+        <legend>3.3 MODALIDADES</legend>
+        <label for="modalidades_projeto">Modalidades Oferecidas:</label>
+        <textarea id="modalidades_projeto" name="modalidades_projeto" rows="4" placeholder="Descreva as modalidades esportivas ou atividades oferecidas pelo projeto." required></textarea>
+    </fieldset>
+</div>
 
-<fieldset>
-    <legend>3.8.1 Detalhe como ocorrerá a divulgação das ações do Evento</legend>
-    <p>(Pode ser assinalada mais de uma alternativa):</p>
+<!-- Reuniões -->
+<div id="reuniao" class="tab-content">
+    <fieldset>
+        <legend>3.4 REUNIÕES</legend>
+        <label for="frequencia_reunioes">Frequência das Reuniões:</label>
+        <input type="text" id="frequencia_reunioes" name="frequencia_reunioes" placeholder="Ex: Semanal, Mensal" required>
+        
+        <label for="objetivo_reunioes">Objetivo das Reuniões:</label>
+        <textarea id="objetivo_reunioes" name="objetivo_reunioes" rows="4" required></textarea>
+    </fieldset>
+</div>
 
-    <div class="checkbox-group">
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="carros_bicicletas_som">
-            Carros ou bicicletas de som
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="cartazes">
-            Cartazes
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="faixas">
-            Faixas
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="banners">
-            Banners
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="jornais">
-            Jornais
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="panfletos">
-            Panfletos
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="folder">
-            Folder
-        </label>
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="midia">
-            Mídia (rádio, cinema, televisão)
-        </label>
+<!-- Materiais e Uniformes -->
+<div id="materiais" class="tab-content">
+    <fieldset>
+        <legend>3.5 MATERIAIS E UNIFORMES</legend>
+        <table id="materiaisTable">
+            <thead>
+                <tr>
+                    <th>Modalidade</th>
+                    <th>Especificação</th>
+                    <th>Quantidade</th>
+                    <th>Memória de Cálculo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="modalidade_materiais[]" required></td>
+                    <td><input type="text" name="especificacao_materiais[]" required></td>
+                    <td><input type="number" name="quantidade_materiais[]" min="1" required></td>
+                    <td><textarea name="memoria_materiais[]" rows="2" required></textarea></td>
+                    <td><button type="button" onclick="removerLinha(this)">🗑️</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="adicionarLinha('materiaisTable')">➕ Adicionar Material</button>
+    </fieldset>
+    <fieldset>
+        <legend>3.6 UNIFORMES</legend>
+        <table id="uniformesTable">
+            <thead>
+                <tr>
+                    <th>Vestimenta</th>
+                    <th>Especificação</th>
+                    <th>Quantidade</th>
+                    <th>Memória de Cálculo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="vestimenta_uniformes[]" required></td>
+                    <td><input type="text" name="especificacao_uniformes[]" required></td>
+                    <td><input type="number" name="quantidade_uniformes[]" min="1" required></td>
+                    <td><textarea name="memoria_uniformes[]" rows="2" required></textarea></td>
+                    <td><button type="button" onclick="removerLinha(this)">🗑️</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="button" onclick="adicionarLinha('uniformesTable')">➕ Adicionar Uniforme</button>
+    </fieldset>
+</div>
 
-        <!-- Internet com Campo para Especificação -->
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="internet" id="internet-checkbox">
-            Internet. Especifique:
-        </label>
-        <input type="text" id="internet-especificar" name="internet_especificar" class="input-text" placeholder="Detalhe a divulgação na internet" hidden>
+<!-- Equipe de Trabalho -->
+<div id="equipe" class="tab-content">
+    <fieldset>
+        <legend>3.7 EQUIPE DE TRABALHO</legend>
+        <p>(Inserir todos os recursos humanos envolvidos na realização do projeto e identificar quais serão cedidos pela proponente)</p>
+        <table class="styled-table" id="equipeTable">
+            <thead>
+                <tr>
+                    <th>Função</th>
+                    <th>Qtd RH</th>
+                    <th>Atribuição / Carga Horária Semanal / Diária</th>
+                    <th>Qtd Meses / Diárias</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="funcao_equipe[]" placeholder="Ex: Coordenador Geral" required></td>
+                    <td><input type="number" name="quantidade_rh[]" min="1" required></td>
+                    <td><textarea name="atribuicao_carga_horaria[]" rows="2" placeholder="Descreva a atribuição e carga horária" required></textarea></td>
+                    <td><input type="number" name="quantidade_meses_diarias[]" min="1" placeholder="Qtd Meses/Diárias" required></td>
+                    <td><button type="button" onclick="removerLinha(this)">🗑️</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="adicionarLinha('equipeTable')">➕ Adicionar Função</button>
+    </fieldset>
+</div>
 
-        <!-- Outros com Campo para Especificação -->
-        <label>
-            <input type="checkbox" name="divulgacao[]" value="outros" id="outros-checkbox">
-            Outros. Especifique:
-        </label>
-        <input type="text" id="outros-especificar" name="outros_especificar" class="input-text" placeholder="Especifique outros meios" hidden>
+<!-- Divulgação -->
+<div id="divulgacao" class="tab-content">
+    <fieldset>
+        <legend>3.8 DIVULGAÇÃO</legend>
+        <p>(Pode ser assinalada mais de uma alternativa):</p>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="divulgacao[]" value="carros_bicicletas_som"> Carros ou bicicletas de som</label>
+            <label><input type="checkbox" name="divulgacao[]" value="cartazes"> Cartazes</label>
+            <label><input type="checkbox" name="divulgacao[]" value="faixas"> Faixas</label>
+            <label><input type="checkbox" name="divulgacao[]" value="banners"> Banners</label>
+            <label><input type="checkbox" name="divulgacao[]" value="jornais"> Jornais</label>
+            <label><input type="checkbox" name="divulgacao[]" value="panfletos"> Panfletos</label>
+            <label><input type="checkbox" name="divulgacao[]" value="folder"> Folder</label>
+            <label><input type="checkbox" name="divulgacao[]" value="midia"> Mídia (rádio, cinema, televisão)</label>
+            <label><input type="checkbox" name="divulgacao[]" value="internet"> Internet</label>
+            <input type="text" name="internet_especificar" placeholder="Especifique divulgação na internet" hidden>
+            <label><input type="checkbox" name="divulgacao[]" value="outros"> Outros</label>
+            <input type="text" name="outros_especificar" placeholder="Especifique outros meios" hidden>
+        </div>
+    </fieldset>
+</div>
+    <!-- Identificação Visual do Projeto -->
+    <div id="identificacao_projeto" class="tab-content">
+        <fieldset>
+            <legend>3.9 IDENTIFICAÇÃO DO EVENTO</legend>
+            <label for="identificacao_evento">Descrição da Identificação Visual:</label>
+            <textarea id="identificacao_evento" name="identificacao_evento" rows="3" placeholder="Ex.: banners, faixas ou outra forma acordada." required></textarea>
+        </fieldset>
     </div>
 
-    <p class="obs">
-        <strong>Obs:</strong> A Entidade deverá informar os itens conforme serão utilizados e comprovados durante a execução da parceria. 
-        Caso não esteja previsto no Plano de Trabalho, a Entidade deverá arcar com os custos da aquisição.
-    </p>
-</fieldset>
+    <!-- Acompanhamento do Evento -->
+    <div id="acompanhamento" class="tab-content">
+        <fieldset>
+            <legend>3.10 ACOMPANHAMENTO DO EVENTO PELA PROPONENTE</legend>
+            <label><input type="checkbox" name="acompanhamento[]" value="consultas"> Consultas aos participantes do Evento</label>
+            <label><input type="checkbox" name="acompanhamento[]" value="reunioes"> Reuniões com os responsáveis pelo Evento</label>
+            <label><input type="checkbox" name="acompanhamento[]" value="outras"> Outras opções. Especifique:</label>
+            <input type="text" name="acompanhamento_outras" placeholder="Descreva outras estratégias">
+        </fieldset>
+    </div>
 
-<fieldset>
-    <legend>3.9 IDENTIFICAÇÃO DO EVENTO</legend>
-    <label for="identificacao_evento">Descrição da Identificação Visual:</label>
-    <textarea id="identificacao_evento" name="identificacao_evento" rows="3" class="input-text" placeholder="Ex.: banners, faixas ou outra forma acordada com a SNELIS/MC." required></textarea>
-</fieldset>
+    <!-- Cronograma e Vigência -->
+    <div id="cronograma" class="tab-content">
+        <fieldset>
+            <legend>3.11 CRONOGRAMA DE EXECUÇÃO FÍSICO-FINANCEIRA</legend>
+            <label for="valor_concedente">Valor do Concedente:</label>
+            <input type="number" id="valor_concedente" name="valor_concedente" placeholder="R$" required>
 
-<fieldset>
-    <legend>3.10 ACOMPANHAMENTO DO EVENTO PELA PROPONENTE</legend>
-    <div class="checkbox-group">
-        <label><input type="checkbox" name="acompanhamento[]" value="consultas"> Consultas aos participantes do Evento</label>
-        <label><input type="checkbox" name="acompanhamento[]" value="reunioes"> Reuniões com os responsáveis pelo Evento</label>
-        <label><input type="checkbox" name="acompanhamento[]" value="outras"> Outras opções. Especifique:</label>
-        <input type="text" name="acompanhamento_outras" class="input-text" placeholder="Descreva outras estratégias">
-    </div>
-</fieldset>
+            <label for="valor_convenente">Valor do Convenente – Contrapartida:</label>
+            <input type="number" id="valor_convenente" name="valor_convenente" placeholder="R$">
 
-<fieldset>
-    <legend>3.11 CRONOGRAMA DE EXECUÇÃO FÍSICO-FINANCEIRA</legend>
-    <div class="form-group-inline">
-        <label for="valor_concedente">Valor do Concedente:</label>
-        <input type="number" id="valor_concedente" name="valor_concedente" class="input-text" placeholder="R$" required>
-    </div>
-    <div class="form-group-inline">
-        <label for="valor_convenente">Valor do Convenente – Contrapartida:</label>
-        <input type="number" id="valor_convenente" name="valor_convenente" class="input-text" placeholder="R$">
-    </div>
-    <div class="form-group-inline">
-        <label for="valor_global">Valor Global:</label>
-        <input type="number" id="valor_global" name="valor_global" class="input-text" placeholder="R$" required>
-    </div>
-</fieldset>
+            <label for="valor_global">Valor Global:</label>
+            <input type="number" id="valor_global" name="valor_global" placeholder="R$" required>
 
-<fieldset>
-    <legend>3.12 VIGÊNCIA DO EVENTO</legend>
-    <div class="form-group-inline">
-        <label for="periodo_estruturacao">Período de Estruturação:</label>
-        <input type="number" id="periodo_estruturacao" name="periodo_estruturacao" class="input-text" placeholder="Meses" required>
-    </div>
-    <div class="form-group-inline">
-        <label for="periodo_execucao">Período de Execução:</label>
-        <input type="text" id="periodo_execucao" name="periodo_execucao" class="input-text" placeholder="Dias ou meses" required>
-    </div>
-    <div class="form-group-inline">
-        <label for="periodo_vigencia">Período de Vigência Total:</label>
-        <input type="number" id="periodo_vigencia" name="periodo_vigencia" class="input-text" placeholder="Meses" required>
-    </div>
-</fieldset>
+            <label for="periodo_estruturacao">Período de Estruturação (meses):</label>
+            <input type="number" id="periodo_estruturacao" name="periodo_estruturacao" required>
 
-<fieldset>
-    <legend>3.13 FORMA DE PRESTAÇÃO DE CONTAS DO CUMPRIMENTO DO OBJETO</legend>
-    <p>A prestação de contas se dará conforme previsto na legislação vigente.</p>
-</fieldset>
-        <button type="/submit/pagina2">Enviar</button>
+            <label for="periodo_execucao">Período de Execução (dias ou meses):</label>
+            <input type="text" id="periodo_execucao" name="periodo_execucao" required>
+
+            <label for="periodo_vigencia">Período de Vigência Total (meses):</label>
+            <input type="number" id="periodo_vigencia" name="periodo_vigencia" required>
+        </fieldset>
+    </div>
+    <label for="proposalNumber">Número da Proposta:</label>
+    <input type="text" id="proposalNumber" name="proposalNumber" required>
+    
+    <label for="proposalInfo">Informações do Projeto:</label>
+    <textarea id="proposalInfo" name="proposalInfo" required></textarea>
+    </form>
+
+    <form id="myForm" onsubmit="return handleSubmit();">
+        <div id="identificacao" class="tab-content active">
+            <!-- Seus campos de formulário aqui -->
+        </div>
+    
+        <!-- Botões para salvar e enviar -->
+        <button type="button" onclick="saveProposal()">Salvar</button>
+        <button type="submit">Enviar</button>
     </form>
 </div>
 
 <footer>
     &copy; 2024 Ministério do Esporte. Todos os direitos reservados.
 </footer>
+
 <script>
-const selectTipo = document.getElementById('tipo');
-    const infoDimensao = document.getElementById('informacao-dimensao');
+    // Função para salvar todos os dados no localStorage
+    function saveAllFieldData(proposalNumber) {
+        const fields = document.querySelectorAll("input, textarea, select");
+        const savedData = JSON.parse(localStorage.getItem(proposalNumber)) || {};
 
-    // Atualiza a informação ao escolher uma opção
-    selectTipo.addEventListener('change', () => {
-        const valor = selectTipo.value;
-        let mensagem = '';
-
-        if (valor === 'formacao_esportiva') {
-            mensagem = `
-                <p><strong>(...) Formação Esportiva:</strong></p>
-                <p>
-                    Oferta oportunidades de acesso à prática esportiva em suas diversas manifestações 
-                    por meio de ações planejadas, inclusivas e lúdicas para crianças e adolescentes. 
-                    Este nível de atendimento comporta os serviços de vivência, fundamentação, 
-                    aprendizagem esportiva e fomento e difusão do conhecimento científico, 
-                    tecnológico e de inovação.
-                </p>
-            `;
-        } else if (valor === 'esporte_toda_vida') {
-            mensagem = `
-                <p><strong>(...) Esporte para toda vida:</strong></p>
-                <p>
-                    Caracteriza-se pela vivência do esporte com autodeterminação a partir do 
-                    conhecimento esportivo adquirido, pela transmissão pedagógica crítica e assumida 
-                    dentre os hábitos culturais saudáveis ao longo da vida. Este nível abrange 
-                    os serviços de esporte e lazer, atividade física, aprendizagem esportiva para 
-                    crianças, jovens, adultos, idosos (esporte ao longo da vida), além do fomento 
-                    e difusão do conhecimento científico, tecnológico e de inovação.
-                </p>
-            `;
-        }
-
-        if (mensagem) {
-            infoDimensao.innerHTML = mensagem;
-            infoDimensao.hidden = false;
-        } else {
-            infoDimensao.hidden = true;
-        }
-    });
-    // Função para adicionar novas linhas na tabela
-    function adicionarLinha(tableId) {
-        const table = document.getElementById(tableId).getElementsByTagName('tbody')[0];
-        const newRow = table.insertRow();
-        const columns = ['<input type="text" required>', 
-                         '<input type="number" min="1" required>', 
-                         '<textarea rows="2" required></textarea>'];
-
-        columns.forEach((html) => {
-            const cell = newRow.insertCell();
-            cell.innerHTML = html;
-        });
-    }
-
-    // Validação antes do envio do formulário
-    document.querySelector('form').addEventListener('submit', function(event) {
-        const materiaisQuantidade = document.querySelectorAll('input[name="quantidade_materiais[]"]');
-        const equipeQuantidade = document.querySelectorAll('input[name="quantidade_equipe[]"]');
-
-        for (let input of [...materiaisQuantidade, ...equipeQuantidade]) {
-            if (input.value <= 0) {
-                alert('A quantidade deve ser maior que zero!');
-                event.preventDefault(); // Impede o envio do formulário
-                return;
+        fields.forEach(field => {
+            if (field.type === "checkbox") {
+                if (!savedData[field.name]) savedData[field.name] = [];
+                if (field.checked) savedData[field.name].push(field.value);
+            } else if (field.name.includes("[]")) {
+                if (!savedData[field.name]) savedData[field.name] = [];
+                savedData[field.name].push(field.value);
+            } else {
+                savedData[field.id] = field.value;
             }
+        });
+
+        localStorage.setItem(proposalNumber, JSON.stringify(savedData));
+    }
+
+    // Função para manipular o envio do formulário e redirecionar para a pré-visualização
+    function handleSubmit() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        saveAllFieldData(proposalNumber); // Salva os dados no localStorage
+        alert("Proposta enviada para análise.");
+
+        // Redireciona para a página de pré-visualização
+        window.location.href = `pre-page2.html?proposal=${proposalNumber}`;
+        return false; // Impede o envio do formulário para o backend
+    }
+
+    // Função para salvar manualmente a proposta ao clicar no botão "Salvar"
+    function saveProposal() {
+        const proposalNumber = document.getElementById('proposalNumber').value || "02222/2024";
+        saveAllFieldData(proposalNumber);
+        alert("Proposta salva com status 'Em Elaboração'.");
+    }
+
+    // Função para abrir uma aba específica
+    function openTab(event, tabName) {
+        const tabContents = document.getElementsByClassName("tab-content");
+        const tabLinks = document.getElementsByClassName("tablinks");
+
+        // Esconde todas as abas
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
         }
-    });
-    // Função para adicionar uma nova linha à tabela
-    function adicionarLinha(tableId) {
-        const tableBody = document.getElementById(tableId).getElementsByTagName('tbody')[0];
-        const newRow = tableBody.insertRow();
 
-        // Determinar os campos a serem adicionados com base na tabela
-        const inputs = tableId === 'materiaisTable' ? [
-            '<input type="text" name="modalidade_materiais[]" required>',
-            '<input type="text" name="especificacao_materiais[]" required>',
-            '<input type="number" name="quantidade_materiais[]" min="1" required>',
-            '<textarea name="memoria_materiais[]" rows="2" required></textarea>',
-            '<button type="button" class="delete-row" onclick="removerLinha(this)">🗑️</button>'
-        ] : [
-            '<input type="text" name="vestimenta_uniformes[]" required>',
-            '<input type="text" name="especificacao_uniformes[]" required>',
-            '<input type="number" name="quantidade_uniformes[]" min="1" required>',
-            '<textarea name="memoria_uniformes[]" rows="2" required></textarea>',
-            '<button type="button" class="delete-row" onclick="removerLinha(this)">🗑️</button>'
-        ];
+        // Remove a classe "active" de todos os botões
+        for (let i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
 
-        // Adiciona as células na nova linha
-        inputs.forEach(inputHtml => {
-            const cell = newRow.insertCell();
-            cell.innerHTML = inputHtml;
+        // Mostra a aba específica e marca o botão como ativo
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+
+    // Função para carregar dados salvos
+    function loadProposalData(proposalNumber) {
+        const savedData = JSON.parse(localStorage.getItem(proposalNumber));
+        if (savedData) {
+            document.querySelectorAll("input, textarea, select").forEach(field => {
+                if (field.type === "checkbox") {
+                    field.checked = savedData[field.name] && savedData[field.name].includes(field.value);
+                } else if (field.name.includes("[]") && savedData[field.name]) {
+                    const index = Array.from(document.getElementsByName(field.name)).indexOf(field);
+                    if (savedData[field.name][index]) field.value = savedData[field.name][index];
+                } else if (savedData[field.id] !== undefined) {
+                    field.value = savedData[field.id];
+                }
+            });
+        }
+    }
+
+    // Configura o salvamento automático dos dados
+    function setupAutoSave(proposalNumber) {
+        const fields = document.querySelectorAll("input, textarea, select");
+        fields.forEach(field => {
+            field.addEventListener("input", () => saveAllFieldData(proposalNumber));
+            if (field.type === "checkbox") {
+                field.addEventListener("change", () => saveAllFieldData(proposalNumber));
+            }
         });
     }
 
-    // Função para remover uma linha específica
-    function removerLinha(button) {
-        const row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-
-    const cnpjInput = document.getElementById('cnpj');
-    const cnpjError = document.getElementById('cnpj-error');
-
-    // Função para aplicar máscara ao CNPJ
-    cnpjInput.addEventListener('input', () => {
-        let cnpj = cnpjInput.value.replace(/\D/g, ''); // Remove tudo que não é número
-
-        // Aplica a máscara: XX.XXX.XXX/XXXX-XX
-        if (cnpj.length <= 14) {
-            cnpj = cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
-            cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-            cnpj = cnpj.replace(/\.(\d{3})(\d)/, '.$1/$2');
-            cnpj = cnpj.replace(/(\d{4})(\d)/, '$1-$2');
-        }
-
-        cnpjInput.value = cnpj;
-    });
-
-    // Função para validar o CNPJ
-    cnpjInput.addEventListener('blur', () => {
-        const isValid = validarCNPJ(cnpjInput.value);
-        if (!isValid) {
-            cnpjError.style.display = 'block';
-        } else {
-            cnpjError.style.display = 'none';
-        }
-    });
-
-    // Lógica de validação do CNPJ
-    function validarCNPJ(cnpj) {
-        cnpj = cnpj.replace(/\D/g, ''); // Remove não-numéricos
-
-        if (cnpj.length !== 14) return false;
-
-        // Elimina CNPJs inválidos conhecidos
-        if (/^(\d)\1+$/.test(cnpj)) return false;
-
-        let tamanho = cnpj.length - 2;
-        let numeros = cnpj.substring(0, tamanho);
-        let digitos = cnpj.substring(tamanho);
-        let soma = 0;
-        let pos = tamanho - 7;
-
-        for (let i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-        }
-
-        let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-        if (resultado != digitos.charAt(0)) return false;
-
-        tamanho = tamanho + 1;
-        numeros = cnpj.substring(0, tamanho);
-        soma = 0;
-        pos = tamanho - 7;
-
-        for (let i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-        }
-
-        resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-        if (resultado != digitos.charAt(1)) return false;
-
-        return true;
-    }
+    // Carrega dados e configura o salvamento automático ao carregar a página
+    window.onload = function() {
+        const proposalNumber = new URLSearchParams(window.location.search).get("proposal") || "02222/2024";
+        loadProposalData(proposalNumber);
+        setupAutoSave(proposalNumber);
+    };
 </script>
 
 </body>
