@@ -1,23 +1,19 @@
 const express = require('express');
 const path = require('path');
-const axios = require('axios');
-const csv = require('csvtojson');
 const fs = require('fs');
-const bodyParser = require('body-parser');
-const { v4: uuidv4 } = require('uuid'); // Gerador de IDs únicos
+const { PDFDocument } = require('pdf-lib');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = 8080;
 
-// Configuração do Body-Parser para formulários e JSON
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Diretório de Views para arquivos estáticos
-app.use(express.static(path.join(__dirname, 'Views')));
-
-// Caminhos do arquivo JSON para armazenamento dos dados
+// Caminho do arquivo JSON para armazenamento de dados
 const caminhoArquivo = path.join(__dirname, 'dados-formularios.json');
+
+// Middleware para servir arquivos estáticos e parsing
+app.use(express.static(path.join(__dirname, 'Views')));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Função para garantir que o arquivo JSON exista
 const verificarOuCriarArquivoJSON = () => {
@@ -27,43 +23,15 @@ const verificarOuCriarArquivoJSON = () => {
 };
 verificarOuCriarArquivoJSON();
 
-// Carrega os dados do arquivo JSON
-let dadosFormularios = JSON.parse(fs.readFileSync(caminhoArquivo, 'utf-8'));
+// Função para carregar dados atualizados do arquivo JSON
+const carregarDadosAtualizados = () => {
+    return JSON.parse(fs.readFileSync(caminhoArquivo, 'utf-8'));
+};
 
-// **Rotas**
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Views', 'index.html'));
-});
-
-// Rota para o formulário Relma
-app.get('/formulario_relma', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Views', 'Formulário_Relma.html'));
-});
-
-app.post('/submit/pagina2', (req, res) => {
-    const proposalNumber = req.body.proposalNumber || uuidv4(); // Identificador único
-    const novoFormulario = { id: proposalNumber, status: 'Enviado para análise', ...req.body };
-
-    // Adiciona o formulário ao array e salva no arquivo JSON
-    dadosFormularios.push(novoFormulario);
-
-    try {
-        fs.writeFileSync(caminhoArquivo, JSON.stringify(dadosFormularios, null, 2));
-        console.log("Formulário salvo com status 'Enviado para análise':", novoFormulario);
-    } catch (err) {
-        console.error("Erro ao salvar os dados:", err);
-    }
-
-    // Redireciona para a página de pré-visualização com o número da proposta
-    res.redirect(`/pre-page2.html?proposal=${proposalNumber}`);
-});
-
-// Rota para processar o formulário e redirecionar para a página de confirmação
+// Rota para enviar um formulário (simula o "salvar" e redireciona)
 app.post('/submit', (req, res) => {
-    const novoFormulario = { id: uuidv4(), ...req.body };
-
-    // Adiciona o formulário ao array e salva no arquivo JSON
+    const dadosFormularios = carregarDadosAtualizados();
+    const novoFormulario = { id: uuidv4(), status: 'Enviado para análise', ...req.body };
     dadosFormularios.push(novoFormulario);
 
     try {
@@ -73,146 +41,56 @@ app.post('/submit', (req, res) => {
         console.error("Erro ao salvar os dados:", err);
     }
 
-    // Redireciona para a nova página de confirmação
     res.redirect('/confirmacao');
 });
+app.use(express.json());
 
-// Nova rota para exibir a página de confirmação
-app.get('/confirmacao', (req, res) => {
-    const confirmacaoPath = path.join(__dirname, 'Views', 'confirmacao.html');
+// Função para buscar uma proposta específica
+app.get('/buscar/:proposalNumber', (req, res) => {
+    const dadosFormularios = carregarDadosAtualizados(); // Carrega sempre os dados atualizados
+    const proposalNumber = req.params.proposalNumber;
+    const proposta = dadosFormularios.find(formulario => formulario.id === proposalNumber);
 
-    fs.readFile(confirmacaoPath, 'utf-8', (err, data) => {
-        if (err) {
-            console.error("Erro ao carregar a página:", err);
-            return res.status(500).send('Erro ao carregar a página de confirmação.');
-        }
-
-        // Gera o histórico de formulários recebidos
-        const historicoHTML = dadosFormularios.map(f => `
-            <li>
-                <strong>Processo SEI:</strong> ${f.processo_sei || 'N/A'} |
-                <strong>Termo de Fomento:</strong> ${f.termo_fomento || 'N/A'} |
-                <a href="/pdf/${f.id}">Baixar PDF</a> |
-                <a href="/visualizar/${f.id}">Visualizar</a>
-            </li>
-        `).join('');
-
-        const paginaAtualizada = data.replace('<!-- HistoricoFormulario -->', `<ul>${historicoHTML}</ul>`);
-        res.send(paginaAtualizada);
-    });
+    if (proposta) {
+        res.json({ success: true, data: proposta });
+    } else {
+        res.status(404).json({ success: false, message: "Proposta não encontrada" });
+    }
 });
 
-// Rota para visualizar os dados completos de um formulário
-app.get('/visualizar/:id', (req, res) => {
-    const formulario = dadosFormularios.find(f => f.id === req.params.id);
-    if (!formulario) return res.status(404).send('Formulário não encontrado.');
-    res.json(formulario);
-});
-
-// Rota para gerar PDF do formulário
-app.get('/pdf/:id', (req, res) => {
-    const formulario = dadosFormularios.find(f => f.id === req.params.id);
-    if (!formulario) return res.status(404).send('Formulário não encontrado.');
-
-    const PDFDocument = require('pdfkit');
-    const doc = new PDFDocument();
-
-    res.setHeader('Content-Disposition', `attachment; filename=formulario-${formulario.id}.pdf`);
-    res.setHeader('Content-Type', 'application/pdf');
-    doc.pipe(res);
-
-    doc.fontSize(20).text(`Formulário - ${formulario.tipo}`, { align: 'center' }).moveDown();
-    Object.entries(formulario).forEach(([key, value]) => {
-        doc.fontSize(14).text(`${key}: ${value}`);
-    });
-
-    doc.end();
-});
-
-// Rota para buscar propostas específicas no Google Sheets
-app.get('/api/get-proposal-data', async (req, res) => {
-    const propostaBuscada = req.query.proposta;
-    if (!propostaBuscada) return res.status(400).send('Proposta não fornecida');
+// Função para gerar o PDF com dados da proposta
+app.post('/generate-pdf', async (req, res) => {
+    const dados = req.body;  // Dados recebidos do frontend
 
     try {
-        const propostas = await lerPropostas(propostaBuscada);
-        if (propostas.length > 0) {
-            res.json(propostas);
-        } else {
-            res.status(404).send('Proposta não encontrada');
-        }
+        const pdfPath = path.join(__dirname, 'public/Projeto-Técnico-Projeto-Social.pdf');
+        const existingPdfBytes = fs.readFileSync(pdfPath);
+        const pdfDoc = await PDFDocument.load(existingPdfBytes);
+        const form = pdfDoc.getForm();
+
+        // Assumindo que os campos têm os mesmos nomes que as chaves do objeto "dados"
+        Object.keys(dados).forEach(campo => {
+            try {
+                const field = form.getTextField(campo);
+                field.setText(dados[campo].toString() || "");
+            } catch (error) {
+                console.warn(`Campo ${campo} não encontrado no PDF.`);
+            }
+        });
+
+        const pdfBytes = await pdfDoc.save();
+        
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=Proposta_Gerada.pdf');
+        res.send(Buffer.from(pdfBytes));
     } catch (error) {
-        res.status(500).send('Erro ao processar a planilha.');
-    }
-});
-// Rota para obter os dados de uma proposta
-app.get('/proposta/:id', (req, res) => {
-    const proposalId = req.params.id;
-    const proposalData = proposals[proposalId]; // Recupera os dados da proposta
-
-    if (proposalData) {
-        res.json({ success: true, data: proposalData });
-    } else {
-        res.json({ success: false, message: 'Proposta não encontrada' });
+        console.error("Erro ao tentar gerar o PDF:", error);
+        res.status(500).send('Erro ao gerar o PDF');
     }
 });
 
-// Rota para salvar ou atualizar uma proposta
-app.post('/proposta/:id', (req, res) => {
-    const proposalId = req.params.id;
-    proposals[proposalId] = req.body; // Armazena os dados da proposta
-    res.json({ success: true, message: 'Proposta salva com sucesso' });
-});
 
-let dataPath = path.join(__dirname, 'dados-formularios.json');
-
-// Rota para gerar PDF do formulário preenchido
-app.get('/generate-pdf/:id', (req, res) => {
-    const proposalId = req.params.id;
-
-    // Carregar dados do arquivo JSON
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    const formData = data.find(item => item.id === proposalId);
-
-    if (!formData) {
-        return res.status(404).send('Formulário não encontrado.');
-    }
-
-    // Criar PDF
-    const doc = new PDFDocument();
-    res.setHeader('Content-Disposition', `attachment; filename=formulario_${proposalId}.pdf`);
-    res.setHeader('Content-Type', 'application/pdf');
-    doc.pipe(res);
-
-    // Título
-    doc.fontSize(16).text("PROJETO TÉCNICO PEDAGÓGICO", { align: 'center' }).moveDown();
-    doc.fontSize(14).text("IMPLEMENTAÇÃO E DESENVOLVIMENTO DE PROJETO", { align: 'center' }).moveDown(2);
-
-    // Dados do proponente
-    doc.fontSize(12).text("1. INFORMAÇÕES GERAIS DO PROPONENTE", { underline: true });
-    doc.text(`CNPJ da Proponente: ${formData.cnpj_proponente || ''}`);
-    doc.text(`Nome da Proponente: ${formData.nome_proponente || ''}`);
-    doc.text(`Nome do Dirigente: ${formData.nome_dirigente || ''}`);
-    doc.text(`Telefone de Contato: ${formData.telefone_contato || ''}`);
-    doc.text(`E-mail: ${formData.email_proponente || ''}`);
-    doc.text(`Número da Proposta: ${formData.numero_proposta || ''}`).moveDown();
-
-    // Informações adicionais
-    doc.text("1.2 RESPONSÁVEL PELA ELABORAÇÃO DO PROJETO", { underline: true });
-    doc.text(`Nome: ${formData.nome_responsavel || ''}`);
-    doc.text(`E-mail: ${formData.email_responsavel || ''}`);
-    doc.text(`Telefone de Contato: ${formData.telefone_responsavel || ''}`).moveDown();
-
-    doc.text("1.3 DIMENSÃO DO PROJETO", { underline: true });
-    doc.text(`Tipo: ${formData.tipo || ''}`).moveDown();
-
-    // Continuar com o restante das seções, formatando conforme solicitado
-    // Adicione todas as outras seções que desejar conforme seu modelo
-
-    doc.end();
-});
-
-// Inicia o servidor
+// Inicialização do servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });

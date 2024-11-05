@@ -565,6 +565,46 @@
 </footer>
 
 <script>
+    function enviarFormularioParaPDF() {
+    const proposalNumber = document.getElementById('proposalNumber').value;
+    const dados = {
+        proposalNumber,
+        cnpj_proponente: document.getElementById('cnpj_proponente').value,
+        nome_proponente: document.getElementById('nome_proponente').value,
+        nome_dirigente: document.getElementById('nome_dirigente').value,
+        telefone_contato: document.getElementById('telefone_contato').value,
+        email_proponente: document.getElementById('email_proponente').value,
+        numero_proposta: document.getElementById('numero_proposta').value,
+        nome_responsavel: document.getElementById('nome_responsavel').value,
+        email_responsavel: document.getElementById('email_responsavel').value,
+        telefone_responsavel: document.getElementById('telefone_responsavel').value,
+        idh: document.getElementById('idh').value,
+        fonte_idh: document.getElementById('fonte_idh').value,
+        ano_idh: document.getElementById('ano_idh').value,
+        num_habitantes: document.getElementById('num_habitantes').value,
+        fonte_populacao: document.getElementById('fonte_populacao').value,
+        ano_populacao: document.getElementById('ano_populacao').value
+    };
+
+    fetch('http://localhost:8080/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        if (response.ok) return response.blob();
+        throw new Error('Erro ao gerar PDF');
+    })
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Proposta_${proposalNumber}.pdf`;
+        link.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => alert(error.message));
+}
     // Função para salvar todos os dados no localStorage
     function saveAllFieldData(proposalNumber) {
         const fields = document.querySelectorAll("input, textarea, select");
@@ -583,6 +623,14 @@
         });
 
         localStorage.setItem(proposalNumber, JSON.stringify(savedData));
+    }
+    function validateProposalNumber() {
+        const proposalNumber = document.getElementById('proposalNumber').value;
+        if (!proposalNumber) {
+            alert("Por favor, preencha o número da proposta.");
+            return false; // Impede o envio do formulário
+        }
+        return true;
     }
 
     // Função para manipular o envio do formulário e redirecionar para a pré-visualização
@@ -652,10 +700,13 @@
     }
 
     // Carrega dados e configura o salvamento automático ao carregar a página
+    // Carrega dados da proposta do localStorage ao abrir a página
     window.onload = function() {
-        const proposalNumber = new URLSearchParams(window.location.search).get("proposal") || "02222/2024";
-        loadProposalData(proposalNumber);
-        setupAutoSave(proposalNumber);
+        const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
+        if (proposalNumber) {
+            loadProposalData(proposalNumber); // Carrega os dados específicos da proposta
+            setupAutoSave(proposalNumber);
+        }
     };
 </script>
 

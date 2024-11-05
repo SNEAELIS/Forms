@@ -95,11 +95,12 @@ body::before {
 /* Imagem de Fundo na Seção Principal */
 /* Conteúdo Principal */
 .content {
-    margin-left: 250px;
-    padding: 40px;
-    transition: margin-left 0.3s ease;
-    width: calc(100% - 250px); /* Adapta ao espaço restante */
-    min-height: calc(100vh - 60px); /* Considera o header e o footer */
+    
+margin-left: 250px;
+       
+width: calc(100% - 250px); /* Garante que o conteúdo ocupe o espaço restante */
+      
+min-height: 100vh;
 }
 .content.expanded {
     margin-left: 0;
