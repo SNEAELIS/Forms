@@ -374,51 +374,52 @@ const declaracoesCompletas = [
 
 // Declarações específicas por opção
 const declaracoesEspecificas = {
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
-        content: `
-            INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], expedida pelo [ORGAO_EMISSOR] / [UF], 
-            cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da 
-            Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o 
-            [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], 
-            [MUNICIPIO] / [UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do 
-            Art. 97, do Ato das Disposições Constitucionais Transitórias.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
-        content: `
-            INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-            cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-            DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-            CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
-            sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos 
-            do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES",
-        content: `
+    '20JP_20JQ_ate_50k': [
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
+            content: `
+                INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], expedida pelo [ORGAO_EMISSOR] / [UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da 
+                Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o 
+                [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], 
+                [MUNICIPIO] / [UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do 
+                Art. 97, do Ato das Disposições Constitucionais Transitórias.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
+            content: `
+                INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
+                sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos 
+                do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES",
+            content: `
             INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
 
             Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
@@ -438,30 +439,30 @@ const declaracoesEspecificas = {
             [NOME]
             Chefe do Poder Executivo (ou Secretário de Finanças)
         `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-        content: `
-            INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-            cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-            DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-            CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
-            e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças ou de Educação)
-        `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-        content: `
+        },
+        {
+            title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
+                INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças ou de Educação)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
             § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
             Eu, [NOME DO RESPONSÁVEL], CPF [CPF], RG [RG], [ÓRGÃO EMISSOR/UF], 
@@ -479,9 +480,9 @@ const declaracoesEspecificas = {
             [NOME DO RESPONSÁVEL]
             Chefe do Poder Executivo ou (Secretário de Finanças)
         `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
+        },
+        {
+            title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
         content: `
             Eu, [NOME], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR]/[UF], 
             CPF [CPF], na condição de representante legal do(a) [ENTIDADE], 
@@ -505,42 +506,44 @@ const declaracoesEspecificas = {
             ______________________________________________________
             [NOME]
             [CARGO_DIRIGENTE]
-        `
-    },
-    '20JP_20JQ_ate_50k': {
-        title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
-        content: `
-            Eu, [NOME], ([CARGO_DIRIGENTE]), portador do CPF n.º [CPF], na condição de representante legal do [ENTIDADE], 
-            inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [ENTIDADE], 
-            possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, 
-            quando se tratar da aquisição de bens de capital.
-
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ________________________________________________________
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-    },
-    '00SL_emendas': {
-        title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
-        content: `
-            Eu, [NOME DO REPRESENTANTE LEGAL], portador do CPF n.º [CPF REPRESENTANTE LEGAL], na qualidade de representante legal do [NOME DO MUNICÍPIO], 
-            inscrito no CNPJ sob o n.º [CNPJ MUNICÍPIO], DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência 
-            ou com mobilidade reduzida, e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
-            
-            DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
-
-            [MUNICÍPIO/UF], [DIA] de [MÊS] de [ANO].
-
-            ________________________________________________________
-            [NOME DO RESPONSÁVEL LEGAL DO MUNICÍPIO]
-            [CARGO]
-        `
-    },
-    '00SL_emendas': {
-        title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
-        content: `
+        ` 
+        },
+        {
+            title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
+            content: `
+                Eu, [NOME], ([CARGO_DIRIGENTE]), portador do CPF n.º [CPF], na condição de representante legal do [ENTIDADE], 
+                inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [ENTIDADE], 
+                possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, 
+                quando se tratar da aquisição de bens de capital.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO_DIRIGENTE]
+            `
+        },
+    ],
+    '00SL_emendas': [
+        {
+            title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
+            content: `
+                Eu, [NOME DO REPRESENTANTE LEGAL], portador do CPF n.º [CPF REPRESENTANTE LEGAL], na qualidade de representante legal do [NOME DO MUNICÍPIO], 
+                inscrito no CNPJ sob o n.º [CNPJ MUNICÍPIO], DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência 
+                ou com mobilidade reduzida, e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
+                
+                DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
+    
+                [MUNICÍPIO/UF], [DIA] de [MÊS] de [ANO].
+    
+                ________________________________________________________
+                [NOME DO RESPONSÁVEL LEGAL DO MUNICÍPIO]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
+            content: `
             Eu, [NOME DO REPRESENTANTE LEGAL], ([CARGO]), portador do CPF n.º [CPF REPRESENTANTE LEGAL], na condição de representante legal do [NOME DO MUNICÍPIO], 
             inscrita no CNPJ nº [CNPJ MUNICÍPIO], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [NOME DO MUNICÍPIO], 
             possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, 
@@ -552,575 +555,580 @@ const declaracoesEspecificas = {
             [NOME DO RESPONSÁVEL LEGAL DO MUNICÍPIO]
             [CARGO]
         `
-    },
-    '00SL_emendas': {
-        title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
-            Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
-            Por ser expressão da verdade, firmo a presente declaração.
-
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-    },
-    '20JP_20JQ_emenda': {
-        title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], no que diz respeito à contratação de recursos humanos, declaro ter ciência de que:
-            
-            1. A forma de contratação necessitará de análise da Consultoria Jurídica da Entidade Convenente, a qual deverá observar as orientações contidas no Acórdão n.º 2588/2017 – TCU – Plenário, Portaria Conjunta MGI/MF/AGU n.º 33, de 30 de agosto de 2023 e demais legislações pertinentes.
-            
-            2. O repasse de recursos financeiros para custeio desta ação, no que tange ao pagamento dos profissionais e encargos sociais e trabalhistas, seguirá os valores e os percentuais aprovados no Plano de Trabalho da Proposta n.º [PROPOSTA]. Assim, caso os encargos sociais e/ou trabalhistas ultrapassem o limite estabelecido, a Entidade arcará com esta despesa.
-            
-            3. O valor total do recurso, destinado ao pagamento dos profissionais, encargos sociais e/ou trabalhistas, será obrigatoriamente pago mensalmente, conforme pactuado no Plano de Trabalho e em observância ao que segue:
-                - Pagamento dos Profissionais: no mês seguinte da prestação dos serviços; e
-                - Pagamento dos Encargos Sociais e/ou Trabalhistas: deverá acompanhar a periodicidade dos pagamentos realizados aos recursos humanos vinculados.
-
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-            ......................................................................................................
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-    },
-    '20JP_20JQ_emenda':{
-        title: "TERMO DE COMPROMISSO",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], indico para a atribuição de Coordenador Geral do Programa ([NOME_PROGRAMA]), 
-            o servidor [NOME_SERVIDOR], RG nº [IDENTIDADE_SERVIDOR], CPF [CPF_SERVIDOR], vinculado a esta Entidade como [VINCULO_SERVIDOR], 
-            possuindo a qualificação exigida para desenvolvimento do(a) [NOME_PROGRAMA], devidamente comprovada, com dedicação de 40 horas semanais junto ao Programa.
-
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-            ________________________________________________________
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-    },
-    '20JP_20JQ_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], no que diz respeito à contratação de recursos humanos, declaro ter ciência de que:
-            
-            1. A forma de contratação necessitará de análise da Consultoria Jurídica da Entidade Convenente, a qual deverá observar as orientações contidas no Acórdão n.º 2588/2017 – TCU – Plenário, Portaria Conjunta MGI/MF/AGU n.º 33, de 30 de agosto de 2023 e demais legislações pertinentes.
-            
-            2. O repasse de recursos financeiros para custeio desta ação, no que tange ao pagamento dos profissionais e encargos sociais e trabalhistas, seguirá os valores e os percentuais aprovados no Plano de Trabalho da Proposta n.º [PROPOSTA]. Assim, caso os encargos sociais e/ou trabalhistas ultrapassem o limite estabelecido, a Entidade arcará com esta despesa.
-            
-            3. O valor total do recurso, destinado ao pagamento dos profissionais, encargos sociais e/ou trabalhistas, será obrigatoriamente pago mensalmente, conforme pactuado no Plano de Trabalho e em observância ao que segue:
-                - Pagamento dos Profissionais: no mês seguinte da prestação dos serviços; e
-                - Pagamento dos Encargos Sociais e/ou Trabalhistas: deverá acompanhar a periodicidade dos pagamentos realizados aos recursos humanos vinculados.
-
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-            ......................................................................................................
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-   },
-   '20JP_20JQ_comissao_mais_50k': {
-    title: "TERMO DE COMPROMISSO",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], indico para a atribuição de Coordenador Geral do Programa ([NOME_PROGRAMA]), 
-            o servidor [NOME_SERVIDOR], RG nº [IDENTIDADE_SERVIDOR], CPF [CPF_SERVIDOR], vinculado a esta Entidade como [VINCULO_SERVIDOR], 
-            possuindo a qualificação exigida para desenvolvimento do(a) [NOME_PROGRAMA], devidamente comprovada, com dedicação de 40 horas semanais junto ao Programa.
-
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-            ________________________________________________________
-            [NOME]
-            [CARGO_DIRIGENTE]
-        `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
-    content: `
-        INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], encontra-se regular:
-
-        I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000;
-        II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
-        III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-    content: `
-        INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
-        e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças ou de Educação)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-    content: `
-        § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
-        e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo ou (Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
-    content: `
-        INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
-    content: `
-        INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
-        sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos 
-        do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE REGULARIDADE NA CONTRATAÇÃO DE OPERAÇÃO DE CRÉDITO",
-    content: `
-        INCISO XXXII, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-        CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE ADIMPLÊNCIA",
-    content: `
-        Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-        na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], DECLARO, no uso das atribuições que me foram delegadas e sob as penas da lei, que a presente Entidade:
-
-        Não está inadimplente com a União, inclusive no que tange às contribuições de que tratam os artigos 195 e 239 da Constituição Federal (contribuições dos empregados para a seguridade social, contribuições para o PIS/PASEP e contribuições para o FGTS, com relação a recursos anteriormente recebidos da Administração Pública Federal, por meio de convênios, contratos, acordos, ajustes, subvenções sociais, contribuições, auxílios e similares).
-
-        Por ser expressão da verdade, firmo a presente declaração.
-
-        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo (ou Secretário de Finanças)
-    `
-},
-'20JP_20JQ_comissao_mais_50k': {
-    title: "DECLARAÇÃO DE TRANSPARÊNCIA DA EXECUÇÃO ORÇAMENTÁRIA E FINANCEIRA",
-    content: `
-        INCISOS XV E XVI DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-        Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
-        cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, 
-        DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
-
-        - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
-        - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
-
-        Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-        [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-        ______________________________________________________
-        [NOME]
-        Chefe do Poder Executivo
-    `
-},
+        },
+        {
+            title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+                na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
+                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+                Por ser expressão da verdade, firmo a presente declaração.
     
-'00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
-        content: `
-            INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
-
-            I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
-            II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
-            III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-        content: `
-            INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo ou (Secretário de Finanças ou de Educação)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
-        content: `
-            § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo ou (Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
-        content: `
-            INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
-        content: `
-            INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NA CONTRATAÇÃO DE OPERAÇÃO DE CRÉDITO",
-        content: `
-            INCISO XXXII, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE ADIMPLÊNCIA",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], DECLARO, no uso das atribuições que me foram delegadas e sob as penas da lei, que a presente Entidade:
-
-            Não está inadimplente com a União, inclusive no que tange às contribuições de que tratam os artigos 195 e 239 da Constituição Federal (contribuições dos empregados para a seguridade social, contribuições para o PIS/PASEP e contribuições para o FGTS, com relação a recursos anteriormente recebidos da Administração Pública Federal, por meio de convênios, contratos, acordos, ajustes, subvenções sociais, contribuições, auxílios e similares).
-
-            Por ser expressão da verdade, firmo a presente declaração.
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                [CARGO_DIRIGENTE]
+            `
+        },
+    ],
+    '20JP_20JQ_emenda': [
+        {
+            title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
+            content: `
+            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], no que diz respeito à contratação de recursos humanos, declaro ter ciência de que:
+            
+            1. A forma de contratação necessitará de análise da Consultoria Jurídica da Entidade Convenente, a qual deverá observar as orientações contidas no Acórdão n.º 2588/2017 – TCU – Plenário, Portaria Conjunta MGI/MF/AGU n.º 33, de 30 de agosto de 2023 e demais legislações pertinentes.
+            
+            2. O repasse de recursos financeiros para custeio desta ação, no que tange ao pagamento dos profissionais e encargos sociais e trabalhistas, seguirá os valores e os percentuais aprovados no Plano de Trabalho da Proposta n.º [PROPOSTA]. Assim, caso os encargos sociais e/ou trabalhistas ultrapassem o limite estabelecido, a Entidade arcará com esta despesa.
+            
+            3. O valor total do recurso, destinado ao pagamento dos profissionais, encargos sociais e/ou trabalhistas, será obrigatoriamente pago mensalmente, conforme pactuado no Plano de Trabalho e em observância ao que segue:
+                - Pagamento dos Profissionais: no mês seguinte da prestação dos serviços; e
+                - Pagamento dos Encargos Sociais e/ou Trabalhistas: deverá acompanhar a periodicidade dos pagamentos realizados aos recursos humanos vinculados.
 
             [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
 
-            ______________________________________________________
+            ......................................................................................................
             [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
+            [CARGO_DIRIGENTE]
         `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE TRANSPARÊNCIA DA EXECUÇÃO ORÇAMENTÁRIA E FINANCEIRA",
-        content: `
-            INCISOS XV E XVI DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+        },
+        {
+            title: "TERMO DE COMPROMISSO",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+                na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], indico para a atribuição de Coordenador Geral do Programa ([NOME_PROGRAMA]), 
+                o servidor [NOME_SERVIDOR], RG nº [IDENTIDADE_SERVIDOR], CPF [CPF_SERVIDOR], vinculado a esta Entidade como [VINCULO_SERVIDOR], 
+                possuindo a qualificação exigida para desenvolvimento do(a) [NOME_PROGRAMA], devidamente comprovada, com dedicação de 40 horas semanais junto ao Programa.
+    
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO_DIRIGENTE]
+            `
+        },
+    ],
+    '20JP_20JQ_comissao_mais_50k': [
+        {
+            title: "DECLARAÇÃO DE CIÊNCIA DOS REQUISITOS PARA CONTRATAÇÃO DE RECURSOS HUMANOS",
+            content: `
+            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], no que diz respeito à contratação de recursos humanos, declaro ter ciência de que:
+            
+            1. A forma de contratação necessitará de análise da Consultoria Jurídica da Entidade Convenente, a qual deverá observar as orientações contidas no Acórdão n.º 2588/2017 – TCU – Plenário, Portaria Conjunta MGI/MF/AGU n.º 33, de 30 de agosto de 2023 e demais legislações pertinentes.
+            
+            2. O repasse de recursos financeiros para custeio desta ação, no que tange ao pagamento dos profissionais e encargos sociais e trabalhistas, seguirá os valores e os percentuais aprovados no Plano de Trabalho da Proposta n.º [PROPOSTA]. Assim, caso os encargos sociais e/ou trabalhistas ultrapassem o limite estabelecido, a Entidade arcará com esta despesa.
+            
+            3. O valor total do recurso, destinado ao pagamento dos profissionais, encargos sociais e/ou trabalhistas, será obrigatoriamente pago mensalmente, conforme pactuado no Plano de Trabalho e em observância ao que segue:
+                - Pagamento dos Profissionais: no mês seguinte da prestação dos serviços; e
+                - Pagamento dos Encargos Sociais e/ou Trabalhistas: deverá acompanhar a periodicidade dos pagamentos realizados aos recursos humanos vinculados.
 
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
+            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
 
-            - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
-            - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
+            ......................................................................................................
             [NOME]
-            Chefe do Poder Executivo
+            [CARGO_DIRIGENTE]
         `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
-        content: `
-            Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
-            DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
-            para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
+        },
+        {
+            title: "TERMO DE COMPROMISSO",
+            content: `
+            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+            na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], indico para a atribuição de Coordenador Geral do Programa ([NOME_PROGRAMA]), 
+            o servidor [NOME_SERVIDOR], RG nº [IDENTIDADE_SERVIDOR], CPF [CPF_SERVIDOR], vinculado a esta Entidade como [VINCULO_SERVIDOR], 
+            possuindo a qualificação exigida para desenvolvimento do(a) [NOME_PROGRAMA], devidamente comprovada, com dedicação de 40 horas semanais junto ao Programa.
 
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
 
             ________________________________________________________
             [NOME]
-            [CARGO]
+            [CARGO_DIRIGENTE]
         `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
+            content: `
+                INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+        
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+        
+                I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000;
+                II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
+                III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
+        
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+        
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+        
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
+                INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
-            Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
 
-            Por ser expressão da verdade, firmo a presente declaração.
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-            ________________________________________________________
-            [NOME]
-            [CARGO]
-        `
-    },
-    '00SL_comissao_mais_50k': {
-        title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
-        content: `
-            Eu, [NOME], portador do CPF n.º [CPF], na qualidade de representante legal do [MUNICIPIO], inscrito no CNPJ sob o n.º [CNPJ], 
-            DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência ou com mobilidade reduzida, 
-            e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças ou de Educação)
+            ` 
+        },
+        {
+            title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
+                § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+        
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
+        
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+        
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo ou (Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
+            content: `
+                INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
 
-            DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
 
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            ________________________________________________________
-            [NOME]
-            [CARGO]
-        `
-    },
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
-        content: `
-            Eu, [NOME], portador do CPF n.º [CPF], na qualidade de representante legal do [MUNICIPIO], inscrito no CNPJ sob o n.º [CNPJ], 
-            DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência ou com mobilidade reduzida, 
-            e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
+            content: `
+                INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
 
-            DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
+                sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos 
+                do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
 
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            ________________________________________________________
-            [NOME]
-            [CARGO]
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
-        content: `
-            Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
-            DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
-            para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NA CONTRATAÇÃO DE OPERAÇÃO DE CRÉDITO",
+            content: `
+                INCISO XXXII, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+        
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
+                CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
+        
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+        
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE ADIMPLÊNCIA",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
+                na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], DECLARO, no uso das atribuições que me foram delegadas e sob as penas da lei, que a presente Entidade:
 
-            ________________________________________________________
-            [NOME]
-            [CARGO]
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
-        content: `
-            Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
+                Não está inadimplente com a União, inclusive no que tange às contribuições de que tratam os artigos 195 e 239 da Constituição Federal (contribuições dos empregados para a seguridade social, contribuições para o PIS/PASEP e contribuições para o FGTS, com relação a recursos anteriormente recebidos da Administração Pública Federal, por meio de convênios, contratos, acordos, ajustes, subvenções sociais, contribuições, auxílios e similares).
 
-            Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+                Por ser expressão da verdade, firmo a presente declaração.
 
-            Por ser expressão da verdade, firmo a presente declaração.
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
 
-            [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE TRANSPARÊNCIA DA EXECUÇÃO ORÇAMENTÁRIA E FINANCEIRA",
+            content: `
+                INCISOS XV E XVI DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
 
-            ________________________________________________________
-            [NOME]
-            [CARGO]
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
-        content: `
-            INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
+                cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, 
+                DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
 
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+                - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
+                - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
 
-            I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
-            II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
-            III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo
+            `
+        },
+    ],
+    '00SL_comissao_mais_50k': [
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
+            content: `
+                INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+    
+                I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
+                II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
+                III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DESTINAÇÃO DOS PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
+                INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NA DESTINAÇÃO DOS PRECATÓRIOS",
-        content: `
-            INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
 
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo ou (Secretário de Finanças ou de Educação)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS CORRESPONDENTES AO RATEIO DOS PERCENTUAIS DESTINADOS AOS PROFISSIONAIS DO MAGISTÉRIO E AOS DEMAIS PROFISSIONAIS DA EDUCAÇÃO BÁSICA",
+            content: `
+                § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo ou (Secretário de Finanças ou de Educação)
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS NA DESTINAÇÃO",
-        content: `
-            § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
 
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo ou (Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
-        content: `
-            INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
-    '00SL_comissao_ate_50k': {
-        title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DE E.P. E S.E.M.",
-        content: `
-            INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
-
-            Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
-
-            Por ser verdade, firmo a presente no exercício do respectivo cargo.
-
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
-
-            ______________________________________________________
-            [NOME]
-            Chefe do Poder Executivo (ou Secretário de Finanças)
-        `
-    },
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo ou (Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
+            content: `
+                INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DAS EMPRESAS PÚBLICAS E DAS SOCIEDADES DE ECONOMIA MISTA AO REGISTRO PÚBLICO DE EMPRESAS MERCANTIS E ATIVIDADES AFINS",
+            content: `
+                INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NA CONTRATAÇÃO DE OPERAÇÃO DE CRÉDITO",
+            content: `
+                INCISO XXXII, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE ADIMPLÊNCIA",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], DECLARO, no uso das atribuições que me foram delegadas e sob as penas da lei, que a presente Entidade:
+    
+                Não está inadimplente com a União, inclusive no que tange às contribuições de que tratam os artigos 195 e 239 da Constituição Federal (contribuições dos empregados para a seguridade social, contribuições para o PIS/PASEP e contribuições para o FGTS, com relação a recursos anteriormente recebidos da Administração Pública Federal, por meio de convênios, contratos, acordos, ajustes, subvenções sociais, contribuições, auxílios e similares).
+    
+                Por ser expressão da verdade, firmo a presente declaração.
+    
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE TRANSPARÊNCIA DA EXECUÇÃO ORÇAMENTÁRIA E FINANCEIRA",
+            content: `
+                INCISOS XV E XVI DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
+    
+                - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
+                - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
+            content: `
+                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
+                DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
+                para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
+    
+                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+    
+                Por ser expressão da verdade, firmo a presente declaração.
+    
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
+            content: `
+                Eu, [NOME], portador do CPF n.º [CPF], na qualidade de representante legal do [MUNICIPIO], inscrito no CNPJ sob o n.º [CNPJ], 
+                DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência ou com mobilidade reduzida, 
+                e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
+    
+                DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+    ],
+    '00SL_comissao_ate_50k': [
+        {
+            title: "DECLARAÇÃO DE CONFORMIDADE EM ACESSIBILIDADE",
+            content: `
+                Eu, [NOME], portador do CPF n.º [CPF], na qualidade de representante legal do [MUNICIPIO], inscrito no CNPJ sob o n.º [CNPJ], 
+                DECLARO que serão garantidos os meios necessários para acessibilidade de pessoas com deficiência ou com mobilidade reduzida, 
+                e dá outras providências ao projeto, nos termos da Lei nº 10.098, de 19 de dezembro de 2000 e demais legislações e normativas aplicáveis.
+    
+                DECLARO, outrossim, sob as penas da lei, estar plenamente ciente do teor e da extensão desta declaração e deter plenos poderes e informações para firmá-la.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
+            content: `
+                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
+                DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
+                para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
+    
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
+            content: `
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
+    
+                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+    
+                Por ser expressão da verdade, firmo a presente declaração.
+    
+                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ________________________________________________________
+                [NOME]
+                [CARGO]
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO CUMPRIMENTO DE LIMITES DA LRF",
+            content: `
+                INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+    
+                I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
+                II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
+                III. no cumprimento do limite de despesa total com pessoal de todos os Poderes e órgãos listados no Art. 20 da Lei Complementar nº 101, de 2000, inclusive as Defensorias Públicas, nos termos do art. 169, § 2º, da Constituição Federal, e do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NA DESTINAÇÃO DOS PRECATÓRIOS",
+            content: `
+                INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo ou (Secretário de Finanças ou de Educação)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE AUSÊNCIA DE PRECATÓRIOS NA DESTINAÇÃO",
+            content: `
+                § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo ou (Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO PAGAMENTO DE PRECATÓRIOS JUDICIAIS",
+            content: `
+                INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+        {
+            title: "DECLARAÇÃO DE REGULARIDADE NO FORNECIMENTO DA RELAÇÃO DE E.P. E S.E.M.",
+            content: `
+                INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
+    
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
+    
+                Por ser verdade, firmo a presente no exercício do respectivo cargo.
+    
+                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+    
+                ______________________________________________________
+                [NOME]
+                Chefe do Poder Executivo (ou Secretário de Finanças)
+            `
+        },
+    ],
 };
 
 // Função para gerar o PDF
 function gerarPDF() {
     const dados = capturarDadosFormulario();
     const opcao = document.getElementById('opcaoSelecao').value;
-
-    
 
     // Verificar se uma opção válida foi selecionada
     if (!opcao || !declaracoesEspecificas[opcao]) {
@@ -1137,27 +1145,26 @@ function gerarPDF() {
         pageBreak: 'after'
     }));
 
-    // Processar a declaração específica
-    const declaracaoEspecifica = declaracoesEspecificas[opcao];
-    const conteudoEspecifico = {
+    // Processar as declarações específicas selecionadas
+    const declaracoesEspecificasSelecionadas = declaracoesEspecificas[opcao];
+    const conteudoEspecifico = declaracoesEspecificasSelecionadas.map(declaracao => ({
         stack: [
-            { text: declaracaoEspecifica.title, style: 'header', margin: [0, 10, 0, 10] },
-            { text: substituirPlaceholders(declaracaoEspecifica.content, dados), style: 'normal' }
+            { text: declaracao.title, style: 'header', margin: [0, 10, 0, 10] },
+            { text: substituirPlaceholders(declaracao.content, dados), style: 'normal' }
         ],
         pageBreak: 'after'
-    };
+    }));
 
-    // Definição do documento PDF com as declarações comuns e específica
+    // Definição do documento PDF com as declarações comuns e específicas
     const docDefinition = {
         pageSize: 'A4',
-        pageMargins: [40, 60, 40, 60],
-        content: [...conteudoComum, conteudoEspecifico], // Inclui comuns e específica
+        pageMargins: [40, 40, 40, 40],
+        content: [...conteudoComum, ...conteudoEspecifico], // Inclui comuns e específicas
         styles: {
             header: { fontSize: 16, bold: true, alignment: 'center' },
             normal: { fontSize: 12, lineHeight: 1.5 }
         }
     };
-
 
     // Gera e baixa o PDF
     pdfMake.createPdf(docDefinition).download(`${opcao}.pdf`);

@@ -9,11 +9,11 @@ const app = express();
 app.use(express.json());
 
 // Configuração do banco de dados MongoDB
-mongoose.connect('mongodb://localhost:27017/vistorias', { useNewUrlParser: true, useUnifiedTopology: true });
-const response = await fetch('http://localhost:8080/api/salvarVistoria', {
-    method: 'POST',
-    body: formData,
-});
+mongoose.connect('mongodb+srv://pedrodiasdesenvolvedor123:Sneaelis2025@cluster1.mh3fl.mongodb.net/Ficha_Vistoria', {
+
+})
+    .then(() => console.log('Conectado ao MongoDB Atlas'))
+    .catch((error) => console.error('Erro ao conectar ao MongoDB Atlas:', error));
 
 // Esquema para os dados de vistoria
 const VistoriaSchema = new mongoose.Schema({
@@ -108,4 +108,9 @@ app.get('/api/gerarPDF/:id', async (req, res) => {
 app.get('/api/consultarVistorias', async (req, res) => {
     const vistorias = await Vistoria.find();
     res.status(200).json(vistorias);
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });

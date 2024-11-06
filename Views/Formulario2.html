@@ -17,25 +17,38 @@
 
     <div class="container">
         <h2>Opções de Ajuste</h2>
-    
-        <!-- Adicionar três checkboxes para alterar o comportamento -->
 
-    
+        <!-- Adicionar campo para o nome da entidade -->
+        <label for="nomeEntidade">Nome da Entidade:</label>
+        <input type="text" id="nomeEntidade" required>
+
+        <!-- Adicionar checkboxes para opções adicionais -->
+        <label>
+            <input type="checkbox" id="contasRejeitadas">
+            A entidade teve contas rejeitadas
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" id="improbidadeAdministrativa">
+            A entidade possui histórico de improbidade administrativa
+        </label>
+
         <h2>Dados Gerais</h2>
         <form id="declaracoesForm">
             <label for="numDirigentes">Informe o número de dirigentes:</label>
             <input type="number" id="numDirigentes" name="numDirigentes" min="1" max="10">
             <button type="button" onclick="gerarCampos()">Gerar Campos</button>
         </form>
-    
+
         <form id="dirigentesForm">
             <div id="camposDirigentes"></div>
         </form>
-    
+
         <div class="container1">
             <button id="botaoGerarPDF" onclick="gerarPDF()">Gerar PDF Art 26/27</button>
         </div>
     </div>
+
 
     <footer>
         <p>&copy; 2024 Ministério do Esporte</p>

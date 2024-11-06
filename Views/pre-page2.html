@@ -6,65 +6,135 @@
     <title>Formulário Técnico - Projeto/Evento</title>
     <link rel="stylesheet" href="style.css/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h2 {
+            color: #ebebeb;
+        }
+        header img {
+            width: 10%;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .choice-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+        .choice-container button {
+            padding: 15px 30px;
+            background-color: #0e41cef8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+        .choice-container button:hover {
+            background-color: #564a9b;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0b7dda;
+        }
+        /* Estilos dos botões de ação */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .action-buttons button {
+            flex: 1;
+            padding: 10px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        .edit-button { background-color: #4CAF50; }
+        .edit-button:hover { background-color: #45a049; }
+        .view-button { background-color: #2196F3; }
+        .view-button:hover { background-color: #0b7dda; }
+        .delete-button { background-color: #f44336; }
+        .delete-button:hover { background-color: #da190b; }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #fcfafa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
 
-<style>
-    /* Estilos gerais */
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-    .choice-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20px 0;
-        gap: 15px;
-    }
-    .choice-container button {
-        padding: 15px 30px;
-        background-color: #0e41cef8;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 1rem;
-        border-radius: 5px;
-        transition: 0.3s;
-    }
-    .choice-container button:hover {
-        background-color: #564a9b;
-    }
-
-    /* Estilos dos botões de ação */
-    .action-buttons button {
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: background-color 0.3s;
-    }
-    .edit-button { background-color: #4CAF50; }
-    .edit-button:hover { background-color: #45a049; }
-    .view-button { background-color: #2196F3; }
-    .view-button:hover { background-color: #0b7dda; }
-    .delete-button { background-color: #f44336; }
-    .delete-button:hover { background-color: #da190b; }
-</style>
-
 <header>
     <h2>Ministério do Esporte</h2>
-    <img src="img/Imagem1.png" alt="Logo" width="10%">
+    <img src="img/Imagem1.png" alt="Logo">
 </header>
 
 <div class="container">
@@ -83,20 +153,33 @@
             <input type="text" id="proposalNumber" name="proposalNumber" required>
             <button type="submit">Pesquisar</button>
         </form>
+
+        <!-- Exibe status e informações da proposta -->
         <div id="proposalStatus" style="display: none;">
-            <h3>Status da Proposta: <span id="statusText"></span></h3>
-            <p><strong>Informações:</strong> <span id="proposalInfo"></span></p>
+            <h3>Propostas Encontradas</h3>
+            <table id="proposalsTable">
+                <thead>
+                    <tr>
+                        <th>Número da Proposta</th>
+                        <th>Objeto</th>
+                        <th>Quantidade</th>
+                        <th>Versões</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
 
             <!-- Botões de ação -->
-            <button class="edit-button" onclick="editarProposta()">
-                <i class="fas fa-edit"></i> Editar
-            </button>
-            <button class="view-button" onclick="enviarDadosEVisualizarPDF()">
-                <i class="fas fa-eye"></i> Visualizar PDF
-            </button>
-            <button class="delete-button" onclick="excluirProposta()">
-                <i class="fas fa-trash-alt"></i> Excluir
-            </button>
+            <div class="action-buttons">
+                <button class="edit-button" onclick="editarProposta()">
+                    <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="view-button" onclick="enviarDadosEVisualizarPDF()">
+                    <i class="fas fa-eye"></i> Visualizar PDF
+                </button>
+                <button class="delete-button" onclick="excluirProposta()">
+                    <i class="fas fa-trash-alt"></i> Excluir
+                </button>
             </div>
         </div>
     </div>
@@ -107,50 +190,102 @@
 </footer>
 
 <script>
-    // Exibe o formulário de pesquisa
-    function showForm(option) {
-        document.getElementById('choiceContainer').style.display = 'none';
-        if (option === 'search') {
-            document.getElementById('searchSection').style.display = 'block';
+// Shows the appropriate form based on the user's selection
+// Exibe o formulário de pesquisa ou outro conteúdo
+// Exibe o formulário de pesquisa ou outro conteúdo
+function showForm(option) {
+    document.getElementById('choiceContainer').style.display = 'none';
+    if (option === 'search') {
+        document.getElementById('searchSection').style.display = 'block';
+    }
+}
+
+// Ao submeter o formulário de pesquisa, busca os dados no localStorage
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const proposalNumber = document.getElementById('proposalNumber').value.trim();
+
+    if (proposalNumber) {
+        const proposalData = JSON.parse(localStorage.getItem(proposalNumber));
+
+        // Verifica se os dados foram recuperados corretamente
+        console.log("Dados recuperados do localStorage:", proposalData);
+
+        if (proposalData && proposalData.versoes) {
+            // Se `versoes` for uma string, converta para um array de objetos
+            if (typeof proposalData.versoes === 'string') {
+                const versoesArray = proposalData.versoes.split(', ').map((versao, index) => ({
+                    versao,
+                    dataEnvio: proposalData.datasEnvio ? proposalData.datasEnvio[index] || '' : ''
+                }));
+                proposalData.versoes = versoesArray;
+            }
+            displayProposalData(proposalData);
+        } else {
+            alert("Proposta não encontrada ou formato de dados inválido.");
+            console.warn("Formato de dados inválido ou proposta não encontrada.");
         }
     }
+});
 
-    // Função para pesquisar e exibir dados da proposta
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const proposalNumber = document.getElementById('proposalNumber').value;
+// Função para exibir dados na tabela
+function displayProposalData(data) {
+    const tableBody = document.querySelector("#proposalsTable tbody");
+    tableBody.innerHTML = ""; // Limpa as linhas existentes
 
-        if (proposalNumber) {
-            localStorage.setItem('lastViewedProposal', proposalNumber);
-            document.getElementById('statusText').innerText = "Em Elaboração";
-            document.getElementById('proposalInfo').innerText = "Informações detalhadas da proposta...";
-            document.getElementById('proposalStatus').style.display = 'block';
-        } else {
-            alert("Proposta não encontrada.");
-        }
+    // Garante que `data.versoes` seja um array
+    const versoes = Array.isArray(data.versoes) ? data.versoes : [];
+
+    // Exibe cada versão em uma nova linha
+    versoes.forEach(versao => {
+        const row = `
+            <tr>
+                <td>${data.proposalNumber}</td>
+                <td>${data.objeto || "N/A"}</td>
+                <td>${versao.versao}</td>
+                <td>${versao.dataEnvio || "Data não disponível"}</td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
     });
 
-    // Função para editar a proposta
-    function editarProposta() {
-        const proposalNumber = localStorage.getItem('lastViewedProposal');
-        if (proposalNumber) {
-            window.location.href = `pagina2.html?proposal=${proposalNumber}`;
-        } else {
-            alert("Número da proposta não encontrado.");
-        }
+    document.getElementById('proposalStatus').style.display = 'block';
+}
+
+// Function to edit the proposal
+function editarProposta() {
+    const proposalNumber = localStorage.getItem('lastViewedProposal');
+    if (proposalNumber) {
+        window.location.href = `pagina2.html?proposal=${proposalNumber}`;
+    } else {
+        alert("Número da proposta não encontrado.");
+    }
+}
+
+// Function to view the PDF of the proposal
+function enviarDadosEVisualizarPDF() {
+    const proposalNumber = localStorage.getItem('lastViewedProposal');
+    if (!proposalNumber) {
+        alert("Número da proposta não encontrado.");
+        return;
     }
 
-    // Função para visualizar o PDF da proposta
-    function enviarDadosEVisualizarPDF() {
-        const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
-    const proposalData = JSON.parse(localStorage.getItem(proposalNumber)) || {};
+    const propostaData = JSON.parse(localStorage.getItem(proposalNumber)) || {};
 
+    // Send data to the backend for PDF generation
     fetch(`http://localhost:8080/generate-pdf`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(proposalData)
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ proposalNumber, ...propostaData })
     })
-    .then(response => response.ok ? response.blob() : Promise.reject('Erro ao gerar PDF'))
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro ao gerar PDF: ${response.statusText}`);
+        }
+        return response.blob();
+    })
     .then(blob => {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -159,25 +294,34 @@
         link.click();
         window.URL.revokeObjectURL(url);
     })
-    .catch(error => alert(error));
-    window.onload = function() {
+    .catch(error => {
+        console.error("Erro ao gerar o PDF:", error);
+        alert("Erro ao gerar o PDF. Verifique o console para mais detalhes.");
+    });
+}
+
+// Load specific proposal data to display on the page if provided
+window.onload = function() {
     const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
     if (proposalNumber) {
-        loadProposalData(proposalNumber); // Carrega os dados específicos da proposta para exibição
-    }
-};
-}
-    // Função para excluir a proposta
-    function excluirProposta() {
-        const proposalNumber = localStorage.getItem('lastViewedProposal');
-        if (proposalNumber) {
-            localStorage.removeItem(proposalNumber);
-            alert("Proposta excluída com sucesso.");
-            document.getElementById('proposalStatus').style.display = 'none';
-        } else {
-            alert("Número da proposta não encontrado.");
+        const proposalData = JSON.parse(localStorage.getItem(proposalNumber));
+        if (proposalData) {
+            displayProposalData(proposalData);
         }
     }
+};
+
+// Function to delete a proposal
+function excluirProposta() {
+    const proposalNumber = localStorage.getItem('lastViewedProposal');
+    if (proposalNumber) {
+        localStorage.removeItem(proposalNumber);
+        alert("Proposta excluída com sucesso.");
+        document.getElementById('proposalStatus').style.display = 'none';
+    } else {
+        alert("Número da proposta não encontrado.");
+    }
+}
 </script>
 
 </body>

@@ -174,7 +174,7 @@
         <button class="tablinks" onclick="openTab(event, 'cronograma')">Cronograma e Vigência</button>
     </div>
 
-    <form action="/submit/pagina2" method="POST">
+    <form action="/submit/pagina2" method="POST" onsubmit="return saveProjectData();">
         
         <div id="identificacao" class="tab-content active">
             <fieldset>
@@ -189,8 +189,8 @@
                 <input type="text" id="telefone_contato" name="telefone_contato" placeholder="(XX) XXXXX-XXXX" required>
                 <label for="email_proponente">E-mail:</label>
                 <input type="email" id="email_proponente" name="email_proponente" required>
-                <label for="numero_proposta">Número da Proposta (Plataforma +Brasil):</label>
-                <input type="text" id="numero_proposta" name="numero_proposta" required>
+                <label for="proposalNumber">Número da Proposta (Plataforma +Brasil):</label>
+                <input type="text" id="proposalNumber" name="proposalNumber" required>
             </fieldset>
         </div>
 
@@ -565,6 +565,35 @@
 </footer>
 
 <script>
+function saveProposalData() {
+    const proposalNumber = document.getElementById('proposalNumber').value.trim();
+    const objeto = document.getElementById('objeto').value.trim();
+    const dataEnvio = new Date().toLocaleString('pt-BR');
+
+    if (proposalNumber && objeto) {
+        // Recupera dados existentes ou cria uma nova estrutura de dados para a proposta
+        let proposalData = JSON.parse(localStorage.getItem(proposalNumber)) || {
+            proposalNumber: proposalNumber,
+            objeto: objeto,
+            versoes: []
+        };
+
+        // Adiciona uma nova versão com data de envio
+        const novaVersao = {
+            versao: `v${proposalData.versoes.length + 1}.0`,
+            dataEnvio: dataEnvio
+        };
+        proposalData.versoes.push(novaVersao);
+
+        // Salva a estrutura atualizada no localStorage
+        localStorage.setItem(proposalNumber, JSON.stringify(proposalData));
+        alert("Proposta salva com sucesso!");
+        return true; // Permite o envio do formulário
+    } else {
+        alert("Por favor, preencha todos os campos.");
+        return false; // Evita o envio do formulário se campos estiverem vazios
+    }
+}
     function enviarFormularioParaPDF() {
     const proposalNumber = document.getElementById('proposalNumber').value;
     const dados = {
@@ -585,6 +614,46 @@
         fonte_populacao: document.getElementById('fonte_populacao').value,
         ano_populacao: document.getElementById('ano_populacao').value
     };
+
+    function salvarProposta() {
+    const proposalNumber = document.getElementById('proposalNumber').value;
+    const objeto = document.getElementById('objeto').value;
+    const quantidade = document.getElementById('quantidade').value;
+    const nucleo = document.getElementById('nucleo').value;
+
+    // Carregar dados existentes ou iniciar um novo objeto
+    let proposalData = JSON.parse(localStorage.getItem(proposalNumber)) || { objeto, quantidade, nucleo, versoes: [] };
+
+    // Incrementa versão
+    const novaVersao = `v${proposalData.versoes.length + 1}.0`;
+    proposalData.versoes.push(novaVersao);
+
+    // Salva o objeto atualizado no localStorage
+    localStorage.setItem(proposalNumber, JSON.stringify(proposalData));
+
+    alert("Proposta salva com sucesso!");
+}
+
+function handleSubmit() {
+    const proposalNumber = document.getElementById('proposalNumber').value;
+
+    // Captura a data de envio
+    const dataEnvio = new Date().toLocaleString('pt-BR');
+
+    // Salva todos os dados no localStorage
+    saveAllFieldData(proposalNumber);
+
+    // Adiciona a data de envio ao localStorage
+    const savedData = JSON.parse(localStorage.getItem(proposalNumber)) || {};
+    savedData.dataEnvio = dataEnvio; // Adiciona a data de envio ao objeto
+    localStorage.setItem(proposalNumber, JSON.stringify(savedData));
+
+    alert("Proposta enviada para análise.");
+
+    // Redireciona para a página de pré-visualização
+    window.location.href = `pre-page2.html?proposal=${proposalNumber}`;
+    return false; // Impede o envio do formulário para o backend
+}
 
     fetch('http://localhost:8080/generate-pdf', {
         method: 'POST',
@@ -673,20 +742,27 @@
 
     // Função para carregar dados salvos
     function loadProposalData(proposalNumber) {
-        const savedData = JSON.parse(localStorage.getItem(proposalNumber));
-        if (savedData) {
-            document.querySelectorAll("input, textarea, select").forEach(field => {
-                if (field.type === "checkbox") {
-                    field.checked = savedData[field.name] && savedData[field.name].includes(field.value);
-                } else if (field.name.includes("[]") && savedData[field.name]) {
-                    const index = Array.from(document.getElementsByName(field.name)).indexOf(field);
-                    if (savedData[field.name][index]) field.value = savedData[field.name][index];
-                } else if (savedData[field.id] !== undefined) {
-                    field.value = savedData[field.id];
-                }
-            });
+    const savedData = JSON.parse(localStorage.getItem(proposalNumber));
+    if (savedData) {
+        document.querySelectorAll("input, textarea, select").forEach(field => {
+            if (field.type === "checkbox") {
+                field.checked = savedData[field.name] && savedData[field.name].includes(field.value);
+            } else if (field.name.includes("[]") && savedData[field.name]) {
+                const index = Array.from(document.getElementsByName(field.name)).indexOf(field);
+                if (savedData[field.name][index]) field.value = savedData[field.name][index];
+            } else if (savedData[field.id] !== undefined) {
+                field.value = savedData[field.id];
+            }
+        });
+
+        // Exibir a data de envio, se existir
+        if (savedData.dataEnvio) {
+            const dataEnvioElement = document.createElement('p');
+            dataEnvioElement.textContent = `Data de Envio: ${savedData.dataEnvio}`;
+            document.body.appendChild(dataEnvioElement); // Altere o local conforme necessário
         }
     }
+}
 
     // Configura o salvamento automático dos dados
     function setupAutoSave(proposalNumber) {
@@ -702,12 +778,11 @@
     // Carrega dados e configura o salvamento automático ao carregar a página
     // Carrega dados da proposta do localStorage ao abrir a página
     window.onload = function() {
-        const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
-        if (proposalNumber) {
-            loadProposalData(proposalNumber); // Carrega os dados específicos da proposta
-            setupAutoSave(proposalNumber);
-        }
-    };
+    const proposalNumber = new URLSearchParams(window.location.search).get("proposal");
+    if (proposalNumber) {
+        loadProposalData(proposalNumber); // Carrega os dados específicos da proposta
+    }
+};
 </script>
 
 </body>

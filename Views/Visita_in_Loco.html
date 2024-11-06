@@ -241,10 +241,10 @@
     <script>
         async function enviarFormulario(event) {
             event.preventDefault(); // Impede o envio tradicional do formulário
-            const response = await fetch('http://localhost:8080/api/salvarVistoria', {
-            method: 'POST',
-            body: formData,
-            });
+            const response = await fetch('http://localhost:3000/api/salvarVistoria', {
+    method: 'POST',
+    body: formData,
+});
 
             const textResponse = await response.text();
             console.log("Resposta recebida:", textResponse);
@@ -253,7 +253,7 @@
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('http://localhost:8080/api/salvarVistoria', {
+                const response = await fetch('http://localhost:3000/api/salvarVistoria', {
                     method: 'POST',
                     body: formData,
                 });
@@ -263,7 +263,7 @@
 
                 if (response.ok) {
                     alert("Formulário enviado com sucesso!");
-                    window.location.href = `http://localhost:8080/api/gerarPDF/${result.id}`;
+                    window.location.href = `http://localhost:3080/api/gerarPDF/${result.id}`;
                 } else {
                     alert(`Erro: ${result.message}`);
                 }
