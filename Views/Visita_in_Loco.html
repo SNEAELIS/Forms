@@ -8,292 +8,199 @@
     <script src="script.js" defer></script> <!-- Link para seu JavaScript -->
 </head>
 
-<header>
-    <h1>Ministério do Esporte</h1>
-    <img src="img/Imagem1.png" alt="IMG1" width="10%">
-</header>
 <body>
-    <div class="sidebar">
-        <ul>
-            <li onclick="toggleSection('formalizacao')">
-                <i class="fas fa-folder"></i> Formalização
-            </li>
-            <ul id="formalizacao" class="hidden">
-                <li><a href="Documentações.html">OSC/Sociedade Civil</a></li>
-                <li><a href="Formulario_convênio.html">Entidades Públicas</a></li>
-            </ul>
-            <li onclick="toggleSection('acompanhamento')">
-                <i class="fas fa-file-alt"></i> Acompanhamento
-            </li>
-            <ul id="acompanhamento" class="hidden">
-                <li><a href="Formulário_Relma.html">Ficha RTMA</a></li>
-                <li><a href="Ficha_acompanhamento.html">Ficha de Acompanhamento</a></li>
-            </ul>
-            <li class="merito">
-                <a href="pre-page2.html">
-                    <i class="fas fa-star"></i> Mérito - Análise de Projeto
-                </a>
-            </li>
-        </ul>
-    </div>
+    <header>
+        <h1>Ministério do Esporte</h1>
+        <img src="img/Imagem1.png" alt="Logo Ministério do Esporte" width="10%">
+    </header>
 
-    <div class="main-container">
-        <div class="content">
-            <form id="visitaInLocoForm" class="container">
-                <h1>Visita In Loco</h1>
+    <main class="content">
+        <h2>Formulário de Visita In Loco</h2>
 
-                <fieldset>
-                    <legend>Informações da Instituição</legend>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="instituicao">Instituição:</label>
-                            <input type="text" id="instituicao" name="instituicao" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="cnpj">CNPJ:</label>
-                            <input type="text" id="cnpj" name="cnpj" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="presidente">Presidente:</label>
-                            <input type="text" id="presidente" name="presidente" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="termoFomento">Nº Termo de Fomento:</label>
-                            <input type="text" id="termoFomento" name="termoFomento" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="endereco">Endereço:</label>
-                            <input type="text" id="endereco" name="endereco" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="objeto">Objeto:</label>
-                            <input type="text" id="objeto" name="objeto" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="valorPactuado">Valor Pactuado:</label>
-                            <input type="text" id="valorPactuado" name="valorPactuado" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="processoSEI">Processo SEI:</label>
-                            <input type="text" id="processoSEI" name="processoSEI" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="vigencia">Vigência:</label>
-                            <input type="text" id="vigencia" name="vigencia" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="inicioAtividades">Início das Atividades:</label>
-                            <input type="date" id="inicioAtividades" name="inicioAtividades" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="totalNucleos">Total de Núcleos:</label>
-                            <input type="number" id="totalNucleos" name="totalNucleos" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="totalBeneficiados">Total de Beneficiados:</label>
-                            <input type="number" id="totalBeneficiados" name="totalBeneficiados" required>
-                        </div>
-                    </div>
-                    <button type="button" onclick="salvarInformacoesInstituicao()">Salvar Informações da Instituição</button>
-                </fieldset>
+        <form id="visitaInLocoForm" enctype="multipart/form-data">
+            <!-- Informações da Instituição -->
+            <fieldset>
+                <legend>Informações da Instituição</legend>
+                <div class="form-row">
+                    <label for="instituicao">Instituição:</label>
+                    <input type="text" id="instituicao" name="instituicao" required>
+                </div>
+                <div class="form-row">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" name="cnpj" required>
+                </div>
+                <div class="form-row">
+                    <label for="presidente">Presidente:</label>
+                    <input type="text" id="presidente" name="presidente">
+                </div>
+                <div class="form-row">
+                    <label for="termoFomento">Nº Termo de Fomento:</label>
+                    <input type="text" id="termoFomento" name="termoFomento">
+                </div>
+                <div class="form-row">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-row">
+                    <label for="objeto">Objeto:</label>
+                    <input type="text" id="objeto" name="objeto" required>
+                </div>
+                <div class="form-row">
+                    <label for="valorPactuado">Valor Pactuado:</label>
+                    <input type="text" id="valorPactuado" name="valorPactuado" required>
+                </div>
+                <div class="form-row">
+                    <label for="processoSEI">Processo SEI:</label>
+                    <input type="text" id="processoSEI" name="processoSEI" required>
+                </div>
+                <div class="form-row">
+                    <label for="vigencia">Vigência:</label>
+                    <input type="text" id="vigencia" name="vigencia" required>
+                </div>
+                <div class="form-row">
+                    <label for="inicioAtividades">Início das Atividades:</label>
+                    <input type="date" id="inicioAtividades" name="inicioAtividades" required>
+                </div>
+                <div class="form-row">
+                    <label for="totalNucleos">Total de Núcleos:</label>
+                    <input type="number" id="totalNucleos" name="totalNucleos" required>
+                </div>
+                <div class="form-row">
+                    <label for="totalBeneficiados">Total de Beneficiados:</label>
+                    <input type="number" id="totalBeneficiados" name="totalBeneficiados" required>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <legend>Núcleos a serem Visitados</legend>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="nomeNucleo">Nome:</label>
-                            <input type="text" id="nomeNucleo" name="nomeNucleo" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="enderecoNucleo">Endereço:</label>
-                            <input type="text" id="enderecoNucleo" name="enderecoNucleo" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="recursosHumanos">Recursos Humanos:</label>
-                            <textarea id="recursosHumanos" name="recursosHumanos" required></textarea>
-                        </div>
-                    </div>
-                    <button type="button" onclick="salvarNucleos()">Salvar Núcleos</button>
-                </fieldset>
+            <!-- Núcleos a serem Visitados -->
+            <fieldset>
+                <legend>Núcleos a serem Visitados</legend>
+                <div class="form-row">
+                    <label for="nomeNucleo">Nome:</label>
+                    <input type="text" id="nomeNucleo" name="nomeNucleo" required>
+                </div>
+                <div class="form-row">
+                    <label for="enderecoNucleo">Endereço:</label>
+                    <input type="text" id="enderecoNucleo" name="enderecoNucleo" required>
+                </div>
+                <div class="form-row">
+                    <label for="recursosHumanos">Recursos Humanos:</label>
+                    <textarea id="recursosHumanos" name="recursosHumanos" required></textarea>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <legend>Acompanhamento das Atividades</legend>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="acompanhamentoAtividades">Como é realizado o acompanhamento das atividades e gerenciamento nos núcleos?</label>
-                            <textarea id="acompanhamentoAtividades" name="acompanhamentoAtividades"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="acompanhamentoFrequencia">Como é realizado o acompanhamento da frequência dos recursos humanos?</label>
-                            <textarea id="acompanhamentoFrequencia" name="acompanhamentoFrequencia"></textarea>
-                        </div>
-                    </div>
-                    <button type="button" onclick="salvarAcompanhamento()">Salvar Acompanhamento</button>
-                </fieldset>
+            <!-- Acompanhamento das Atividades -->
+            <fieldset>
+                <legend>Acompanhamento das Atividades</legend>
+                <div class="form-row">
+                    <label for="acompanhamentoAtividades">Como é realizado o acompanhamento das atividades e gerenciamento nos núcleos?</label>
+                    <textarea id="acompanhamentoAtividades" name="acompanhamentoAtividades"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="acompanhamentoFrequencia">Como é realizado o acompanhamento da frequência dos recursos humanos?</label>
+                    <textarea id="acompanhamentoFrequencia" name="acompanhamentoFrequencia"></textarea>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <legend>Dados do Responsável pela Visita</legend>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="nomeResponsavel">Nome:</label>
-                            <input type="text" id="nomeResponsavel" name="nomeResponsavel" required>
-                        </div>
-                        <div class="half-width">
-                            <label for="funcaoResponsavel">Função:</label>
-                            <input type="text" id="funcaoResponsavel" name="funcaoResponsavel" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="localData">Local/Data:</label>
-                            <input type="text" id="localData" name="localData" required>
-                        </div>
-                    </div>
-                    <button type="button" onclick="salvarResponsavel()">Salvar Dados do Responsável</button>
-                </fieldset>
+            <!-- Dados do Responsável pela Visita -->
+            <fieldset>
+                <legend>Dados do Responsável pela Visita</legend>
+                <div class="form-row">
+                    <label for="nomeResponsavel">Nome:</label>
+                    <input type="text" id="nomeResponsavel" name="nomeResponsavel" required>
+                </div>
+                <div class="form-row">
+                    <label for="funcaoResponsavel">Função:</label>
+                    <input type="text" id="funcaoResponsavel" name="funcaoResponsavel" required>
+                </div>
+                <div class="form-row">
+                    <label for="localData">Local/Data:</label>
+                    <input type="text" id="localData" name="localData" required>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <legend>Questionário para Beneficiados</legend>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="comoSoubeProjeto">Como ficou sabendo do projeto?</label>
-                            <textarea id="comoSoubeProjeto" name="comoSoubeProjeto"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="comoOcorrendoInscricao">Como ocorreu a inscrição?</label>
-                            <textarea id="comoOcorrendoInscricao" name="comoOcorrendoInscricao"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="recebeuUniforme">Recebeu o uniforme com logo?</label>
-                            <input type="radio" id="uniformeSim" name="uniforme" value="sim"><label for="uniformeSim">SIM</label>
-                            <input type="radio" id="uniformeNao" name="uniforme" value="nao"><label for="uniformeNao">NÃO</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="half-width">
-                            <label for="tempoParticipa">A quanto tempo participa?</label>
-                            <input type="text" id="tempoParticipa" name="tempoParticipa">
-                        </div>
-                        <div class="half-width">
-                            <label for="quantasVezes">Quantas vezes por semana frequenta e horário?</label>
-                            <input type="text" id="quantasVezes" name="quantasVezes">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="comoChega">Como faz para chegar ao local?</label>
-                            <textarea id="comoChega" name="comoChega"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="respondeListaChamada">Responde a lista de chamada?</label>
-                            <input type="radio" id="listaChamadaSim" name="listaChamada" value="sim"><label for="listaChamadaSim">SIM</label>
-                            <input type="radio" id="listaChamadaNao" name="listaChamada" value="nao"><label for="listaChamadaNao">NÃO</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="full-width">
-                            <label for="professor">O professor é o mesmo desde o início do Projeto?</label>
-                            <input type="radio" id="professorSim" name="professor" value="sim"><label for="professorSim">SIM</label>
-                            <input type="radio" id="professorNao" name="professor" value="nao"><label for="professorNao">NÃO</label>
-                        </div>
-                    </div>
+            <!-- Questionário para Beneficiados -->
+            <fieldset>
+                <legend>Questionário para Beneficiados</legend>
+                <div class="form-row">
+                    <label for="comoSoubeProjeto">Como ficou sabendo do projeto?</label>
+                    <textarea id="comoSoubeProjeto" name="comoSoubeProjeto"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="comoOcorrendoInscricao">Como ocorreu a inscrição?</label>
+                    <textarea id="comoOcorrendoInscricao" name="comoOcorrendoInscricao"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="recebeuUniforme">Recebeu o uniforme com logo?</label>
+                    <input type="radio" id="uniformeSim" name="uniforme" value="sim"><label for="uniformeSim">SIM</label>
+                    <input type="radio" id="uniformeNao" name="uniforme" value="nao"><label for="uniformeNao">NÃO</label>
+                </div>
+                <div class="form-row">
+                    <label for="tempoParticipa">A quanto tempo participa?</label>
+                    <input type="text" id="tempoParticipa" name="tempoParticipa">
+                </div>
+                <div class="form-row">
+                    <label for="quantasVezes">Quantas vezes por semana frequenta e horário?</label>
+                    <input type="text" id="quantasVezes" name="quantasVezes">
+                </div>
+                <div class="form-row">
+                    <label for="comoChega">Como faz para chegar ao local?</label>
+                    <textarea id="comoChega" name="comoChega"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="respondeListaChamada">Responde a lista de chamada?</label>
+                    <input type="radio" id="listaChamadaSim" name="listaChamada" value="sim"><label for="listaChamadaSim">SIM</label>
+                    <input type="radio" id="listaChamadaNao" name="listaChamada" value="nao"><label for="listaChamadaNao">NÃO</label>
+                </div>
+                <div class="form-row">
+                    <label for="professor">O professor é o mesmo desde o início do Projeto?</label>
+                    <input type="radio" id="professorSim" name="professor" value="sim"><label for="professorSim">SIM</label>
+                    <input type="radio" id="professorNao" name="professor" value="nao"><label for="professorNao">NÃO</label>
+                </div>
+            </fieldset>
+             <!-- Novo Campo de Anotações -->
+             <fieldset>
+                <legend>Anotações</legend>
+                <div class="form-row">
+                    <label for="anotacoes">Adicione suas anotações aqui:</label>
+                    <textarea id="anotacoes" name="anotacoes"></textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Imagens da Vistoria</legend>
+                <div class="form-row">
+                    <label for="imagensVistoria">Insira as imagens da vistoria:</label>
+                    <input type="file" id="imagensVistoria" name="imagensVistoria[]" accept="image/*" multiple required>
+                </div>
+            </fieldset>
 
-                    <fieldset>
-                        <legend>Imagens da Vistoria</legend>
-                        <div class="form-row">
-                            <label for="imagensVistoria">Insira as imagens da vistoria:</label>
-                            <input type="file" id="imagensVistoria" name="imagensVistoria[]" multiple accept="image/*">
-                            <p>Selecione múltiplas imagens, se necessário.</p>
-                        </div>
-                    </fieldset>
-                    <button type="button" onclick="salvarBeneficiados()">Salvar</button>
-                </fieldset>
+            <!-- Enviar -->
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Ministério do Esporte</p>
-    </footer>
     <script>
-        async function enviarFormulario(event) {
-            event.preventDefault(); // Impede o envio tradicional do formulário
-            const response = await fetch('http://localhost:3000/api/salvarVistoria', {
-    method: 'POST',
-    body: formData,
-});
-
-            const textResponse = await response.text();
-            console.log("Resposta recebida:", textResponse);
-            const result = JSON.parse(textResponse);
-            const form = document.getElementById('visitaInLocoForm');
-            const formData = new FormData(form);
-
+        document.getElementById('visitaInLocoForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
+            
+            const formData = new FormData(this); // Cria um FormData com os dados do formulário
             try {
-                const response = await fetch('http://localhost:3000/api/salvarVistoria', {
+                const response = await fetch('/submit', {
                     method: 'POST',
-                    body: formData,
+                    body: formData // Envia os dados via POST
                 });
-
-                // Tenta interpretar a resposta como JSON
-                const result = await response.json();
 
                 if (response.ok) {
                     alert("Formulário enviado com sucesso!");
-                    window.location.href = `http://localhost:3080/api/gerarPDF/${result.id}`;
+                    window.location.href = '/confirmacao'; // Redireciona para a página de confirmação
                 } else {
-                    alert(`Erro: ${result.message}`);
+                    const result = await response.text();
+                    alert(`Erro ao enviar o formulário: ${result}`);
                 }
             } catch (error) {
                 console.error("Erro ao enviar o formulário:", error);
                 alert("Ocorreu um erro ao tentar enviar o formulário.");
             }
-        }
-
-        document.getElementById('visitaInLocoForm').addEventListener('submit', enviarFormulario);
-
-        function salvarInformacoesInstituicao() {
-            alert("Informações da Instituição salvas com sucesso!");
-        }
-
-        function salvarNucleos() {
-            alert("Núcleos salvos com sucesso!");
-        }
-
-        function salvarAcompanhamento() {
-            alert("Acompanhamento salvo com sucesso!");
-        }
-
-        function salvarResponsavel() {
-            alert("Dados do responsável salvos com sucesso!");
-        }
-
-        function salvarBeneficiados() {
-            alert("Questionário dos beneficiados salvo com sucesso!");
-        }
+        });
     </script>
 </body>
 </html>

@@ -29,6 +29,7 @@ function capturarDadosFormulario() {
         orgaoEmissor: getValue('orgaoEmissor'),
         cargoDirigente: getValue('cargoDirigente'),
         entidade: getValue('entidade'),
+        cep: getValue('cep'),
         cnpj: getValue('cnpj'),
         endereco: getValue('endereco'),
         municipio: getValue('municipio'),
@@ -150,7 +151,7 @@ const declaracoesCompletas = [
     {
         title: "DECLARAÇÃO DE DISPONIBILIDADE DE CONTRAPARTIDA",
         content: `
-        Eu, [NOME], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR] / [UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ nº [CNPJ], DECLARO, em conformidade com a Lei de Diretrizes Orçamentárias vigente, que a presente Entidade dispõe e se compromete com o montante financeiro de R$ [VALOR_CONTRAPARTIDA] ([VALOR_CONTRAPARTIDA_EXTENSO]), para participar da contrapartida no repasse de recursos destinados ao cumprimento do objeto pactuado, disponível no Sistema Eletrônico Transferegov, Proposta sob o n.º [PROPOSTA].
+        Eu, [NOME], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR] / [UF], [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ nº [CNPJ], DECLARO, em conformidade com a Lei de Diretrizes Orçamentárias vigente, que a presente Entidade dispõe e se compromete com o montante financeiro de R$ [VALOR_CONTRAPARTIDA] ([VALOR_CONTRAPARTIDA_EXTENSO]), para participar da contrapartida no repasse de recursos destinados ao cumprimento do objeto pactuado, disponível no Sistema Eletrônico Transferegov, Proposta sob o n.º [PROPOSTA].
 
         Os recursos estão disponíveis na Lei Orçamentária Municipal/Estadual nº [LEI_ORCAMENTARIA], de [DIA_LEI] de [MES_LEI] de [ANO_LEI], conforme rubrica orçamentária abaixo especificada, e cópia anexa:
 
@@ -199,7 +200,7 @@ const declaracoesCompletas = [
     {
         title: "DECLARAÇÃO DE AQUISIÇÃO DE BENS E SERVIÇOS COMUNS (incluindo a contratação de serviços de recursos humanos)",
         content: `
-        Eu, [ENTIDADE], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR] / [UF], CPF [CPF], na condição de representante legal do(a) [NOME COMPLETO DA ENTIDADE PROPONENTE/RAZÃO SOCIAL], CNPJ nº [CNPJ], no que respeita à aquisição de bens e serviços comuns, declaro o compromisso de:
+        Eu, [NOME], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR] / [UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ nº [CNPJ], no que respeita à aquisição de bens e serviços comuns, declaro o compromisso de:
         
         1. Realizar Processo Licitatório na modalidade Pregão, em atendimento ao § 2º do Art. 17, da Lei n.º 14.133, de 1º de abril de 2021, Art. 51, da Portaria Conjunta n.º 33, de 30 de agosto de 2023, § 3º do Art. 1º, do Decreto n.º 10.024, de 20 de setembro de 2019 e demais legislações que regem a matéria, inclusive quanto à contratação de recursos humanos, quando for o caso, em conformidade com as orientações contidas no Acórdão n.º 2588/2017 – TCU – Plenário.
         
@@ -211,7 +212,7 @@ const declaracoesCompletas = [
         
         Por ser expressão da verdade, firmo a presente declaração.
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
         
         ____________________________________________________
         [NOME]
@@ -227,7 +228,7 @@ const declaracoesCompletas = [
             
         Por ser expressão da verdade, firmo a presente declaração.
             
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
             
         ___________________________________________________
         [NOME]
@@ -239,7 +240,7 @@ const declaracoesCompletas = [
         content: `
         Declaro para os devidos fins de celebração de Convênios e na qualidade de representante legal do proponente junto ao Ministério do Esporte - MESP, que a proposta inserida no Sistema Eletrônico Transferegov sob o nº [PROPOSTA] e demais informações foram apresentados para apreciação SOMENTE junto a esse órgão e em nenhum outro ente da administração pública, ficando, portanto, sujeito às sanções civis, administrativas e penais cabíveis no caso de comprovada a falsidade ideológica.
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
         
         ____________________________________________________
         [NOME]
@@ -313,7 +314,7 @@ const declaracoesCompletas = [
         
         Por ser expressão da verdade, firmo a presente declaração.
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
         __________________________________________
         [NOME]
@@ -333,7 +334,7 @@ const declaracoesCompletas = [
         
         Por ser expressão da verdade, firmo a presente declaração.
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
         ......................................................................................................
         [NOME]
@@ -349,7 +350,7 @@ const declaracoesCompletas = [
         
         Por ser expressão da verdade, firmo a presente declaração.
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
         ________________________________________________________
         [NOME]
@@ -361,7 +362,7 @@ const declaracoesCompletas = [
         content: `
         Eu, [NOME], portador da carteira de identidade nº [RG], expedida pelo [ORGAO_EMISSOR] / [UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ nº [CNPJ], responsabilizo-me pela disponibilização do(s) espaço(s) físico(s), apto(s) e compatível(is) para o atendimento do público-alvo. Além disso, apresentarei a(s) cessão(ões) de espaço físico, se for o caso, a fim de não causar qualquer impedimento no desenvolvimento das atividades junto aos beneficiados, no(s) núcleo(s) do [PROGRAMA].
         
-        Município, [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+        [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
         _________________________________________________________
         [NOME]
@@ -425,7 +426,7 @@ const declaracoesEspecificas = {
             Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
             cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
             DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-            CEP [CEP], [CIDADE]/[UF], encontra-se regular: 
+            CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular: 
             
             I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
             II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
@@ -433,7 +434,7 @@ const declaracoesEspecificas = {
 
             Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-            [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+            [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
 
             ______________________________________________________
             [NOME]
@@ -448,12 +449,12 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                CEP [CEP], [MUNICIPIO]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
                 e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -511,10 +512,8 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
             content: `
-                Eu, [NOME], ([CARGO_DIRIGENTE]), portador do CPF n.º [CPF], na condição de representante legal do [ENTIDADE], 
-                inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [ENTIDADE], 
-                possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, 
-                quando se tratar da aquisição de bens de capital.
+                Eu, [NOME], ([CARGO_DIRIGENTE]), portador do CPF n.º [CPF], na condição de representante legal do [ENTIDADE], inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [ENTIDADE], 
+                possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
     
                 [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
@@ -544,10 +543,8 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
             content: `
-            Eu, [NOME DO REPRESENTANTE LEGAL], ([CARGO]), portador do CPF n.º [CPF REPRESENTANTE LEGAL], na condição de representante legal do [NOME DO MUNICÍPIO], 
-            inscrita no CNPJ nº [CNPJ MUNICÍPIO], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [NOME DO MUNICÍPIO], 
-            possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, 
-            quando se tratar da aquisição de bens de capital.
+            Eu, [NOME DO REPRESENTANTE LEGAL], ([CARGO]), portador do CPF n.º [CPF REPRESENTANTE LEGAL], na condição de representante legal do [NOME DO MUNICÍPIO], inscrita no CNPJ nº [CNPJ MUNICÍPIO], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [NOME DO MUNICÍPIO], 
+            possui condições orçamentárias para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
 
             [MUNICÍPIO/UF], [DIA] de [MÊS] de [ANO].
 
@@ -559,12 +556,10 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
             content: `
-                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], 
-                na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
-                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], [CPF REPRESENTANTE LEGAL], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
                 Por ser expressão da verdade, firmo a presente declaração.
     
-                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICÍPIO/UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -655,7 +650,7 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+                CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular:
         
                 I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000;
                 II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
@@ -663,7 +658,7 @@ const declaracoesEspecificas = {
         
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
         
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
         
                 ______________________________________________________
                 [NOME]
@@ -678,12 +673,12 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                CEP [CEP], [MUNICIPIO]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
                 e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -698,12 +693,12 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
+                CEP [CEP], [MUNICIPIO]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério 
                 e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
         
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
         
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+               [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
                 ______________________________________________________
                 [NOME]
@@ -718,11 +713,11 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
+                CEP [CEP], [MUNICIPIO]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -737,13 +732,13 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
+                CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das 
                 sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos 
                 do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -758,11 +753,11 @@ const declaracoesEspecificas = {
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, 
                 DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], 
-                CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
+                CEP [CEP], [MUNICIPIO]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
         
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
         
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+               [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
         
                 ______________________________________________________
                 [NOME]
@@ -793,14 +788,14 @@ const declaracoesEspecificas = {
 
                 Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], 
                 cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, 
-                DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
+                DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], assegura a transparência mediante:
 
                 - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
                 - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -814,7 +809,7 @@ const declaracoesEspecificas = {
             content: `
                 INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular:
     
                 I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
                 II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
@@ -822,7 +817,7 @@ const declaracoesEspecificas = {
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
     
                 ______________________________________________________
                 [NOME]
@@ -834,11 +829,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -850,11 +845,11 @@ const declaracoesEspecificas = {
             content: `
                 § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
 
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
 
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
 
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
 
                 ______________________________________________________
                 [NOME]
@@ -866,11 +861,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -882,11 +877,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -898,11 +893,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO XXXII, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], está regular na contratação de operação de crédito com instituição financeira, nos termos do Art. 33, da Lei Complementar nº 101, de 2000.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -930,14 +925,14 @@ const declaracoesEspecificas = {
             content: `
                 INCISOS XV E XVI DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], assegura a transparência mediante:
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XV e XVI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33, de 30 de agosto de 2023, DECLARO, sob as penas da lei, que o [ENTIDADE] CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], assegura a transparência mediante:
     
                 - divulgação da execução orçamentária e financeira em meios eletrônicos de acesso público, nos termos do Art. 48, § 1º, Inciso II e do Art. 48-A, da Lei Complementar nº 101, de 2000; e
                 - adoção de sistema integrado de administração financeira e controle, que atenda a padrão mínimo de qualidade estabelecido pelo Poder Executivo da União; nos termos do Art. 48, § 1º, Inciso III, da Lei Complementar nº 101, de 2000 e do Decreto nº 10.540, de 05 de novembro de 2020.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -947,8 +942,7 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
             content: `
-                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
-                DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
+                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
                 para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
     
                 [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
@@ -961,17 +955,14 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
             content: `
-                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
-    
-                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
-    
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], [CPF REPRESENTANTE LEGAL], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
                 Por ser expressão da verdade, firmo a presente declaração.
     
-                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICÍPIO/UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
-                ________________________________________________________
+                ______________________________________________________
                 [NOME]
-                [CARGO]
+                [CARGO_DIRIGENTE]
             `
         },
         {
@@ -1011,8 +1002,7 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE SUSTENTABILIDADE DO OBJETO",
             content: `
-                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], 
-                DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
+                Eu, [NOME], [CARGO], portador do CPF n.º [CPF], na condição de representante legal do(a) [MUNICIPIO], inscrita no CNPJ nº [CNPJ], DECLARO perante o Ministério do Esporte, para fins de celebração de convênio, que o [MUNICIPIO] possui condições orçamentárias 
                 para arcar com as despesas dela decorrentes e meios que garantem a sustentabilidade do objeto, quando se tratar da aquisição de bens de capital.
     
                 [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
@@ -1025,17 +1015,14 @@ const declaracoesEspecificas = {
         {
             title: "DECLARAÇÃO DE CUSTEIO DA INSTALAÇÃO DOS EQUIPAMENTOS",
             content: `
-                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], CPF [CPF], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:
-    
-                Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
-    
+                Eu, [NOME], portador da carteira de identidade nº [IDENTIDADE], expedida pelo [ORGAO_EMISSOR]/[UF], [CPF REPRESENTANTE LEGAL], na condição de representante legal do(a) [ENTIDADE], CNPJ Nº [CNPJ], declaro o compromisso de:Dispor de recursos financeiros para custear a instalação dos equipamentos pactuados na proposta n° [PROPOSTA].
                 Por ser expressão da verdade, firmo a presente declaração.
     
-                [MUNICIPIO], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICÍPIO/UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
-                ________________________________________________________
+                ______________________________________________________
                 [NOME]
-                [CARGO]
+                [CARGO_DIRIGENTE]
             `
         },
         {
@@ -1043,7 +1030,7 @@ const declaracoesEspecificas = {
             content: `
                 INCISOS XXIX, XXX E XXXI, DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular:
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscrevo, em cumprimento aos incisos XXIX, XXX E XXXI, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP],[MUNICIPIO]/[UF], encontra-se regular:
     
                 I. no cumprimento do limite das dívidas consolidada e mobiliária, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; 
                 II. no cumprimento do limite de inscrição em restos a pagar, nos termos do Art. 25, § 1º, Inciso IV, Alínea "c", da Lei Complementar nº 101, de 2000; e
@@ -1051,7 +1038,7 @@ const declaracoesEspecificas = {
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL]
     
                 ______________________________________________________
                 [NOME]
@@ -1063,11 +1050,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO XXXIII, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso XXXIII, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], está regular na destinação dos precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no Art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 12 de abril de 2022.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -1079,11 +1066,11 @@ const declaracoesEspecificas = {
             content: `
                 § 16, DO ART. 29, DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no § 16, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], não possui precatórios correspondentes ao rateio dos percentuais destinados aos profissionais do magistério e aos demais profissionais da educação básica, estabelecido no art. 47-A, §§ 1º e 2º, da Lei nº 14.113, de 2020, e no art. 3º da Lei nº 14.325, de 2022.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -1095,11 +1082,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO II DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que essa subscrevo, em cumprimento ao disposto no inciso II do art. 29 da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], está regular quanto ao pagamento de precatórios judiciais, nos termos do Art. 97, do Ato das Disposições Constitucionais Transitórias.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
@@ -1111,11 +1098,11 @@ const declaracoesEspecificas = {
             content: `
                 INCISO XX DO ART. 29 DA PORTARIA CONJUNTA N.º 33/2023
     
-                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [CIDADE]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
+                Eu, [NOME], CPF [CPF], RG [RG], [ORGAO_EMISSOR]/[UF], cargo [CARGO_DIRIGENTE], que esta subscreve, em cumprimento ao inciso XX, do Art. 29, da Portaria Conjunta MGI/MF/CGU n.º 33/2023, DECLARO, sob as penas da lei, que o [ENTIDADE], CNPJ: [CNPJ], endereço [ENDERECO], CEP [CEP], [MUNICIPIO]/[UF], encontra-se regular no fornecimento da relação das empresas públicas e das sociedades de economia mista junto ao Registro Público de Empresas Mercantis e Atividades Afins, nos termos do Art. 92, da Lei nº 13.303, de 30 de junho de 2016.
     
                 Por ser verdade, firmo a presente no exercício do respectivo cargo.
     
-                [CIDADE]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
+                [MUNICIPIO]/[UF], [DIA_ATUAL] de [MES_ATUAL] de [ANO_ATUAL].
     
                 ______________________________________________________
                 [NOME]
